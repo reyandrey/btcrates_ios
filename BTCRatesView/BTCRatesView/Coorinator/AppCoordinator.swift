@@ -16,17 +16,15 @@ protocol Coordinator {
 class AppCoordinator: Coordinator {
     
     private var window: UIWindow? { UIApplication.shared.keyWindow }
+    private var currenciesCoordinator: CurrenciesCoordinator!
     
     func start() {
-        showMain()
+        currenciesCoordinator = CurrenciesCoordinator()
+        currenciesCoordinator.start()
     }
     
 }
 
 private extension AppCoordinator {
-    
-    func showMain() {
-
-    }
     
 }
