@@ -20,10 +20,10 @@ protocol ReloadableContentProtocol {
 class AppCoordinator: CoordinatorProtool {
     
     private var window: UIWindow? { UIApplication.shared.keyWindow }
-    private var currenciesCoordinator: CurrenciesCoordinator!
+    private var currenciesCoordinator: RatesCoordinator!
     
     func start() {
-        currenciesCoordinator = CurrenciesCoordinator()
+        currenciesCoordinator = RatesCoordinator()
         currenciesCoordinator.start()
     }
     

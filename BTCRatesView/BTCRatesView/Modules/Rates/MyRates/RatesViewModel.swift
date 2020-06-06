@@ -8,7 +8,7 @@
 
 import Foundation
 
-class CurrenciesViewModel {
+class RatesViewModel {
     //MARK: - Initial Values, Dependencies
     
     let profileManager: ProfileManager
@@ -19,14 +19,14 @@ class CurrenciesViewModel {
     }
     
     var didError: ((Error) -> Void)?
-    var didUpdate: ((CurrenciesViewModel) -> Void)?
+    var didUpdate: ((RatesViewModel) -> Void)?
     
     private(set) var isUpdating: Bool = false { didSet { self.didUpdate?(self) } }
     
     //MARK: - Properties
    
     // ViewModels, CellRepresentable
-    var currencies: [CurrencyItemViewModel] = []
+    var currencies: [RateItemViewModel] = []
     
     
     //MARK: - Actions
@@ -36,8 +36,8 @@ class CurrenciesViewModel {
         self.isUpdating = false
     }
     
-    func getCurrencyItemViewModel(_ currency: Currency) -> CurrencyItemViewModel {
-        return CurrencyItemViewModel(currency)
+    func getCurrencyItemViewModel(_ currency: Currency) -> RateItemViewModel {
+        return RateItemViewModel(currency)
     }
     
     func removeCurrency(at indexPath: IndexPath) {

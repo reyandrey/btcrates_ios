@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CurrencyCell: UITableViewCell, CellIdentifiable {
+class RateCell: UITableViewCell, CellIdentifiable {
     static var reuseId: String { return String(describing: Self.self) }
     var indexPath: IndexPath? = nil
     
@@ -16,7 +16,7 @@ class CurrencyCell: UITableViewCell, CellIdentifiable {
     @IBOutlet weak var countryLabel: UILabel!
     @IBOutlet weak var ratesLabel: UILabel!
 
-    func setup(with itemViewModel: CurrencyItemViewModel) {
+    func setup(with itemViewModel: RateItemViewModel) {
         codeLabel.text = itemViewModel.code
         countryLabel.text = itemViewModel.country
     }

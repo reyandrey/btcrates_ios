@@ -19,7 +19,7 @@ protocol CellRepresentable {
     var presentingIndexPath: IndexPath? { get set }
 }
 
-class CurrencyItemViewModel: CellRepresentable {
+class RateItemViewModel: CellRepresentable {
     
     var presentingIndexPath: IndexPath?
     private let currency: Currency
@@ -30,7 +30,7 @@ class CurrencyItemViewModel: CellRepresentable {
     static func registerCell(in tableView: UITableView) {}
     
     func dequeueCell(in tableView: UITableView, at indexPath: IndexPath) -> CellIdentifiable {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: CurrencyCell.reuseId, for: indexPath) as? CurrencyCell else { fatalError() }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: RateCell.reuseId, for: indexPath) as? RateCell else { fatalError() }
         cell.indexPath = indexPath
         presentingIndexPath = indexPath
         cell.setup(with: self)
@@ -42,7 +42,7 @@ class CurrencyItemViewModel: CellRepresentable {
     }
 }
 
-extension CurrencyItemViewModel {
+extension RateItemViewModel {
     
     var code: String { currency.code }
     var country: String { currency.country }

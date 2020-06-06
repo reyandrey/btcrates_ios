@@ -8,15 +8,15 @@
 
 import Foundation
 import UIKit
-class CurrenciesCoordinator: CoordinatorProtool {
+class RatesCoordinator: CoordinatorProtool {
     
     private var window: UIWindow? { UIApplication.shared.keyWindow }
     private var navigationController: UINavigationController!
-    private var currenciesViewController: CurrenciesViewController?
+    private var currenciesViewController: RatesViewController?
     private var profileManager = ProfileManager()
     
     func start() {
-        let cvc = getCurrenciesController()
+        let cvc = getRatesController()
         navigationController = UINavigationController(rootViewController: cvc)
         window?.rootViewController = navigationController
     }
@@ -25,11 +25,11 @@ class CurrenciesCoordinator: CoordinatorProtool {
 
 // MARK: Private
 
-private extension CurrenciesCoordinator {
+private extension RatesCoordinator {
     
-    func getCurrenciesController() -> CurrenciesViewController {
-        let vc = CurrenciesViewController.instantiate()
-        vc.viewModel = CurrenciesViewModel(profileManager: self.profileManager)
+    func getRatesController() -> RatesViewController {
+        let vc = RatesViewController.instantiate()
+        vc.viewModel = RatesViewModel(profileManager: self.profileManager)
         vc.delegate = self
         currenciesViewController = vc
         return vc
@@ -46,9 +46,9 @@ private extension CurrenciesCoordinator {
 
 // MARK: CurrenciesViewControllerDelegate
 
-extension CurrenciesCoordinator: CurrenciesViewControllerDelegate {
+extension RatesCoordinator: RatesViewControllerDelegate {
     
-    func controllerShouldAddNewCurrency(_ controller: CurrenciesViewController) {
+    func controllerShouldAddNewCurrency(_ controller: RatesViewController) {
         let vc = getAddCurrencyController()
         navigationController.pushViewController(vc, animated: true)
     }
@@ -57,7 +57,7 @@ extension CurrenciesCoordinator: CurrenciesViewControllerDelegate {
 
 // MARK: AddCurrencyViewControllerDelegate
 
-extension CurrenciesCoordinator: AddCurrencyViewControllerDelegate {
+extension RatesCoordinator: AddCurrencyViewControllerDelegate {
     
     func controller(_ controller: AddCurrencyViewController, didSelect item: Currency) {
         profileManager.addCurrencies([item])

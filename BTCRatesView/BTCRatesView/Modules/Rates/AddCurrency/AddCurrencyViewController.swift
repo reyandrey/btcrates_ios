@@ -14,7 +14,7 @@ protocol AddCurrencyViewControllerDelegate: class {
 
 class AddCurrencyViewController: UIViewController, Storyboardable {
     typealias T = AddCurrencyViewController
-    static var storyboardName: String { return "Currencies" }
+    static var storyboardName: String { return "Rates" }
 
     var viewModel: AddCurrencyViewModel!
     weak var delegate: AddCurrencyViewControllerDelegate?

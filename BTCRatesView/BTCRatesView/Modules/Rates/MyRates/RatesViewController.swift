@@ -8,16 +8,16 @@
 
 import UIKit
 
-protocol CurrenciesViewControllerDelegate: class {
-    func controllerShouldAddNewCurrency(_ controller: CurrenciesViewController)
+protocol RatesViewControllerDelegate: class {
+    func controllerShouldAddNewCurrency(_ controller: RatesViewController)
 }
 
-class CurrenciesViewController: UIViewController, Storyboardable, ReloadableContentProtocol {
-    typealias T = CurrenciesViewController
-    static var storyboardName: String { return "Currencies" }
+class RatesViewController: UIViewController, Storyboardable, ReloadableContentProtocol {
+    typealias T = RatesViewController
+    static var storyboardName: String { return "Rates" }
     
-    var viewModel: CurrenciesViewModel!
-    weak var delegate: CurrenciesViewControllerDelegate?
+    var viewModel: RatesViewModel!
+    weak var delegate: RatesViewControllerDelegate?
     
     @IBOutlet private weak var tableView: UITableView!
 
@@ -36,7 +36,7 @@ class CurrenciesViewController: UIViewController, Storyboardable, ReloadableCont
 
 //MARK: ViewModel
 
-extension CurrenciesViewController {
+extension RatesViewController {
     
     func bindViewModel() {
         viewModel.didUpdate = { [weak self] viewModel in
@@ -44,7 +44,7 @@ extension CurrenciesViewController {
         }
     }
     
-    func didUpdate(_ viewModel: CurrenciesViewModel) {
+    func didUpdate(_ viewModel: RatesViewModel) {
         tableView.reloadData()
         
     }
@@ -52,7 +52,7 @@ extension CurrenciesViewController {
 
 // MARK: Private Methods
 
-private extension CurrenciesViewController {
+private extension RatesViewController {
     func setup() {
         tableView.dataSource = self
         tableView.delegate = self
@@ -69,7 +69,7 @@ private extension CurrenciesViewController {
 
 // MARK: UITableViewDataSource
 
-extension CurrenciesViewController: UITableViewDataSource {
+extension RatesViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.currencies.count
@@ -90,7 +90,7 @@ extension CurrenciesViewController: UITableViewDataSource {
 
 // MARK: UITableViewDelegate
 
-extension CurrenciesViewController: UITableViewDelegate {
+extension RatesViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
