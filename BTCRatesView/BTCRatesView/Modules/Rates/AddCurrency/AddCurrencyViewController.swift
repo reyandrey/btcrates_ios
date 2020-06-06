@@ -50,6 +50,7 @@ extension AddCurrencyViewController {
     }
     
     func didUpdate(_ viewModel: AddCurrencyViewModel) {
+        title = viewModel.title
         tableView.reloadData()
     }
 }
@@ -66,6 +67,7 @@ private extension AddCurrencyViewController {
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = "Search.."
         navigationItem.searchController = searchController
+        navigationItem.hidesSearchBarWhenScrolling = false
         definesPresentationContext = true
     }
     

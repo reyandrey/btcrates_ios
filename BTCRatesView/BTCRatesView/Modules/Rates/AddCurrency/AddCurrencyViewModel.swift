@@ -27,6 +27,10 @@ class AddCurrencyViewModel {
     var filteredCurrencies: [Currency] = []
     
     
+    var title: String {
+        return isUpdating ? "Loading.." : "Add Currency"
+    }
+    
     //MARK: - Actions
     func reloadData() {
         self.isUpdating = true

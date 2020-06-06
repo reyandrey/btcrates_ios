@@ -25,9 +25,12 @@ class RatesViewModel {
     
     //MARK: - Properties
    
-    // ViewModels, CellRepresentable
     var currencies: [RateItemViewModel] = []
     
+    
+    var title: String {
+        return isUpdating ? "Loading.." : "Rates"
+    }
     
     //MARK: - Actions
     func reloadData() {

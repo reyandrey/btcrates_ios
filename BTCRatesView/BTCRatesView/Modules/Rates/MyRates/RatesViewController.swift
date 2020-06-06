@@ -51,6 +51,7 @@ extension RatesViewController {
     }
     
     func didUpdate(_ viewModel: RatesViewModel) {
+        title = viewModel.title
         tableView.reloadData()
         refreshControl.endRefreshing()
     }
@@ -63,6 +64,8 @@ private extension RatesViewController {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.tableFooterView = UIView()
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationItem.largeTitleDisplayMode = .automatic
         
         let addButton = UIBarButtonItem(title: "Add", style: .plain, target: self, action: #selector(addDidTap(_:)))
         navigationItem.setRightBarButton(addButton, animated: false)

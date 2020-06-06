@@ -48,7 +48,10 @@ extension RateItemViewModel {
     
     var code: String { currency.code }
     var country: String { currency.country }
-    var rate: String { return bpiRealTime?.rate ?? "-" }
+    var rate: String {
+        if let r = bpiRealTime?.rateDouble { return "\(r)" }
+        else { return "loading.." }
+    }
     
 }
 
