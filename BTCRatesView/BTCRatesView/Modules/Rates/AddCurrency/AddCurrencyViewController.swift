@@ -19,6 +19,14 @@ class AddCurrencyViewController: UIViewController, Storyboardable {
     var viewModel: AddCurrencyViewModel!
     weak var delegate: AddCurrencyViewControllerDelegate?
     
+    let searchController = UISearchController(searchResultsController: nil)
+    var isSearchBarEmpty: Bool {
+      return searchController.searchBar.text?.isEmpty ?? true
+    }
+    var isFiltering: Bool {
+      return searchController.isActive && !isSearchBarEmpty
+    }
+    
     @IBOutlet private weak var tableView: UITableView!
     
     override func viewDidLoad() {
@@ -53,8 +61,24 @@ private extension AddCurrencyViewController {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.tableFooterView = UIView()
+        
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Search.."
+        navigationItem.searchController = searchController
+        definesPresentationContext = true
     }
     
+}
+
+// MARK: Search
+
+extension AddCurrencyViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        let searchbar = searchController.searchBar
+        viewModel.filterContent(for: searchbar.text!)
+        tableView.reloadData()
+    }
 }
 
 // MARK: UITableViewDataSource
@@ -62,7 +86,7 @@ private extension AddCurrencyViewController {
 extension AddCurrencyViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.currencies.count
+        return isFiltering ? viewModel.filteredCurrencies.count : viewModel.currencies.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -88,7 +112,7 @@ private extension AddCurrencyViewController {
     
     func getAddCurrencyCell(in tableView: UITableView, at indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: AddCurrencyCell.reuseId, for: indexPath) as? AddCurrencyCell else { return UITableViewCell() }
-        let c = viewModel.currencies[indexPath.row]
+        let c = isFiltering ? viewModel.filteredCurrencies[indexPath.row] : viewModel.currencies[indexPath.row]
         cell.codeLabel.text = c.code
         cell.countryLabel.text = c.country
         return cell

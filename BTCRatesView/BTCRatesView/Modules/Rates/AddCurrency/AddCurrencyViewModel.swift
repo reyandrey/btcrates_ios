@@ -24,6 +24,7 @@ class AddCurrencyViewModel {
     //MARK: - Properties
    
     var currencies: [Currency] = []
+    var filteredCurrencies: [Currency] = []
     
     
     //MARK: - Actions
@@ -33,6 +34,10 @@ class AddCurrencyViewModel {
             self?.currencies = result ?? []
             self?.isUpdating = false
         }
+    }
+    
+    func filterContent(for searchText: String) {
+        filteredCurrencies = currencies.filter( { $0.code.lowercased().contains(searchText.lowercased()) } )
     }
  
 }
