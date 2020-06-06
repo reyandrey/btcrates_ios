@@ -11,6 +11,8 @@ import Foundation
 class AddCurrencyViewModel {
     //MARK: - Initial Values, Dependencies
     
+    let api = BPIService<BTEnvironment>()
+    
     //MARK: - Lifeycle
     init() {}
     
@@ -21,19 +23,16 @@ class AddCurrencyViewModel {
     
     //MARK: - Properties
    
-    // ViewModels, CellRepresentable
+    var currencies: [Currency] = []
     
     
     //MARK: - Actions
     func reloadData() {
         self.isUpdating = true
-    /*  api.FetchData()
-        Success:
-            init ViewModels for fetched data
-            self.isUpdating = false
-         Failure:
-            self.didError?(error)
-            self.isUpdating = false */
+        api.getCurrencyNSI { [weak self] result in
+            self?.currencies = result ?? []
+            self?.isUpdating = false
+        }
     }
  
 }

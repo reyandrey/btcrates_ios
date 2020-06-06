@@ -35,5 +35,10 @@ class CurrenciesViewModel {
         currencies = profileManager.getCurrencies()
         self.isUpdating = false
     }
+    
+    func removeCurrency(at indexPath: IndexPath) {
+        currencies.remove(at: indexPath.row)
+        profileManager.setCurrencies(currencies)
+    }
  
 }

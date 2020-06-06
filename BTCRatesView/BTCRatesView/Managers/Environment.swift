@@ -15,6 +15,6 @@ protocol Environment {
 
 class BTEnvironment: Environment {
     private init() { }
-    static var serverURL: String { return "" }
+    static var serverURL: String { return "https://api.coindesk.com/v1/bpi" }
 }
 

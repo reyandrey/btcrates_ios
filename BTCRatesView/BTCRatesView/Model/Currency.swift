@@ -20,7 +20,7 @@ class Currency: Codable {
     // MARK: Codable
     
     private enum CodingKeys: String, CodingKey {
-        case code, country
+        case code = "currency", country
     }
     
     required init(from decoder: Decoder) throws {

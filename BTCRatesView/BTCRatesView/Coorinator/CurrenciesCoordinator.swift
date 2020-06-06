@@ -59,11 +59,8 @@ extension CurrenciesCoordinator: CurrenciesViewControllerDelegate {
 
 extension CurrenciesCoordinator: AddCurrencyViewControllerDelegate {
     
-    func controller(_ controller: AddCurrencyViewController, didSelect item: String) {
-        // mock objects for testing
-        let current = profileManager.getCurrencies()
-        profileManager.setCurrencies(current + Currency.mock())
-        
+    func controller(_ controller: AddCurrencyViewController, didSelect item: Currency) {
+        profileManager.addCurrencies([item])
         navigationController.viewControllers.filter({ $0 is ReloadableContentProtocol }).forEach { ($0 as! ReloadableContentProtocol).reload() }
         navigationController.popViewController(animated: true)
     }

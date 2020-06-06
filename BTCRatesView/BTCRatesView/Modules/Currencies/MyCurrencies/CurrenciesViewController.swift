@@ -79,6 +79,13 @@ extension CurrenciesViewController: UITableViewDataSource {
         return getCurrencyCell(in: tableView, at: indexPath)
     }
     
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            viewModel.removeCurrency(at: indexPath)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+    }
+    
 }
 
 // MARK: UITableViewDelegate

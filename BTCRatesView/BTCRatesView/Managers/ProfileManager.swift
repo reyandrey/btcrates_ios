@@ -34,5 +34,10 @@ class ProfileManager {
         userCurrencies = try? JSONEncoder().encode(newValue)
     }
     
+    func addCurrencies(_ newItems: [Currency]) {
+        let current = getCurrencies()
+        setCurrencies(current + newItems)
+    }
+    
 }
 
