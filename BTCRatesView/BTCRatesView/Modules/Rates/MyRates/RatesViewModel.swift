@@ -24,7 +24,7 @@ class RatesViewModel {
     private(set) var isUpdating: Bool = false { didSet { self.didUpdate?(self) } }
     
     //MARK: - Properties
-   
+    var lastUpdated: Date?
     var rateItems: [RateItemViewModel] = []
     var filteredrateItems: [RateItemViewModel] = []
     
@@ -36,6 +36,7 @@ class RatesViewModel {
     func reloadData() {
         self.isUpdating = true
         rateItems = profileManager.userCurrencies.map { getCurrencyItemViewModel($0) }
+        self.lastUpdated = Date()
         self.isUpdating = false
     }
     

@@ -27,6 +27,7 @@ class RatesViewController: UIViewController, Storyboardable, ReloadableContentPr
       return searchController.isActive && !isSearchBarEmpty
     }
     
+    @IBOutlet private weak var seactionFooterView: RatesSectionFooter!
     @IBOutlet private weak var tableView: UITableView!
     private lazy var refreshControl: UIRefreshControl = {
         let r = UIRefreshControl()
@@ -37,7 +38,7 @@ class RatesViewController: UIViewController, Storyboardable, ReloadableContentPr
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setup()
+        if #available(iOS 13.0, *) { setup() }
         bindViewModel()
         reload()
     }
@@ -68,6 +69,7 @@ extension RatesViewController {
 // MARK: Private Methods
 
 private extension RatesViewController {
+    @available(iOS 13.0, *)
     func setup() {
         tableView.dataSource = self
         tableView.delegate = self
@@ -82,8 +84,10 @@ private extension RatesViewController {
         navigationItem.hidesSearchBarWhenScrolling = false
         definesPresentationContext = true
         
-        let editButton = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(editDidTap(_:)))
-        let addButton = UIBarButtonItem(title: "Add", style: .plain, target: self, action: #selector(addDidTap(_:)))
+        let editImage = UIImage(systemName: "gear")
+        let addImage = UIImage(systemName: "plus")
+        let editButton = UIBarButtonItem(image: editImage, style: .plain, target: self, action: #selector(editDidTap(_:)))
+        let addButton = UIBarButtonItem(image: addImage, style: .plain, target: self, action: #selector(addDidTap(_:)))
         navigationItem.setRightBarButtonItems([addButton, editButton], animated: false)
     }
     
@@ -147,6 +151,16 @@ extension RatesViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         viewModel.rateItems[indexPath.row].didSelectCell()
         tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 88
+    }
+    
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        let v = seactionFooterView
+        v?.updatedDateTime = viewModel.lastUpdated
+        return v
     }
     
 }

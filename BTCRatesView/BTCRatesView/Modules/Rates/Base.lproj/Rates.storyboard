@@ -75,10 +75,32 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="seactionFooterView" destination="Xro-o6-hz0" id="taf-MR-ySm"/>
                         <outlet property="tableView" destination="oah-mh-qO1" id="ykC-gD-SeH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <view contentMode="scaleToFill" id="Xro-o6-hz0" customClass="RatesSectionFooter" customModule="BTCRatesView" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="0.0" width="366" height="77"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last updated timestamp" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rlk-4m-F0j">
+                            <rect key="frame" x="114" y="31" width="138" height="15"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <constraints>
+                        <constraint firstItem="rlk-4m-F0j" firstAttribute="centerX" secondItem="GYE-Ur-4hO" secondAttribute="centerX" id="YnG-Ci-RjG"/>
+                        <constraint firstItem="rlk-4m-F0j" firstAttribute="centerY" secondItem="GYE-Ur-4hO" secondAttribute="centerY" id="ur2-fE-tgi"/>
+                    </constraints>
+                    <viewLayoutGuide key="safeArea" id="GYE-Ur-4hO"/>
+                    <connections>
+                        <outlet property="datetimeLabel" destination="rlk-4m-F0j" id="knU-l2-5HA"/>
+                    </connections>
+                </view>
             </objects>
             <point key="canvasLocation" x="138.40000000000001" y="117.39130434782609"/>
         </scene>
