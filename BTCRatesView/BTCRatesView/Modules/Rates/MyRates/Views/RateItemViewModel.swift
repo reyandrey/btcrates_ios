@@ -21,8 +21,8 @@ protocol CellRepresentable {
 
 class RateItemViewModel {
     
+    let currency: Currency
     private let api = BPIService<BTEnvironment>()
-    private let currency: Currency
     private var bpiRealTime: BPIRealTime?
     private var presentingIndexPath: IndexPath?
     

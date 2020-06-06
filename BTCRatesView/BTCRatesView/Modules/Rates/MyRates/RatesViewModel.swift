@@ -25,8 +25,8 @@ class RatesViewModel {
     
     //MARK: - Properties
    
-    var currencies: [RateItemViewModel] = []
-    
+    var rateItems: [RateItemViewModel] = []
+    var filteredrateItems: [RateItemViewModel] = []
     
     var title: String {
         return isUpdating ? "Loading.." : "Rates"
@@ -35,7 +35,7 @@ class RatesViewModel {
     //MARK: - Actions
     func reloadData() {
         self.isUpdating = true
-        currencies = profileManager.getCurrencies().map { getCurrencyItemViewModel($0) }
+        rateItems = profileManager.userCurrencies.map { getCurrencyItemViewModel($0) }
         self.isUpdating = false
     }
     
@@ -44,8 +44,21 @@ class RatesViewModel {
     }
     
     func removeCurrency(at indexPath: IndexPath) {
-        currencies.remove(at: indexPath.row)
-        profileManager.removeAt(indexPath.row)
+        rateItems.remove(at: indexPath.row)
+        profileManager.userCurrencies = rateItems.map { $0.currency }
+    }
+    
+    func reorderCurrencies(moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        let movedObject = self.rateItems[sourceIndexPath.row]
+        rateItems.remove(at: sourceIndexPath.row)
+        rateItems.insert(movedObject, at: destinationIndexPath.row)
+        profileManager.userCurrencies = rateItems.map { $0.currency
+
+        }
+    }
+    
+    func filterContent(for searchText: String) {
+        filteredrateItems = rateItems.filter( { $0.code.lowercased().contains(searchText.lowercased()) } )
     }
  
 }

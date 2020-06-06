@@ -16,34 +16,26 @@ class ProfileManager {
     private var userDefaults: UserDefaults
     
     @UserDefaultsStandart(key: Keys.currencies.rawValue, defaultValue: nil)
-    private var userCurrencies: Data?
+    private var userCurrenciesData: Data?
+    var userCurrencies: [Currency] {
+        get { getCurrencies() }
+        set { setCurrencies(newValue) }
+    }
     
     init(with defaults: UserDefaults = .standard) {
         self.userDefaults = defaults
     }
     
-    func getCurrencies() -> [Currency] {
-        if let cachedData = userCurrencies, let objects = try? JSONDecoder().decode([Currency].self, from: cachedData) {
+    private func getCurrencies() -> [Currency] {
+        if let cachedData = userCurrenciesData, let objects = try? JSONDecoder().decode([Currency].self, from: cachedData) {
             return objects
         } else {
             return []
         }
     }
     
-    func setCurrencies(_ newValue: [Currency]) {
-        userCurrencies = try? JSONEncoder().encode(newValue)
+    private func setCurrencies(_ newValue: [Currency]) {
+        userCurrenciesData = try? JSONEncoder().encode(newValue)
     }
-    
-    func addCurrencies(_ newItems: [Currency]) {
-        let current = getCurrencies()
-        setCurrencies(current + newItems)
-    }
-    
-    func removeAt(_ index: Int) {
-        var _c = getCurrencies()
-        _c.remove(at: index)
-        setCurrencies(_c)
-    }
-    
 }
 

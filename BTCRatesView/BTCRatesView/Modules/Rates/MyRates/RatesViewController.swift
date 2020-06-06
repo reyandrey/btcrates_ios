@@ -19,6 +19,14 @@ class RatesViewController: UIViewController, Storyboardable, ReloadableContentPr
     var viewModel: RatesViewModel!
     weak var delegate: RatesViewControllerDelegate?
     
+    let searchController = UISearchController(searchResultsController: nil)
+    var isSearchBarEmpty: Bool {
+      return searchController.searchBar.text?.isEmpty ?? true
+    }
+    var isFiltering: Bool {
+      return searchController.isActive && !isSearchBarEmpty
+    }
+    
     @IBOutlet private weak var tableView: UITableView!
     private lazy var refreshControl: UIRefreshControl = {
         let r = UIRefreshControl()
@@ -67,16 +75,38 @@ private extension RatesViewController {
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.largeTitleDisplayMode = .automatic
         
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Search.."
+        navigationItem.searchController = searchController
+        navigationItem.hidesSearchBarWhenScrolling = false
+        definesPresentationContext = true
+        
+        let editButton = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(editDidTap(_:)))
         let addButton = UIBarButtonItem(title: "Add", style: .plain, target: self, action: #selector(addDidTap(_:)))
-        navigationItem.setRightBarButton(addButton, animated: false)
+        navigationItem.setRightBarButtonItems([addButton, editButton], animated: false)
     }
     
     @objc func addDidTap(_ sender: Any) {
         delegate?.controllerShouldAddNewCurrency(self)
     }
     
+    @objc func editDidTap(_ sender: Any) {
+        tableView.isEditing = !tableView.isEditing && !isFiltering
+    }
+    
     @objc func pullToRefresh(_ sender: Any) {
         reload()
+    }
+}
+
+// MARK: Search
+
+extension RatesViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        let searchbar = searchController.searchBar
+        viewModel.filterContent(for: searchbar.text!)
+        tableView.reloadData()
     }
 }
 
@@ -85,11 +115,16 @@ private extension RatesViewController {
 extension RatesViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.currencies.count
+        return isFiltering ? viewModel.filteredrateItems.count : viewModel.rateItems.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return viewModel.currencies[indexPath.row].dequeueCell(in: tableView, at: indexPath) as! UITableViewCell
+        let item = isFiltering ? viewModel.filteredrateItems[indexPath.row] : viewModel.rateItems[indexPath.row]
+        return item.dequeueCell(in: tableView, at: indexPath) as! UITableViewCell
+    }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return !isFiltering
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
@@ -99,6 +134,10 @@ extension RatesViewController: UITableViewDataSource {
         }
     }
     
+    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        viewModel.reorderCurrencies(moveRowAt: sourceIndexPath, to: destinationIndexPath)
+    }
+    
 }
 
 // MARK: UITableViewDelegate
@@ -106,7 +145,7 @@ extension RatesViewController: UITableViewDataSource {
 extension RatesViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        viewModel.currencies[indexPath.row].didSelectCell()
+        viewModel.rateItems[indexPath.row].didSelectCell()
         tableView.deselectRow(at: indexPath, animated: true)
     }
     

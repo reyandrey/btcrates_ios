@@ -60,7 +60,7 @@ extension RatesCoordinator: RatesViewControllerDelegate {
 extension RatesCoordinator: AddCurrencyViewControllerDelegate {
     
     func controller(_ controller: AddCurrencyViewController, didSelect item: Currency) {
-        profileManager.addCurrencies([item])
+        profileManager.userCurrencies.append(item)
         navigationController.viewControllers.filter({ $0 is ReloadableContentProtocol }).forEach { ($0 as! ReloadableContentProtocol).reload() }
         navigationController.popViewController(animated: true)
     }
