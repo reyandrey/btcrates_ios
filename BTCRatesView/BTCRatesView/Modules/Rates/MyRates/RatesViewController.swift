@@ -20,6 +20,12 @@ class RatesViewController: UIViewController, Storyboardable, ReloadableContentPr
     weak var delegate: RatesViewControllerDelegate?
     
     @IBOutlet private weak var tableView: UITableView!
+    private lazy var refreshControl: UIRefreshControl = {
+        let r = UIRefreshControl()
+        self.tableView.refreshControl = r
+        r.addTarget(self, action: #selector(pullToRefresh(_:)), for: .primaryActionTriggered)
+        return r
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,7 +52,7 @@ extension RatesViewController {
     
     func didUpdate(_ viewModel: RatesViewModel) {
         tableView.reloadData()
-        
+        refreshControl.endRefreshing()
     }
 }
 
@@ -64,6 +70,10 @@ private extension RatesViewController {
     
     @objc func addDidTap(_ sender: Any) {
         delegate?.controllerShouldAddNewCurrency(self)
+    }
+    
+    @objc func pullToRefresh(_ sender: Any) {
+        reload()
     }
 }
 
