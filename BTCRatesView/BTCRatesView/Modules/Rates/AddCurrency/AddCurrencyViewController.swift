@@ -101,7 +101,7 @@ extension AddCurrencyViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        delegate?.controller(self, didSelect: viewModel.currencies[indexPath.row])
+        delegate?.controller(self, didSelect: isFiltering ? viewModel.filteredCurrencies[indexPath.row] : viewModel.currencies[indexPath.row])
     }
     
 }
