@@ -84,6 +84,14 @@
                     <rect key="frame" x="0.0" y="0.0" width="366" height="77"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
+                        <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hfc-Am-QzM">
+                            <rect key="frame" x="0.0" y="0.0" width="366" height="77"/>
+                            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="lP2-pv-YtB">
+                                <rect key="frame" x="0.0" y="0.0" width="366" height="77"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </view>
+                            <blurEffect style="regular"/>
+                        </visualEffectView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last updated timestamp" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rlk-4m-F0j">
                             <rect key="frame" x="114" y="31" width="138" height="15"/>
                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -93,8 +101,12 @@
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                     <constraints>
+                        <constraint firstItem="Hfc-Am-QzM" firstAttribute="leading" secondItem="GYE-Ur-4hO" secondAttribute="leading" id="T1l-pi-vaJ"/>
+                        <constraint firstItem="GYE-Ur-4hO" firstAttribute="bottom" secondItem="Hfc-Am-QzM" secondAttribute="bottom" id="W0D-lf-7RQ"/>
                         <constraint firstItem="rlk-4m-F0j" firstAttribute="centerX" secondItem="GYE-Ur-4hO" secondAttribute="centerX" id="YnG-Ci-RjG"/>
+                        <constraint firstItem="GYE-Ur-4hO" firstAttribute="trailing" secondItem="Hfc-Am-QzM" secondAttribute="trailing" id="uKH-vZ-cHH"/>
                         <constraint firstItem="rlk-4m-F0j" firstAttribute="centerY" secondItem="GYE-Ur-4hO" secondAttribute="centerY" id="ur2-fE-tgi"/>
+                        <constraint firstItem="Hfc-Am-QzM" firstAttribute="top" secondItem="GYE-Ur-4hO" secondAttribute="top" id="xK6-qF-sNf"/>
                     </constraints>
                     <viewLayoutGuide key="safeArea" id="GYE-Ur-4hO"/>
                     <connections>
