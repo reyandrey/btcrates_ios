@@ -8,6 +8,7 @@
 
 import Foundation
 
+fileprivate typealias JSONObject = [String:Any]
 
 class BPIService<E: Environment>: APIService {
     static var serverURL: String { return E.serverURL }
@@ -34,14 +35,26 @@ class BPIService<E: Environment>: APIService {
 
 extension BPIService {
     
-    func getCurrencyNSI(completionHandler: @escaping ([Currency]?) -> Void) {
-        let url = try! getURL(for: BPIEndpint.currenciesNSI)
+    func getSupportedCurrencies(completionHandler: @escaping ([Currency]?) -> Void) {
+        let url = try! getURL(for: BPIEndpint.currencies)
         httpManager.sendRequest(.get, to: url, withPayload: nil) { (data, response, error) in
             if error == nil, let data = data {
                 completionHandler(try? JSONDecoder().decode([Currency].self, from: data))
             } else {
                 completionHandler(nil)
             }
+        }
+    }
+    
+    func getCurrentPrice(code: String, completionHandler: @escaping (BPIRealTime?) -> Void) {
+        let url = try! getURL(for: BPIEndpint.currentPrice(code: code))
+        httpManager.sendRequest(.get, to: url, withPayload: nil) { (data, response, error) in
+            guard let data = data else { completionHandler(nil); return }
+            guard let json = try? JSONSerialization.jsonObject(with: data, options: []) as? JSONObject else { completionHandler(nil); return }
+            guard let bpiJSON = json["bpi"] as? JSONObject else { completionHandler(nil); return }
+            guard let requestedBPI = bpiJSON[code] else { completionHandler(nil); return }
+            guard let bpiData = try? JSONSerialization.data(withJSONObject: requestedBPI, options: []) else { completionHandler(nil); return }
+            completionHandler(try? JSONDecoder().decode(BPIRealTime.self, from: bpiData))
         }
     }
     

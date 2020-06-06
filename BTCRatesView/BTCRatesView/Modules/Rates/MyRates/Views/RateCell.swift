@@ -17,7 +17,13 @@ class RateCell: UITableViewCell, CellIdentifiable {
     @IBOutlet weak var ratesLabel: UILabel!
 
     func setup(with itemViewModel: RateItemViewModel) {
+        guard itemViewModel.isPresenting(by: self) else { return }
         codeLabel.text = itemViewModel.code
         countryLabel.text = itemViewModel.country
+        ratesLabel.text = itemViewModel.rate
+        itemViewModel.didUpdate = { [weak self] (viewModel) in
+            self?.setup(with: viewModel)
+        }
+        
     }
 }

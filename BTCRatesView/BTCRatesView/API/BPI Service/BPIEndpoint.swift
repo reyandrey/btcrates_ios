@@ -9,16 +9,18 @@
 import Foundation
 
 enum BPIEndpint: APIEndpoint {
-    case currenciesNSI
+    case currencies
+    case currentPrice(code: String)
     
     var path: String {
         switch self {
-        case .currenciesNSI: return "/supported-currencies.json"
+        case .currencies: return "/supported-currencies.json"
+        case .currentPrice(let code): return "/currentprice/\(code).json"
         }
     }
     var queryItems: [URLQueryItem]? {
         switch self {
-        case .currenciesNSI: return nil
+        default: return nil
         }
     }
     

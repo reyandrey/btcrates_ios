@@ -93,6 +93,7 @@ extension RatesViewController: UITableViewDataSource {
 extension RatesViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        viewModel.currencies[indexPath.row].didSelectCell()
         tableView.deselectRow(at: indexPath, animated: true)
     }
     

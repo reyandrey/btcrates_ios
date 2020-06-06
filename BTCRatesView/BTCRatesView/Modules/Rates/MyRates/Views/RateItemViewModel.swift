@@ -15,18 +15,44 @@ protocol CellIdentifiable {
 protocol CellRepresentable {
     static func registerCell(in tableView: UITableView)
     func dequeueCell(in tableView: UITableView, at indexPath: IndexPath) -> CellIdentifiable
+    func isPresenting(by cell: CellIdentifiable) -> Bool
     func didSelectCell()
-    var presentingIndexPath: IndexPath? { get set }
 }
 
-class RateItemViewModel: CellRepresentable {
+class RateItemViewModel {
     
-    var presentingIndexPath: IndexPath?
+    private let api = BPIService<BTEnvironment>()
     private let currency: Currency
+    private var bpiRealTime: BPIRealTime?
+    private var presentingIndexPath: IndexPath?
+    
+    // Events
+    var didUpdate: ((RateItemViewModel) -> Void)?
+    
     init(_ currency: Currency) {
         self.currency = currency
     }
    
+    func reloadData() {
+        api.getCurrentPrice(code: currency.code) { [weak self] bpiRealTimeObject in
+            guard let self = self else { return }
+            self.bpiRealTime = bpiRealTimeObject
+            DispatchQueue.main.async { self.didUpdate?(self) }
+        }
+    }
+    
+    
+}
+
+extension RateItemViewModel {
+    
+    var code: String { currency.code }
+    var country: String { currency.country }
+    var rate: String { return bpiRealTime?.rate ?? "-" }
+    
+}
+
+extension RateItemViewModel: CellRepresentable {
     static func registerCell(in tableView: UITableView) {}
     
     func dequeueCell(in tableView: UITableView, at indexPath: IndexPath) -> CellIdentifiable {
@@ -34,17 +60,16 @@ class RateItemViewModel: CellRepresentable {
         cell.indexPath = indexPath
         presentingIndexPath = indexPath
         cell.setup(with: self)
+        reloadData()
         return cell
+    }
+    
+    func isPresenting(by cell: CellIdentifiable) -> Bool {
+        guard let presentingIndexPath = presentingIndexPath, let cellIndexPath = cell.indexPath else { return false }
+        return presentingIndexPath == cellIndexPath
     }
     
     func didSelectCell() {
         print(#function)
     }
-}
-
-extension RateItemViewModel {
-    
-    var code: String { currency.code }
-    var country: String { currency.country }
-    
 }

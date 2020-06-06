@@ -29,7 +29,7 @@ class AddCurrencyViewModel {
     //MARK: - Actions
     func reloadData() {
         self.isUpdating = true
-        api.getCurrencyNSI { [weak self] result in
+        api.getSupportedCurrencies { [weak self] result in
             self?.currencies = result ?? []
             self?.isUpdating = false
         }

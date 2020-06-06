@@ -26,6 +26,7 @@
 		5B6CBC7A248BEBEB009FBB90 /* BPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6CBC79248BEBEB009FBB90 /* BPIService.swift */; };
 		5B6CBC7D248BEC23009FBB90 /* BPIEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6CBC7C248BEC23009FBB90 /* BPIEndpoint.swift */; };
 		5B6CBC7F248C0793009FBB90 /* RateItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6CBC7E248C0793009FBB90 /* RateItemViewModel.swift */; };
+		5B6CBC82248C1C29009FBB90 /* BPIRealTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6CBC81248C1C29009FBB90 /* BPIRealTime.swift */; };
 		5B7F52CF248BD0DC0036EE24 /* RatesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7F52CE248BD0DC0036EE24 /* RatesViewModel.swift */; };
 		5B7F52D1248BD3B30036EE24 /* RatesCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7F52D0248BD3B30036EE24 /* RatesCoordinator.swift */; };
 		5B7F52D3248BD60C0036EE24 /* AddCurrencyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7F52D2248BD60C0036EE24 /* AddCurrencyViewModel.swift */; };
@@ -56,6 +57,7 @@
 		5B6CBC79248BEBEB009FBB90 /* BPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BPIService.swift; sourceTree = "<group>"; };
 		5B6CBC7C248BEC23009FBB90 /* BPIEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BPIEndpoint.swift; sourceTree = "<group>"; };
 		5B6CBC7E248C0793009FBB90 /* RateItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateItemViewModel.swift; sourceTree = "<group>"; };
+		5B6CBC81248C1C29009FBB90 /* BPIRealTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BPIRealTime.swift; sourceTree = "<group>"; };
 		5B7F52CE248BD0DC0036EE24 /* RatesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatesViewModel.swift; sourceTree = "<group>"; };
 		5B7F52D0248BD3B30036EE24 /* RatesCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatesCoordinator.swift; sourceTree = "<group>"; };
 		5B7F52D2248BD60C0036EE24 /* AddCurrencyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCurrencyViewModel.swift; sourceTree = "<group>"; };
@@ -224,6 +226,7 @@
 			isa = PBXGroup;
 			children = (
 				5B7F52D5248BDCF10036EE24 /* Currency.swift */,
+				5B6CBC81248C1C29009FBB90 /* BPIRealTime.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -310,6 +313,7 @@
 				55CFB131248BC9F400C7DB04 /* RateCell.swift in Sources */,
 				55CFB126248BC5D400C7DB04 /* String+Extensions.swift in Sources */,
 				5B7F52D1248BD3B30036EE24 /* RatesCoordinator.swift in Sources */,
+				5B6CBC82248C1C29009FBB90 /* BPIRealTime.swift in Sources */,
 				55CFB128248BC5D400C7DB04 /* UIViewController+Extensions.swift in Sources */,
 				55CFB12A248BC5EB00C7DB04 /* Environment.swift in Sources */,
 				5B7F52D3248BD60C0036EE24 /* AddCurrencyViewModel.swift in Sources */,
