@@ -26,19 +26,23 @@ class CurrenciesViewModel {
     //MARK: - Properties
    
     // ViewModels, CellRepresentable
-    var currencies: [Currency] = []
+    var currencies: [CurrencyItemViewModel] = []
     
     
     //MARK: - Actions
     func reloadData() {
         self.isUpdating = true
-        currencies = profileManager.getCurrencies()
+        currencies = profileManager.getCurrencies().map { getCurrencyItemViewModel($0) }
         self.isUpdating = false
+    }
+    
+    func getCurrencyItemViewModel(_ currency: Currency) -> CurrencyItemViewModel {
+        return CurrencyItemViewModel(currency)
     }
     
     func removeCurrency(at indexPath: IndexPath) {
         currencies.remove(at: indexPath.row)
-        profileManager.setCurrencies(currencies)
+        profileManager.removeAt(indexPath.row)
     }
  
 }

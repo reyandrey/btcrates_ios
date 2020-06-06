@@ -76,7 +76,7 @@ extension CurrenciesViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return getCurrencyCell(in: tableView, at: indexPath)
+        return viewModel.currencies[indexPath.row].dequeueCell(in: tableView, at: indexPath) as! UITableViewCell
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
@@ -96,18 +96,4 @@ extension CurrenciesViewController: UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
-}
-
-// MARK: TableView Updating
-
-private extension CurrenciesViewController {
-    
-    func getCurrencyCell(in tableView: UITableView, at indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: CurrencyCell.reuseId, for: indexPath) as? CurrencyCell else { return UITableViewCell() }
-        cell.codeLabel.text = viewModel.currencies[indexPath.row].code
-        cell.countryLabel.text = viewModel.currencies[indexPath.row].country
-        cell.ratesLabel.text = "-"
-        return cell
-    }
-
 }

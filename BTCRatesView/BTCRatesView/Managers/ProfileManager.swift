@@ -39,5 +39,11 @@ class ProfileManager {
         setCurrencies(current + newItems)
     }
     
+    func removeAt(_ index: Int) {
+        var _c = getCurrencies()
+        _c.remove(at: index)
+        setCurrencies(_c)
+    }
+    
 }
 
