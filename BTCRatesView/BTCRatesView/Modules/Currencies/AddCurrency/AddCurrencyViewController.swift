@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  AddCurrencyViewController.swift
 //  BTCRatesView
 //
 //  Created by Andrey on 06.06.2020.
@@ -8,13 +8,15 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class AddCurrencyViewController: UIViewController, Storyboardable {
+    typealias T = AddCurrencyViewController
+    static var storyboardName: String { return "Currencies" }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
         // Do any additional setup after loading the view.
     }
-
+    
 
 }
-
