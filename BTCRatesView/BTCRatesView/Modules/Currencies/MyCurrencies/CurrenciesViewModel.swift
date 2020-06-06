@@ -11,8 +11,12 @@ import Foundation
 class CurrenciesViewModel {
     //MARK: - Initial Values, Dependencies
     
+    let profileManager: ProfileManager
+    
     //MARK: - Lifeycle
-    init() {}
+    init(profileManager: ProfileManager) {
+        self.profileManager = profileManager
+    }
     
     var didError: ((Error) -> Void)?
     var didUpdate: ((CurrenciesViewModel) -> Void)?
@@ -22,18 +26,14 @@ class CurrenciesViewModel {
     //MARK: - Properties
    
     // ViewModels, CellRepresentable
+    var currencies: [Currency] = []
     
     
     //MARK: - Actions
     func reloadData() {
         self.isUpdating = true
-    /*  api.FetchData()
-        Success:
-            init ViewModels for fetched data
-            self.isUpdating = false
-         Failure:
-            self.didError?(error)
-            self.isUpdating = false */
+        currencies = profileManager.getCurrencies()
+        self.isUpdating = false
     }
  
 }

@@ -12,7 +12,7 @@ protocol CurrenciesViewControllerDelegate: class {
     func controllerShouldAddNewCurrency(_ controller: CurrenciesViewController)
 }
 
-class CurrenciesViewController: UIViewController, Storyboardable {
+class CurrenciesViewController: UIViewController, Storyboardable, ReloadableContentProtocol {
     typealias T = CurrenciesViewController
     static var storyboardName: String { return "Currencies" }
     
@@ -24,9 +24,30 @@ class CurrenciesViewController: UIViewController, Storyboardable {
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
+        bindViewModel()
+        reload()
+    }
+    
+    func reload() {
+        viewModel.reloadData()
     }
 
+}
 
+//MARK: ViewModel
+
+extension CurrenciesViewController {
+    
+    func bindViewModel() {
+        viewModel.didUpdate = { [weak self] viewModel in
+            self?.didUpdate(viewModel)
+        }
+    }
+    
+    func didUpdate(_ viewModel: CurrenciesViewModel) {
+        tableView.reloadData()
+        
+    }
 }
 
 // MARK: Private Methods
@@ -51,7 +72,7 @@ private extension CurrenciesViewController {
 extension CurrenciesViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return viewModel.currencies.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -76,6 +97,9 @@ private extension CurrenciesViewController {
     
     func getCurrencyCell(in tableView: UITableView, at indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: CurrencyCell.reuseId, for: indexPath) as? CurrencyCell else { return UITableViewCell() }
+        cell.codeLabel.text = viewModel.currencies[indexPath.row].code
+        cell.countryLabel.text = viewModel.currencies[indexPath.row].country
+        cell.ratesLabel.text = "-"
         return cell
     }
 

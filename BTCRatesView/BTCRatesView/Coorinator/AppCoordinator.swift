@@ -9,11 +9,15 @@
 import Foundation
 import UIKit
 
-protocol Coordinator {
+protocol CoordinatorProtool {
     func start()
 }
 
-class AppCoordinator: Coordinator {
+protocol ReloadableContentProtocol {
+    func reload()
+}
+
+class AppCoordinator: CoordinatorProtool {
     
     private var window: UIWindow? { UIApplication.shared.keyWindow }
     private var currenciesCoordinator: CurrenciesCoordinator!

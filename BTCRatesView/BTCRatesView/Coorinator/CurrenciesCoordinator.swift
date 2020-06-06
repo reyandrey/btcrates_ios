@@ -8,10 +8,12 @@
 
 import Foundation
 import UIKit
-class CurrenciesCoordinator: Coordinator {
+class CurrenciesCoordinator: CoordinatorProtool {
     
     private var window: UIWindow? { UIApplication.shared.keyWindow }
     private var navigationController: UINavigationController!
+    private var currenciesViewController: CurrenciesViewController?
+    private var profileManager = ProfileManager()
     
     func start() {
         let cvc = getCurrenciesController()
@@ -27,8 +29,9 @@ private extension CurrenciesCoordinator {
     
     func getCurrenciesController() -> CurrenciesViewController {
         let vc = CurrenciesViewController.instantiate()
-        vc.viewModel = CurrenciesViewModel()
+        vc.viewModel = CurrenciesViewModel(profileManager: self.profileManager)
         vc.delegate = self
+        currenciesViewController = vc
         return vc
     }
     
@@ -57,6 +60,11 @@ extension CurrenciesCoordinator: CurrenciesViewControllerDelegate {
 extension CurrenciesCoordinator: AddCurrencyViewControllerDelegate {
     
     func controller(_ controller: AddCurrencyViewController, didSelect item: String) {
+        // mock objects for testing
+        let current = profileManager.getCurrencies()
+        profileManager.setCurrencies(current + Currency.mock())
+        
+        navigationController.viewControllers.filter({ $0 is ReloadableContentProtocol }).forEach { ($0 as! ReloadableContentProtocol).reload() }
         navigationController.popViewController(animated: true)
     }
 
