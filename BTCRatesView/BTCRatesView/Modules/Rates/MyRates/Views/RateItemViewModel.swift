@@ -26,6 +26,14 @@ class RateItemViewModel {
     private var bpiRealTime: BPIRealTime?
     private var presentingIndexPath: IndexPath?
     
+    let currencyFormatter: NumberFormatter = {
+        let currencyFormatter = NumberFormatter()
+        currencyFormatter.usesGroupingSeparator = true
+        currencyFormatter.numberStyle = .decimal
+        currencyFormatter.allowsFloats = false
+        return currencyFormatter
+    }()
+    
     // Events
     var didUpdate: ((RateItemViewModel) -> Void)?
     
@@ -49,7 +57,7 @@ extension RateItemViewModel {
     var code: String { currency.code }
     var country: String { currency.country }
     var rate: String {
-        if let r = bpiRealTime?.rateDouble { return "\(r)" }
+        if let r = bpiRealTime?.rateDouble { return currencyFormatter.string(from: NSNumber(value: r)) ?? "" }
         else { return "loading.." }
     }
     

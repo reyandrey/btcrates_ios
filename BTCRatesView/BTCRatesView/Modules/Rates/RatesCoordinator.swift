@@ -18,6 +18,7 @@ class RatesCoordinator: CoordinatorProtool {
     func start() {
         let cvc = getRatesController()
         navigationController = UINavigationController(rootViewController: cvc)
+        UINavigationBar.appearance().tintColor = .black
         window?.rootViewController = navigationController
     }
     

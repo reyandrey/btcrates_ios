@@ -74,9 +74,8 @@ private extension RatesViewController {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.tableFooterView = UIView()
-        navigationController?.navigationBar.prefersLargeTitles = true
-        navigationItem.largeTitleDisplayMode = .automatic
-        
+        tableView.estimatedRowHeight = 95
+    
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = "Search.."
@@ -84,7 +83,8 @@ private extension RatesViewController {
         navigationItem.hidesSearchBarWhenScrolling = false
         definesPresentationContext = true
         
-        let editImage = UIImage(systemName: "gear")
+        
+        let editImage = UIImage(systemName: "list.bullet")
         let addImage = UIImage(systemName: "plus")
         let editButton = UIBarButtonItem(image: editImage, style: .plain, target: self, action: #selector(editDidTap(_:)))
         let addButton = UIBarButtonItem(image: addImage, style: .plain, target: self, action: #selector(addDidTap(_:)))
@@ -96,7 +96,7 @@ private extension RatesViewController {
     }
     
     @objc func editDidTap(_ sender: Any) {
-        tableView.isEditing = !tableView.isEditing && !isFiltering
+        tableView.setEditing(!tableView.isEditing && !isFiltering, animated: true)
     }
     
     @objc func pullToRefresh(_ sender: Any) {
