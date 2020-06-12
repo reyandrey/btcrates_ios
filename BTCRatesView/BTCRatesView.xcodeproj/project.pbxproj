@@ -22,7 +22,6 @@
 		55CFB126248BC5D400C7DB04 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CFB122248BC5D400C7DB04 /* String+Extensions.swift */; };
 		55CFB127248BC5D400C7DB04 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CFB123248BC5D400C7DB04 /* UIView+Extension.swift */; };
 		55CFB128248BC5D400C7DB04 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CFB124248BC5D400C7DB04 /* UIViewController+Extensions.swift */; };
-		55CFB12A248BC5EB00C7DB04 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CFB129248BC5EB00C7DB04 /* Environment.swift */; };
 		55CFB12D248BC8CA00C7DB04 /* AddCurrencyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CFB12C248BC8CA00C7DB04 /* AddCurrencyViewController.swift */; };
 		55CFB131248BC9F400C7DB04 /* RateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CFB130248BC9F400C7DB04 /* RateCell.swift */; };
 		55CFB134248BCD7D00C7DB04 /* AddCurrencyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CFB133248BCD7D00C7DB04 /* AddCurrencyCell.swift */; };
@@ -55,7 +54,6 @@
 		55CFB122248BC5D400C7DB04 /* String+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		55CFB123248BC5D400C7DB04 /* UIView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		55CFB124248BC5D400C7DB04 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
-		55CFB129248BC5EB00C7DB04 /* Environment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
 		55CFB12C248BC8CA00C7DB04 /* AddCurrencyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCurrencyViewController.swift; sourceTree = "<group>"; };
 		55CFB130248BC9F400C7DB04 /* RateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateCell.swift; sourceTree = "<group>"; };
 		55CFB133248BCD7D00C7DB04 /* AddCurrencyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCurrencyCell.swift; sourceTree = "<group>"; };
@@ -109,13 +107,12 @@
 		55CFB0F7248BC45600C7DB04 /* BTCRatesView */ = {
 			isa = PBXGroup;
 			children = (
-				55CFB0F8248BC45600C7DB04 /* AppDelegate.swift */,
 				5B6CBC80248C15C2009FBB90 /* App */,
 				5B7F52D7248BDEAC0036EE24 /* Managers */,
 				55CFB10D248BC58600C7DB04 /* Modules */,
 				55CFB10E248BC5B700C7DB04 /* API */,
 				5B7F52D4248BDCD80036EE24 /* Model */,
-				55CFB120248BC5D400C7DB04 /* Helpers */,
+				55CFB120248BC5D400C7DB04 /* Utils */,
 				55CFB10C248BC50100C7DB04 /* Resources */,
 			);
 			path = BTCRatesView;
@@ -149,7 +146,7 @@
 			path = API;
 			sourceTree = "<group>";
 		};
-		55CFB120248BC5D400C7DB04 /* Helpers */ = {
+		55CFB120248BC5D400C7DB04 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
 				55CFB121248BC5D400C7DB04 /* UIStoryboard+Extensions.swift */,
@@ -159,7 +156,7 @@
 				5B7F52DA248BDFD10036EE24 /* UserDefaultsStorage.swift */,
 				554D5E462493AA910026E4E1 /* Log.swift */,
 			);
-			path = Helpers;
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		55CFB12B248BC7A700C7DB04 /* Rates */ = {
@@ -214,8 +211,8 @@
 		5B6CBC80248C15C2009FBB90 /* App */ = {
 			isa = PBXGroup;
 			children = (
+				55CFB0F8248BC45600C7DB04 /* AppDelegate.swift */,
 				55CFB11D248BC5CB00C7DB04 /* AppCoordinator.swift */,
-				55CFB129248BC5EB00C7DB04 /* Environment.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -316,7 +313,6 @@
 				55CFB128248BC5D400C7DB04 /* UIViewController+Extensions.swift in Sources */,
 				554D5E452493AA700026E4E1 /* CoinDeskAPI.swift in Sources */,
 				554D5E442493AA700026E4E1 /* CoinDeskClient.swift in Sources */,
-				55CFB12A248BC5EB00C7DB04 /* Environment.swift in Sources */,
 				5B7F52D3248BD60C0036EE24 /* AddCurrencyViewModel.swift in Sources */,
 				5B7F52D9248BDEDE0036EE24 /* ProfileManager.swift in Sources */,
 				5B7F52CF248BD0DC0036EE24 /* RatesViewModel.swift in Sources */,
