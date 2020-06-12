@@ -15,8 +15,10 @@ public enum HTTPMethod: String {
     case put = "PUT"
 }
 
-public class HTTPRequestManager {
+public class HTTPRequestManager: OSLogging {
+    
     public var defaultHeaders: [String: String]
+    
     public init(defaultHeaders: [String: String] = [:]) {
         self.defaultHeaders = defaultHeaders
     }
@@ -43,7 +45,7 @@ public extension HTTPRequestManager {
         
         let taskCompletionHandler = { (data: Data?, response: URLResponse?, error: Error?) in
             let stringData = String(data: data ?? Data(), encoding: .utf8) ?? ""
-            print("HTTPRequestManager: did complete request with response \(response.debugDescription) and data: \(stringData)")
+            self.log("did complete request with response \(response.debugDescription) and data: \(stringData)")
             completionHandler(data, response, error)
         }
         
@@ -54,7 +56,7 @@ public extension HTTPRequestManager {
             task = session.dataTask(with: request, completionHandler: taskCompletionHandler)
         }
         let stringData = String(data: payload ?? Data(), encoding: .utf8) ?? ""
-        print("HTTPRequestManager: will perform request to: \(request.debugDescription) and data:\(stringData)")
+        log("will perform request to: \(request.debugDescription) and data:\(stringData)")
         task.resume()
     }
 

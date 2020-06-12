@@ -11,7 +11,7 @@ import Foundation
 class AddCurrencyViewModel {
     //MARK: - Initial Values, Dependencies
     
-    let api = BPIService<BTEnvironment>()
+    let apiClient = CoinDeskClient()
     
     //MARK: - Lifeycle
     init() {}
@@ -34,7 +34,7 @@ class AddCurrencyViewModel {
     //MARK: - Actions
     func reloadData() {
         self.isUpdating = true
-        api.getSupportedCurrencies { [weak self] result in
+        apiClient.getCurrencies { [weak self] result in
             self?.currencies = result ?? []
             self?.isUpdating = false
         }

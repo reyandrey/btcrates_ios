@@ -22,7 +22,7 @@ protocol CellRepresentable {
 class RateItemViewModel {
     
     let currency: Currency
-    private let api = BPIService<BTEnvironment>()
+    private let apiClient = CoinDeskClient()
     private var bpiRealTime: BPIRealTime?
     private var presentingIndexPath: IndexPath?
     
@@ -34,7 +34,7 @@ class RateItemViewModel {
     }
    
     func reloadData() {
-        api.getCurrentPrice(code: currency.code) { [weak self] bpiRealTimeObject in
+        apiClient.getCurrentPrice(code: currency.code) { [weak self] bpiRealTimeObject in
             guard let self = self else { return }
             self.bpiRealTime = bpiRealTimeObject
             DispatchQueue.main.async { self.didUpdate?(self) }

@@ -7,13 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		554D5E412493AA700026E4E1 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554D5E3C2493AA6F0026E4E1 /* HTTPClient.swift */; };
+		554D5E432493AA700026E4E1 /* HTTPRequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554D5E3E2493AA6F0026E4E1 /* HTTPRequestManager.swift */; };
+		554D5E442493AA700026E4E1 /* CoinDeskClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554D5E3F2493AA6F0026E4E1 /* CoinDeskClient.swift */; };
+		554D5E452493AA700026E4E1 /* CoinDeskAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554D5E402493AA6F0026E4E1 /* CoinDeskAPI.swift */; };
+		554D5E472493AA910026E4E1 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554D5E462493AA910026E4E1 /* Log.swift */; };
 		55CFB0F9248BC45600C7DB04 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CFB0F8248BC45600C7DB04 /* AppDelegate.swift */; };
 		55CFB0FD248BC45600C7DB04 /* RatesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CFB0FC248BC45600C7DB04 /* RatesViewController.swift */; };
 		55CFB100248BC45600C7DB04 /* Rates.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55CFB0FE248BC45600C7DB04 /* Rates.storyboard */; };
 		55CFB102248BC45800C7DB04 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 55CFB101248BC45800C7DB04 /* Assets.xcassets */; };
 		55CFB105248BC45800C7DB04 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55CFB103248BC45800C7DB04 /* LaunchScreen.storyboard */; };
-		55CFB119248BC5B700C7DB04 /* HTTPRequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CFB114248BC5B700C7DB04 /* HTTPRequestManager.swift */; };
-		55CFB11A248BC5B700C7DB04 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CFB115248BC5B700C7DB04 /* APIService.swift */; };
 		55CFB11F248BC5CB00C7DB04 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CFB11D248BC5CB00C7DB04 /* AppCoordinator.swift */; };
 		55CFB125248BC5D400C7DB04 /* UIStoryboard+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CFB121248BC5D400C7DB04 /* UIStoryboard+Extensions.swift */; };
 		55CFB126248BC5D400C7DB04 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CFB122248BC5D400C7DB04 /* String+Extensions.swift */; };
@@ -23,8 +26,6 @@
 		55CFB12D248BC8CA00C7DB04 /* AddCurrencyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CFB12C248BC8CA00C7DB04 /* AddCurrencyViewController.swift */; };
 		55CFB131248BC9F400C7DB04 /* RateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CFB130248BC9F400C7DB04 /* RateCell.swift */; };
 		55CFB134248BCD7D00C7DB04 /* AddCurrencyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CFB133248BCD7D00C7DB04 /* AddCurrencyCell.swift */; };
-		5B6CBC7A248BEBEB009FBB90 /* BPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6CBC79248BEBEB009FBB90 /* BPIService.swift */; };
-		5B6CBC7D248BEC23009FBB90 /* BPIEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6CBC7C248BEC23009FBB90 /* BPIEndpoint.swift */; };
 		5B6CBC7F248C0793009FBB90 /* RateItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6CBC7E248C0793009FBB90 /* RateItemViewModel.swift */; };
 		5B6CBC82248C1C29009FBB90 /* BPIRealTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6CBC81248C1C29009FBB90 /* BPIRealTime.swift */; };
 		5B6CBC84248C3CB2009FBB90 /* RatesSectionFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6CBC83248C3CB2009FBB90 /* RatesSectionFooter.swift */; };
@@ -37,6 +38,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		554D5E3C2493AA6F0026E4E1 /* HTTPClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
+		554D5E3E2493AA6F0026E4E1 /* HTTPRequestManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPRequestManager.swift; sourceTree = "<group>"; };
+		554D5E3F2493AA6F0026E4E1 /* CoinDeskClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoinDeskClient.swift; sourceTree = "<group>"; };
+		554D5E402493AA6F0026E4E1 /* CoinDeskAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoinDeskAPI.swift; sourceTree = "<group>"; };
+		554D5E462493AA910026E4E1 /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		55CFB0F5248BC45600C7DB04 /* BTCRatesView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BTCRatesView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		55CFB0F8248BC45600C7DB04 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		55CFB0FC248BC45600C7DB04 /* RatesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatesViewController.swift; sourceTree = "<group>"; };
@@ -44,8 +50,6 @@
 		55CFB101248BC45800C7DB04 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		55CFB104248BC45800C7DB04 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		55CFB106248BC45800C7DB04 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		55CFB114248BC5B700C7DB04 /* HTTPRequestManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPRequestManager.swift; sourceTree = "<group>"; };
-		55CFB115248BC5B700C7DB04 /* APIService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		55CFB11D248BC5CB00C7DB04 /* AppCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		55CFB121248BC5D400C7DB04 /* UIStoryboard+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+Extensions.swift"; sourceTree = "<group>"; };
 		55CFB122248BC5D400C7DB04 /* String+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
@@ -55,8 +59,6 @@
 		55CFB12C248BC8CA00C7DB04 /* AddCurrencyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCurrencyViewController.swift; sourceTree = "<group>"; };
 		55CFB130248BC9F400C7DB04 /* RateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateCell.swift; sourceTree = "<group>"; };
 		55CFB133248BCD7D00C7DB04 /* AddCurrencyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCurrencyCell.swift; sourceTree = "<group>"; };
-		5B6CBC79248BEBEB009FBB90 /* BPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BPIService.swift; sourceTree = "<group>"; };
-		5B6CBC7C248BEC23009FBB90 /* BPIEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BPIEndpoint.swift; sourceTree = "<group>"; };
 		5B6CBC7E248C0793009FBB90 /* RateItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateItemViewModel.swift; sourceTree = "<group>"; };
 		5B6CBC81248C1C29009FBB90 /* BPIRealTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BPIRealTime.swift; sourceTree = "<group>"; };
 		5B6CBC83248C3CB2009FBB90 /* RatesSectionFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatesSectionFooter.swift; sourceTree = "<group>"; };
@@ -79,6 +81,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		554D5E3B2493AA6F0026E4E1 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				554D5E3C2493AA6F0026E4E1 /* HTTPClient.swift */,
+				554D5E3E2493AA6F0026E4E1 /* HTTPRequestManager.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
 		55CFB0EC248BC45600C7DB04 = {
 			isa = PBXGroup;
 			children = (
@@ -131,19 +142,11 @@
 		55CFB10E248BC5B700C7DB04 /* API */ = {
 			isa = PBXGroup;
 			children = (
-				55CFB113248BC5B700C7DB04 /* Base */,
-				5B6CBC7B248BEBF7009FBB90 /* BPI Service */,
+				554D5E3B2493AA6F0026E4E1 /* Base */,
+				554D5E402493AA6F0026E4E1 /* CoinDeskAPI.swift */,
+				554D5E3F2493AA6F0026E4E1 /* CoinDeskClient.swift */,
 			);
 			path = API;
-			sourceTree = "<group>";
-		};
-		55CFB113248BC5B700C7DB04 /* Base */ = {
-			isa = PBXGroup;
-			children = (
-				55CFB114248BC5B700C7DB04 /* HTTPRequestManager.swift */,
-				55CFB115248BC5B700C7DB04 /* APIService.swift */,
-			);
-			path = Base;
 			sourceTree = "<group>";
 		};
 		55CFB120248BC5D400C7DB04 /* Helpers */ = {
@@ -154,6 +157,7 @@
 				55CFB123248BC5D400C7DB04 /* UIView+Extension.swift */,
 				55CFB124248BC5D400C7DB04 /* UIViewController+Extensions.swift */,
 				5B7F52DA248BDFD10036EE24 /* UserDefaultsStorage.swift */,
+				554D5E462493AA910026E4E1 /* Log.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -205,15 +209,6 @@
 				55CFB133248BCD7D00C7DB04 /* AddCurrencyCell.swift */,
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		5B6CBC7B248BEBF7009FBB90 /* BPI Service */ = {
-			isa = PBXGroup;
-			children = (
-				5B6CBC79248BEBEB009FBB90 /* BPIService.swift */,
-				5B6CBC7C248BEC23009FBB90 /* BPIEndpoint.swift */,
-			);
-			path = "BPI Service";
 			sourceTree = "<group>";
 		};
 		5B6CBC80248C15C2009FBB90 /* App */ = {
@@ -314,17 +309,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				55CFB131248BC9F400C7DB04 /* RateCell.swift in Sources */,
+				554D5E472493AA910026E4E1 /* Log.swift in Sources */,
 				55CFB126248BC5D400C7DB04 /* String+Extensions.swift in Sources */,
 				5B7F52D1248BD3B30036EE24 /* RatesCoordinator.swift in Sources */,
 				5B6CBC82248C1C29009FBB90 /* BPIRealTime.swift in Sources */,
 				55CFB128248BC5D400C7DB04 /* UIViewController+Extensions.swift in Sources */,
+				554D5E452493AA700026E4E1 /* CoinDeskAPI.swift in Sources */,
+				554D5E442493AA700026E4E1 /* CoinDeskClient.swift in Sources */,
 				55CFB12A248BC5EB00C7DB04 /* Environment.swift in Sources */,
 				5B7F52D3248BD60C0036EE24 /* AddCurrencyViewModel.swift in Sources */,
-				55CFB11A248BC5B700C7DB04 /* APIService.swift in Sources */,
-				5B6CBC7A248BEBEB009FBB90 /* BPIService.swift in Sources */,
 				5B7F52D9248BDEDE0036EE24 /* ProfileManager.swift in Sources */,
 				5B7F52CF248BD0DC0036EE24 /* RatesViewModel.swift in Sources */,
 				55CFB12D248BC8CA00C7DB04 /* AddCurrencyViewController.swift in Sources */,
+				554D5E432493AA700026E4E1 /* HTTPRequestManager.swift in Sources */,
 				55CFB125248BC5D400C7DB04 /* UIStoryboard+Extensions.swift in Sources */,
 				55CFB127248BC5D400C7DB04 /* UIView+Extension.swift in Sources */,
 				55CFB0FD248BC45600C7DB04 /* RatesViewController.swift in Sources */,
@@ -332,11 +329,10 @@
 				55CFB134248BCD7D00C7DB04 /* AddCurrencyCell.swift in Sources */,
 				5B6CBC7F248C0793009FBB90 /* RateItemViewModel.swift in Sources */,
 				5B7F52D6248BDCF10036EE24 /* Currency.swift in Sources */,
+				554D5E412493AA700026E4E1 /* HTTPClient.swift in Sources */,
 				55CFB11F248BC5CB00C7DB04 /* AppCoordinator.swift in Sources */,
 				55CFB0F9248BC45600C7DB04 /* AppDelegate.swift in Sources */,
-				55CFB119248BC5B700C7DB04 /* HTTPRequestManager.swift in Sources */,
 				5B6CBC84248C3CB2009FBB90 /* RatesSectionFooter.swift in Sources */,
-				5B6CBC7D248BEC23009FBB90 /* BPIEndpoint.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
