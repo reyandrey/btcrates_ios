@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5525F2F9249D2F2B0004F7BE /* Cartfile in Resources */ = {isa = PBXBuildFile; fileRef = 5525F2F8249D2F2B0004F7BE /* Cartfile */; };
+		5525F2FD249D32A10004F7BE /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5525F2FC249D32A10004F7BE /* Charts.framework */; };
+		5525F301249D32B00004F7BE /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5525F300249D32B00004F7BE /* SnapKit.framework */; };
 		554D5E412493AA700026E4E1 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554D5E3C2493AA6F0026E4E1 /* HTTPClient.swift */; };
 		554D5E432493AA700026E4E1 /* HTTPRequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554D5E3E2493AA6F0026E4E1 /* HTTPRequestManager.swift */; };
 		554D5E442493AA700026E4E1 /* CoinDeskClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554D5E3F2493AA6F0026E4E1 /* CoinDeskClient.swift */; };
@@ -37,6 +40,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5525F2F8249D2F2B0004F7BE /* Cartfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile; sourceTree = SOURCE_ROOT; };
+		5525F2FC249D32A10004F7BE /* Charts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Charts.framework; path = Carthage/Build/iOS/Charts.framework; sourceTree = "<group>"; };
+		5525F300249D32B00004F7BE /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = Carthage/Build/iOS/SnapKit.framework; sourceTree = "<group>"; };
 		554D5E3C2493AA6F0026E4E1 /* HTTPClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 		554D5E3E2493AA6F0026E4E1 /* HTTPRequestManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPRequestManager.swift; sourceTree = "<group>"; };
 		554D5E3F2493AA6F0026E4E1 /* CoinDeskClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoinDeskClient.swift; sourceTree = "<group>"; };
@@ -73,12 +79,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5525F2FD249D32A10004F7BE /* Charts.framework in Frameworks */,
+				5525F301249D32B00004F7BE /* SnapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5525F2FB249D32A10004F7BE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5525F300249D32B00004F7BE /* SnapKit.framework */,
+				5525F2FC249D32A10004F7BE /* Charts.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		554D5E3B2493AA6F0026E4E1 /* Base */ = {
 			isa = PBXGroup;
 			children = (
@@ -93,6 +110,7 @@
 			children = (
 				55CFB0F7248BC45600C7DB04 /* BTCRatesView */,
 				55CFB0F6248BC45600C7DB04 /* Products */,
+				5525F2FB249D32A10004F7BE /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -121,6 +139,7 @@
 		55CFB10C248BC50100C7DB04 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				5525F2F8249D2F2B0004F7BE /* Cartfile */,
 				55CFB106248BC45800C7DB04 /* Info.plist */,
 				55CFB101248BC45800C7DB04 /* Assets.xcassets */,
 				55CFB103248BC45800C7DB04 /* LaunchScreen.storyboard */,
@@ -244,6 +263,7 @@
 				55CFB0F1248BC45600C7DB04 /* Sources */,
 				55CFB0F2248BC45600C7DB04 /* Frameworks */,
 				55CFB0F3248BC45600C7DB04 /* Resources */,
+				5525F2FA249D31E30004F7BE /* Carthage */,
 			);
 			buildRules = (
 			);
@@ -294,11 +314,35 @@
 			files = (
 				55CFB105248BC45800C7DB04 /* LaunchScreen.storyboard in Resources */,
 				55CFB102248BC45800C7DB04 /* Assets.xcassets in Resources */,
+				5525F2F9249D2F2B0004F7BE /* Cartfile in Resources */,
 				55CFB100248BC45600C7DB04 /* Rates.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5525F2FA249D31E30004F7BE /* Carthage */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/SnapKit.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Charts.framework",
+			);
+			name = Carthage;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		55CFB0F1248BC45600C7DB04 /* Sources */ = {
@@ -474,6 +518,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = NF22V7BXCS;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = BTCRatesView/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -493,6 +541,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = NF22V7BXCS;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = BTCRatesView/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
