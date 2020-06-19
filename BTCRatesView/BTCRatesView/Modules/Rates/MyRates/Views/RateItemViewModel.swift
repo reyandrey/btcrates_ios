@@ -24,28 +24,46 @@ class RateItemViewModel {
     let currency: Currency
     private let apiClient = CoinDeskClient()
     private var bpiRealTime: BPIRealTime?
+    private var weeklyHistory: [Double]?
     private var presentingIndexPath: IndexPath?
     
     let currencyFormatter: NumberFormatter = {
-        let currencyFormatter = NumberFormatter()
-        currencyFormatter.usesGroupingSeparator = true
-        currencyFormatter.numberStyle = .decimal
-        currencyFormatter.allowsFloats = false
-        return currencyFormatter
+        let fmt = NumberFormatter()
+        fmt.usesGroupingSeparator = true
+        fmt.numberStyle = .currency
+        fmt.allowsFloats = true
+        fmt.currencySymbol = ""
+        fmt.currencyGroupingSeparator = " "
+        fmt.currencyDecimalSeparator = "."
+        return fmt
+    }()
+    
+    let percentFormatter: NumberFormatter = {
+        let fmt = NumberFormatter()
+        fmt.numberStyle = .percent
+        fmt.minimumFractionDigits = 2
+        fmt.maximumFractionDigits = 2
+        fmt.allowsFloats = true
+        return fmt
     }()
     
     // Events
-    var didUpdate: ((RateItemViewModel) -> Void)?
+    var onUpdating: ((Bool) -> Void)?
     
     init(_ currency: Currency) {
         self.currency = currency
     }
    
     func reloadData() {
+        self.onUpdating?(true)
         apiClient.getCurrentPrice(code: currency.code) { [weak self] bpiRealTimeObject in
             guard let self = self else { return }
             self.bpiRealTime = bpiRealTimeObject
-            DispatchQueue.main.async { self.didUpdate?(self) }
+            self.weeklyHistory = [
+                648, 654, 658, 659, 656, 652, 650,
+                648, 650, 652, 654, 656, 650, 660
+            ]
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) { self.onUpdating?(false) }
         }
     }
     
@@ -56,11 +74,25 @@ extension RateItemViewModel {
     
     var code: String { currency.code }
     var country: String { currency.country }
-    var rate: String {
+    var rate: String? {
         if let r = bpiRealTime?.rateDouble { return currencyFormatter.string(from: NSNumber(value: r)) ?? "" }
-        else { return "loading.." }
+        else { return nil }
     }
-    
+    var history: [Double]? {
+        return self.weeklyHistory
+    }
+    var diffPercent: Double? {
+        guard let weeklyHistory = weeklyHistory else { return nil }
+        guard let last = weeklyHistory.last, let secondLast = weeklyHistory.dropLast().last else { return nil }
+        return (last-secondLast)/secondLast
+    }
+    var diffPercenString: String {
+        guard let diffPercent = diffPercent else { return "-" }
+        return percentFormatter.string(from: NSNumber(value: diffPercent)) ?? "-"
+    }
+    var diffColor: UIColor {
+        return (diffPercent ?? 0) >= 0 ? .systemGreen : .systemRed
+    }
 }
 
 extension RateItemViewModel: CellRepresentable {
@@ -70,7 +102,7 @@ extension RateItemViewModel: CellRepresentable {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: RateCell.reuseId, for: indexPath) as? RateCell else { fatalError() }
         cell.indexPath = indexPath
         presentingIndexPath = indexPath
-        cell.setup(with: self)
+        cell.set(self)
         reloadData()
         return cell
     }

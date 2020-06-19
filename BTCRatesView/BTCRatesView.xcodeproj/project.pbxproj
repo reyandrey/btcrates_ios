@@ -10,6 +10,8 @@
 		5525F2F9249D2F2B0004F7BE /* Cartfile in Resources */ = {isa = PBXBuildFile; fileRef = 5525F2F8249D2F2B0004F7BE /* Cartfile */; };
 		5525F2FD249D32A10004F7BE /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5525F2FC249D32A10004F7BE /* Charts.framework */; };
 		5525F301249D32B00004F7BE /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5525F300249D32B00004F7BE /* SnapKit.framework */; };
+		5525F305249D356F0004F7BE /* CompactChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5525F304249D356F0004F7BE /* CompactChartView.swift */; };
+		5525F307249D387E0004F7BE /* ChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5525F306249D387E0004F7BE /* ChartViewController.swift */; };
 		554D5E412493AA700026E4E1 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554D5E3C2493AA6F0026E4E1 /* HTTPClient.swift */; };
 		554D5E432493AA700026E4E1 /* HTTPRequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554D5E3E2493AA6F0026E4E1 /* HTTPRequestManager.swift */; };
 		554D5E442493AA700026E4E1 /* CoinDeskClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554D5E3F2493AA6F0026E4E1 /* CoinDeskClient.swift */; };
@@ -43,6 +45,8 @@
 		5525F2F8249D2F2B0004F7BE /* Cartfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile; sourceTree = SOURCE_ROOT; };
 		5525F2FC249D32A10004F7BE /* Charts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Charts.framework; path = Carthage/Build/iOS/Charts.framework; sourceTree = "<group>"; };
 		5525F300249D32B00004F7BE /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = Carthage/Build/iOS/SnapKit.framework; sourceTree = "<group>"; };
+		5525F304249D356F0004F7BE /* CompactChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompactChartView.swift; sourceTree = "<group>"; };
+		5525F306249D387E0004F7BE /* ChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewController.swift; sourceTree = "<group>"; };
 		554D5E3C2493AA6F0026E4E1 /* HTTPClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 		554D5E3E2493AA6F0026E4E1 /* HTTPRequestManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPRequestManager.swift; sourceTree = "<group>"; };
 		554D5E3F2493AA6F0026E4E1 /* CoinDeskClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoinDeskClient.swift; sourceTree = "<group>"; };
@@ -94,6 +98,15 @@
 				5525F2FC249D32A10004F7BE /* Charts.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5525F303249D353E0004F7BE /* Common UI */ = {
+			isa = PBXGroup;
+			children = (
+				5525F304249D356F0004F7BE /* CompactChartView.swift */,
+				5525F306249D387E0004F7BE /* ChartViewController.swift */,
+			);
+			path = "Common UI";
 			sourceTree = "<group>";
 		};
 		554D5E3B2493AA6F0026E4E1 /* Base */ = {
@@ -150,6 +163,7 @@
 		55CFB10D248BC58600C7DB04 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				5525F303249D353E0004F7BE /* Common UI */,
 				55CFB12B248BC7A700C7DB04 /* Rates */,
 			);
 			path = Modules;
@@ -366,12 +380,14 @@
 				55CFB127248BC5D400C7DB04 /* UIView+Extension.swift in Sources */,
 				55CFB0FD248BC45600C7DB04 /* RatesViewController.swift in Sources */,
 				5B7F52DB248BDFD10036EE24 /* UserDefaultsStorage.swift in Sources */,
+				5525F307249D387E0004F7BE /* ChartViewController.swift in Sources */,
 				55CFB134248BCD7D00C7DB04 /* AddCurrencyCell.swift in Sources */,
 				5B6CBC7F248C0793009FBB90 /* RateItemViewModel.swift in Sources */,
 				5B7F52D6248BDCF10036EE24 /* Currency.swift in Sources */,
 				554D5E412493AA700026E4E1 /* HTTPClient.swift in Sources */,
 				55CFB11F248BC5CB00C7DB04 /* AppCoordinator.swift in Sources */,
 				55CFB0F9248BC45600C7DB04 /* AppDelegate.swift in Sources */,
+				5525F305249D356F0004F7BE /* CompactChartView.swift in Sources */,
 				5B6CBC84248C3CB2009FBB90 /* RatesSectionFooter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
