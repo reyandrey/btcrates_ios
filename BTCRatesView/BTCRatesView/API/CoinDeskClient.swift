@@ -10,14 +10,14 @@ import Foundation
 
 fileprivate typealias API = CoinDeskAPI
 fileprivate typealias JSONObject = [String: Any]
-class CoinDeskClient: HTTPClient, OSLogging {
+class CoinDeskClient: HTTPClient {
+    private let log = Log<CoinDeskClient>()
     override var httpHeaders: [String : String] {
         var h = [String: String]()
         h["Accept"] = "application/json"
         h["Content-Type"] = "application/json"
         return h
     }
-    
 }
 
 // API
@@ -30,7 +30,7 @@ extension CoinDeskClient {
             case .success(let data):
                 completionHandler(try? JSONDecoder().decode([Currency].self, from: data ?? Data()))
             case .failure(let error):
-                self.log("\(error)")
+                self.log.error("\(error)")
             }
         }
     }

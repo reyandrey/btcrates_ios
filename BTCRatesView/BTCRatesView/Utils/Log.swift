@@ -9,35 +9,19 @@
 import Foundation
 import os.log
 
-public protocol OSLogging {
-    func log(_ message: String, level: OSLogType)
-    func log(_ message: StaticString, _ args: CVarArg..., level: OSLogType)
-}
-
-public extension OSLogging {
-    func log(_ message: String, level: OSLogType = .debug) {
-        OSLogger<Self>(level).log("%@", message)
-    }
-    func log(_ message: StaticString, _ args: CVarArg..., level: OSLogType = .debug) {
-        OSLogger<Self>(level).log(message, args)
-    }
-}
-
-public class OSLogger<T> {
-    private let subsystem = Bundle.main.bundleIdentifier ?? "unknown"
+public class Log<T> {
+    
     private let log: OSLog
-    private let level: OSLogType
     
-    public init(_ logLevel: OSLogType = .debug) {
-        self.log = OSLog(subsystem: subsystem, category: String(describing: T.self))
-        self.level = logLevel
+    public init(){
+        self.log = OSLog(subsystem: Bundle.main.bundleIdentifier ?? "unknown", category: String(describing: T.self))
     }
     
-    public func log(_ message: StaticString, _ args: CVarArg...) {
-        os_log(message, log: log, type: level, args)
+    public func debug(_ message: String) {
+        os_log("%@", log: log, type: .debug, message)
     }
     
-    public func log(_ message: String) {
-        os_log("%@", log: log, type: level, message)
+    public func error(_ message: String) {
+        os_log("%@", log: log, type: .error, message)
     }
 }
