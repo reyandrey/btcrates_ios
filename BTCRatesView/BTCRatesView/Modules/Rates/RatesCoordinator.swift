@@ -51,7 +51,9 @@ extension RatesCoordinator: RatesViewControllerDelegate {
     
     func controllerShouldAddNewCurrency(_ controller: RatesViewController) {
         let vc = getAddCurrencyController()
-        navigationController.pushViewController(vc, animated: true)
+        let nc = NavigationController()
+        nc.setViewControllers([vc], animated: false)
+        controller.presentPanModal(nc)
     }
     
 }
@@ -63,7 +65,7 @@ extension RatesCoordinator: AddCurrencyViewControllerDelegate {
     func controller(_ controller: AddCurrencyViewController, didSelect item: Currency) {
         profileManager.userCurrencies.append(item)
         navigationController.viewControllers.filter({ $0 is ReloadableContentProtocol }).forEach { ($0 as! ReloadableContentProtocol).reload() }
-        navigationController.popViewController(animated: true)
+        controller.dismiss(animated: true, completion: nil)
     }
 
 }

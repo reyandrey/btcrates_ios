@@ -17,6 +17,9 @@
 		554D5E442493AA700026E4E1 /* CoinDeskClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554D5E3F2493AA6F0026E4E1 /* CoinDeskClient.swift */; };
 		554D5E452493AA700026E4E1 /* CoinDeskAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554D5E402493AA6F0026E4E1 /* CoinDeskAPI.swift */; };
 		554D5E472493AA910026E4E1 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554D5E462493AA910026E4E1 /* Log.swift */; };
+		5564DDF8249E36190025AECF /* PanModal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5564DDF7249E36190025AECF /* PanModal.framework */; };
+		5564DDF9249E36190025AECF /* PanModal.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5564DDF7249E36190025AECF /* PanModal.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		5564DDFC249E381B0025AECF /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5564DDFB249E381B0025AECF /* NavigationController.swift */; };
 		55CFB0F9248BC45600C7DB04 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CFB0F8248BC45600C7DB04 /* AppDelegate.swift */; };
 		55CFB0FD248BC45600C7DB04 /* RatesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CFB0FC248BC45600C7DB04 /* RatesViewController.swift */; };
 		55CFB100248BC45600C7DB04 /* Rates.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55CFB0FE248BC45600C7DB04 /* Rates.storyboard */; };
@@ -43,6 +46,20 @@
 		5B7F52DB248BDFD10036EE24 /* UserDefaultsStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7F52DA248BDFD10036EE24 /* UserDefaultsStorage.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		5564DDFA249E36190025AECF /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				5564DDF9249E36190025AECF /* PanModal.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		5525F2F8249D2F2B0004F7BE /* Cartfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile; sourceTree = SOURCE_ROOT; };
 		5525F2FC249D32A10004F7BE /* Charts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Charts.framework; path = Carthage/Build/iOS/Charts.framework; sourceTree = "<group>"; };
@@ -54,6 +71,8 @@
 		554D5E3F2493AA6F0026E4E1 /* CoinDeskClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoinDeskClient.swift; sourceTree = "<group>"; };
 		554D5E402493AA6F0026E4E1 /* CoinDeskAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoinDeskAPI.swift; sourceTree = "<group>"; };
 		554D5E462493AA910026E4E1 /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
+		5564DDF7249E36190025AECF /* PanModal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PanModal.framework; path = Carthage/Build/iOS/PanModal.framework; sourceTree = "<group>"; };
+		5564DDFB249E381B0025AECF /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		55CFB0F5248BC45600C7DB04 /* BTCRatesView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BTCRatesView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		55CFB0F8248BC45600C7DB04 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		55CFB0FC248BC45600C7DB04 /* RatesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatesViewController.swift; sourceTree = "<group>"; };
@@ -88,6 +107,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5525F2FD249D32A10004F7BE /* Charts.framework in Frameworks */,
+				5564DDF8249E36190025AECF /* PanModal.framework in Frameworks */,
 				5525F301249D32B00004F7BE /* SnapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -98,6 +118,7 @@
 		5525F2FB249D32A10004F7BE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5564DDF7249E36190025AECF /* PanModal.framework */,
 				5525F300249D32B00004F7BE /* SnapKit.framework */,
 				5525F2FC249D32A10004F7BE /* Charts.framework */,
 			);
@@ -109,6 +130,7 @@
 			children = (
 				5525F304249D356F0004F7BE /* CompactChartView.swift */,
 				5525F306249D387E0004F7BE /* ChartViewController.swift */,
+				5564DDFB249E381B0025AECF /* NavigationController.swift */,
 			);
 			path = "Common UI";
 			sourceTree = "<group>";
@@ -292,6 +314,7 @@
 				55CFB0F2248BC45600C7DB04 /* Frameworks */,
 				55CFB0F3248BC45600C7DB04 /* Resources */,
 				5525F2FA249D31E30004F7BE /* Carthage */,
+				5564DDFA249E36190025AECF /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -360,6 +383,7 @@
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/SnapKit.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Charts.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/PanModal.framework",
 			);
 			name = Carthage;
 			outputFileListPaths = (
@@ -399,6 +423,7 @@
 				5525F307249D387E0004F7BE /* ChartViewController.swift in Sources */,
 				55CFB134248BCD7D00C7DB04 /* AddCurrencyCell.swift in Sources */,
 				5B6CBC7F248C0793009FBB90 /* RateItemViewModel.swift in Sources */,
+				5564DDFC249E381B0025AECF /* NavigationController.swift in Sources */,
 				5B7F52D6248BDCF10036EE24 /* Currency.swift in Sources */,
 				554D5E412493AA700026E4E1 /* HTTPClient.swift in Sources */,
 				55CFB11F248BC5CB00C7DB04 /* AppCoordinator.swift in Sources */,

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import PanModal
 
 protocol AddCurrencyViewControllerDelegate: class {
     func controller(_ controller: AddCurrencyViewController, didSelect item: Currency)
@@ -120,4 +121,14 @@ private extension AddCurrencyViewController {
         return cell
     }
 
+}
+
+extension AddCurrencyViewController: PanModalPresentable {
+    var panScrollable: UIScrollView? {
+        tableView
+    }
+
+    var longFormHeight: PanModalHeight {
+        return .maxHeightWithTopInset(40)
+    }
 }
