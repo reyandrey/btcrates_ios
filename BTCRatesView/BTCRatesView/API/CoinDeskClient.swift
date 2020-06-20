@@ -7,12 +7,20 @@
 //
 
 import Foundation
+import CoreData
 
 fileprivate typealias API = CoinDeskAPI
 fileprivate typealias JSONObject = [String: Any]
 
 class CoinDeskClient: HTTPClient {
+    private let syncContext: NSManagedObjectContext = CoreDataStack.shared.getPrivateContext(automaticallyMergesChangesFromParent: true)
     private let log = Log<CoinDeskClient>()
+    private lazy var jsonDecoder: JSONDecoder = {
+        let decoder = JSONDecoder()
+        decoder.dateDecodingStrategy = .iso8601
+        decoder.userInfo[.managedObjectContext] = self.syncContext
+        return decoder
+    }()
     override var httpHeaders: [String : String] {
         var h = [String: String]()
         h["Accept"] = "application/json"
@@ -24,13 +32,35 @@ class CoinDeskClient: HTTPClient {
 // API
 
 extension CoinDeskClient {
-    func getCurrencies(completionHandler: @escaping ([Currency]?) -> Void) {
+//    func getCurrencies(completionHandler: @escaping ([Currency]?) -> Void) {
+//        request(to: CoinDeskAPI.currencies) { result in
+//            switch result {
+//            case .success(let data):
+//                completionHandler(try? JSONDecoder().decode([Currency].self, from: data ?? Data()))
+//            case .failure(let error):
+//                self.log.error("\(error)")
+//                completionHandler(nil)
+//            }
+//        }
+//    }
+    
+    func syncCurrencies(completionHandler: @escaping (Error?) -> Void) {
         request(to: CoinDeskAPI.currencies) { result in
             switch result {
             case .success(let data):
-                completionHandler(try? JSONDecoder().decode([Currency].self, from: data ?? Data()))
+                if let data = data, let currencies = try? self.jsonDecoder.decode([CurrencyModel].self, from: data) {
+                    self.syncContext.performAndWait {
+                        self.syncObjects(currencies, dropMissing: true)
+                        self.saveData {
+                            completionHandler(nil)
+                        }
+                    }
+                } else {
+                    completionHandler(HTTPClient.RequestError.other(message: "Empty response"))
+                }
             case .failure(let error):
                 self.log.error("\(error)")
+                completionHandler(error)
             }
         }
     }
@@ -48,6 +78,8 @@ extension CoinDeskClient {
     }
     
 }
+
+// MARK: Privatec
 
 private extension CoinDeskClient {
     
@@ -78,4 +110,39 @@ private extension CoinDeskClient {
         }
     }
     
+}
+
+// MARK: Core Data Sync
+
+private extension CoinDeskClient {
+    func syncObjects<ObjectType: NSManagedObject&ManagedSyncable>(_ objects: [ObjectType], dropMissing: Bool = true) {
+         syncContext.perform {
+             do {
+                 if dropMissing {
+                     try ObjectType.dropMissing(objects, in: self.syncContext)
+                 }
+                 try ObjectType.syncObjects(objects, in: self.syncContext)
+                 self.log.debug("Objects synced: " + String(describing: ObjectType.self))
+             } catch {
+                self.log.error("Failed to sync objects of type: " + String(describing: ObjectType.self))
+             }
+         }
+     }
+     
+     func saveData(onCompletion completionHandler: @escaping ()->()) {
+         syncContext.perform {
+             if self.syncContext.hasChanges {
+                 do {
+                     try self.syncContext.save()
+                     CoreDataStack.shared.saveChanges()
+                     completionHandler()
+                 } catch {
+                    self.log.error("Failed to save context: \(error)")
+                     completionHandler()
+                 }
+             } else {
+                 completionHandler()
+             }
+         }
+     }
 }

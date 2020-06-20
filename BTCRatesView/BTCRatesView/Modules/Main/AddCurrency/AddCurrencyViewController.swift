@@ -70,6 +70,13 @@ private extension AddCurrencyViewController {
         navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = false
         definesPresentationContext = true
+        
+        let doneButton = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(doneDidTap(_:)))
+        navigationItem.setRightBarButtonItems([doneButton], animated: false)
+    }
+    
+    @objc func doneDidTap(_ sender: Any) {
+        
     }
     
 }
@@ -104,7 +111,10 @@ extension AddCurrencyViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        delegate?.controller(self, didSelect: isFiltering ? viewModel.filteredCurrencies[indexPath.row] : viewModel.currencies[indexPath.row])
+        #warning("fix selection")
+        viewModel.currencies[indexPath.row].isSelected = true
+        CoreDataStack.shared.saveChanges()
+        //delegate?.controller(self, didSelect: isFiltering ? viewModel.filteredCurrencies[indexPath.row] : viewModel.currencies[indexPath.row])
     }
     
 }

@@ -86,11 +86,11 @@ private extension RatesViewController {
         definesPresentationContext = true
         
         
-        let editImage = UIImage(systemName: "list.bullet")
+        //let editImage = UIImage(systemName: "list.bullet")
         let addImage = UIImage(systemName: "plus")
-        let editButton = UIBarButtonItem(image: editImage, style: .plain, target: self, action: #selector(editDidTap(_:)))
+        //let editButton = UIBarButtonItem(image: editImage, style: .plain, target: self, action: #selector(editDidTap(_:)))
         let addButton = UIBarButtonItem(image: addImage, style: .plain, target: self, action: #selector(addDidTap(_:)))
-        navigationItem.setRightBarButtonItems([addButton, editButton], animated: false)
+        navigationItem.setRightBarButtonItems([addButton], animated: false)
     }
     
     @objc func addDidTap(_ sender: Any) {
@@ -133,16 +133,17 @@ extension RatesViewController: UITableViewDataSource {
         return !isFiltering
     }
     
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            viewModel.removeCurrency(at: indexPath)
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        }
-    }
     
-    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
-        viewModel.reorderCurrencies(moveRowAt: sourceIndexPath, to: destinationIndexPath)
-    }
+//    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+//        if editingStyle == .delete {
+//            viewModel.removeCurrency(at: indexPath)
+//            tableView.deleteRows(at: [indexPath], with: .fade)
+//        }
+//    }
+//
+//    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+//        viewModel.reorderCurrencies(moveRowAt: sourceIndexPath, to: destinationIndexPath)
+//    }
     
 }
 
@@ -153,16 +154,6 @@ extension RatesViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         viewModel.rateItems[indexPath.row].didSelectCell()
         tableView.deselectRow(at: indexPath, animated: true)
-    }
-    
-    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return 44
-    }
-    
-    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        let v = seactionFooterView
-        v?.updatedDateTime = viewModel.lastUpdated
-        return v
     }
     
 }

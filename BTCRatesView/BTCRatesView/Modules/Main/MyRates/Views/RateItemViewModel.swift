@@ -20,7 +20,7 @@ protocol CellRepresentable {
 }
 
 class RateItemViewModel {
-    let currency: Currency
+    let currency: CurrencyModel
     private let apiClient = CoinDeskClient()
     private var presentingIndexPath: IndexPath?
     private var ratesHistory: [BPIHistory.Rate] = [] {
@@ -50,7 +50,7 @@ class RateItemViewModel {
     // Events
     var onUpdating: ((RateItemViewModel) -> ())?
     
-    init(_ currency: Currency) {
+    init(_ currency: CurrencyModel) {
         self.currency = currency
     }
    
