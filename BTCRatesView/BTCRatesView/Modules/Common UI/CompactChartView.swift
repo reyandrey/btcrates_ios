@@ -47,6 +47,7 @@ private extension CompactChartView {
     func setup() {
         addSubview(lineChart)
         lineChart.data = nil
+        setChartHidden(true, animated: false)
     }
     
     func chartData(with entries: [ChartDataEntry], isGrowing: Bool) -> LineChartData {
@@ -65,8 +66,6 @@ private extension CompactChartView {
         set.drawFilledEnabled = true
         
         let data = LineChartData(dataSet: set)
-        //data.setValueTextColor(.white)
-        //data.setValueFont(.systemFont(ofSize: 9, weight: .light))
         return data
     }
     
@@ -85,5 +84,12 @@ extension CompactChartView {
         lineChart.xAxis.axisMaximum = Double(values.count - 1)
         
         lineChart.data = data
+        setChartHidden(false)
+    }
+    
+    func setChartHidden(_ hidden: Bool, animated: Bool = true) {
+        UIView.animate(withDuration: animated ? 0.33 : 0) {
+            self.lineChart.layer.opacity = hidden ? 0:1
+        }
     }
 }

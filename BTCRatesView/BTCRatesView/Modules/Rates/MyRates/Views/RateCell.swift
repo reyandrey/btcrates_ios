@@ -34,23 +34,20 @@ class RateCell: UITableViewCell, CellIdentifiable {
         guard viewModel.isPresenting(by: self) else { return }
         codeLabel.text = viewModel.code
         countryLabel.text = viewModel.country
-        ratesLabel.text = viewModel.rate ?? "🤔"
-        chartView.set(viewModel.history)
-        diffLabel.text = viewModel.diffPercenString
-        diffView.backgroundColor = viewModel.diffColor
+        diffLabel.text = viewModel.diff.percentString
+        diffView.backgroundColor = viewModel.diff.color
+        if let rate = viewModel.rate {
+            ratesLabel.text = rate.today
+            chartView.set(rate.history)
+            print("[\(viewModel.code)] (\(rate.history.count)) data: \(rate.history)")
+        } else {
+            ratesLabel.text = "🤔"
+            chartView.setChartHidden(true)
+        }
         
         viewModel.onUpdating = { [weak self] (viewModel) in
             self?.set(viewModel)
         }
         
-    }
-}
-
-private extension RateCell {
-    func setActivityIndication(_ active: Bool) {
-        UIView.animate(withDuration: active ? 0 : 0.33) {
-            self.chartView.alpha = active ? 0:1
-            self.diffView.alpha = active ? 0:1
-        }
     }
 }

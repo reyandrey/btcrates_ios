@@ -20,12 +20,12 @@ protocol CellRepresentable {
 }
 
 class RateItemViewModel {
-    
     let currency: Currency
     private let apiClient = CoinDeskClient()
-    private var bpiRealTime: BPIRealTime?
-    private var weeklyHistory: [Double]?
     private var presentingIndexPath: IndexPath?
+    private var ratesHistory: [BPIHistory.Rate] = [] {
+        didSet { onUpdating?(self) }
+    }
     
     let currencyFormatter: NumberFormatter = {
         let fmt = NumberFormatter()
@@ -55,14 +55,11 @@ class RateItemViewModel {
     }
    
     func reloadData() {
-        apiClient.getCurrentPrice(code: currency.code) { [weak self] bpiRealTimeObject in
-            guard let self = self else { return }
-            self.bpiRealTime = bpiRealTimeObject
-            self.weeklyHistory = [
-                648, 654, 658, 659, 656, 652, 650,
-                648, 650, 652, 654, 656, 650, 660
-            ]
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1) { self.onUpdating?(self) }
+        apiClient.getWeekHistory(currency: currency.code) { history in
+            guard let history = history else { return }
+            DispatchQueue.main.async {
+                self.ratesHistory = history
+            }
         }
     }
     
@@ -73,24 +70,18 @@ extension RateItemViewModel {
     
     var code: String { currency.code }
     var country: String { currency.country }
-    var rate: String? {
-        if let r = bpiRealTime?.rateDouble { return currencyFormatter.string(from: NSNumber(value: r)) ?? "" }
-        else { return nil }
+    
+    var rate: (today: String, history: [Double])? {
+        guard let today = ratesHistory.last?.value, let todayString = currencyFormatter.string(from: NSNumber(value: today)) else { return nil }
+        let history = ratesHistory.map { $0.value }
+        return (today: todayString, history: history)
     }
-    var history: [Double]? {
-        return self.weeklyHistory
-    }
-    var diffPercent: Double? {
-        guard let weeklyHistory = weeklyHistory else { return nil }
-        guard let last = weeklyHistory.last, let secondLast = weeklyHistory.dropLast().last else { return nil }
-        return (last-secondLast)/secondLast
-    }
-    var diffPercenString: String {
-        guard let diffPercent = diffPercent else { return "-" }
-        return percentFormatter.string(from: NSNumber(value: diffPercent)) ?? "-"
-    }
-    var diffColor: UIColor {
-        return diffPercent == nil ? .lightGray : (diffPercent! >= 0 ? .systemGreen : .systemRed)
+    
+    var diff: (percentString: String, color: UIColor) {
+        guard let yesterday = ratesHistory.dropLast().last?.value, let today = ratesHistory.last?.value
+            else { return (percentString: "-", color: .lightGray) }
+        let percent = (today-yesterday)/yesterday
+        return (percentString: percentFormatter.string(from: NSNumber(value: percent)) ?? "-", color: percent >= 0 ? .systemGreen : .systemRed)
     }
 }
 

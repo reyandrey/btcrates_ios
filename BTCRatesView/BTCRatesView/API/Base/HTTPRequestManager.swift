@@ -44,7 +44,7 @@ public extension HTTPRequestManager {
         
         let taskCompletionHandler = { (data: Data?, response: URLResponse?, error: Error?) in
             let stringData = String(data: data ?? Data(), encoding: .utf8) ?? ""
-            self.log.debug("did complete request with response \(response.debugDescription) and data: \(stringData)")
+            //self.log.debug("did complete request with response \(response.debugDescription) and data: \(stringData)")
             completionHandler(data, response, error)
         }
         
@@ -55,7 +55,7 @@ public extension HTTPRequestManager {
             task = session.dataTask(with: request, completionHandler: taskCompletionHandler)
         }
         let stringData = String(data: payload ?? Data(), encoding: .utf8) ?? ""
-        log.debug("will perform request to: \(request.debugDescription) and data:\(stringData)")
+        //log.debug("will perform request to: \(request.debugDescription) and data:\(stringData)")
         task.resume()
     }
 
