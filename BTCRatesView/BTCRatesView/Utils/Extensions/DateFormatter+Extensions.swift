@@ -12,6 +12,8 @@ extension DateFormatter {
     
     static let ISO8601_date: DateFormatter = {
         let df = DateFormatter()
+        df.locale = Locale(identifier: "en_US_POSIX")
+        df.timeZone = .current
         df.dateFormat = "yyy-MM-dd"
         return df
     }()

@@ -58,6 +58,7 @@ class RateItemViewModel {
         apiClient.getWeekHistory(currency: currency.code) { history in
             guard let history = history else { return }
             DispatchQueue.main.async {
+                print(history.map { $0.date })
                 self.ratesHistory = history
             }
         }

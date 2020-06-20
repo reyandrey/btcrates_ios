@@ -35,7 +35,7 @@ extension BPIHistory {
         case week, month, year
         
         var endDate: Date {
-            return Calendar.current.date(byAdding: .day, value: -1, to: Date()) ?? Date()
+            return Date()
         }
         
         var startDate: Date {
