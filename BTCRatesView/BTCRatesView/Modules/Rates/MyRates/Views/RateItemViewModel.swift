@@ -48,14 +48,13 @@ class RateItemViewModel {
     }()
     
     // Events
-    var onUpdating: ((Bool) -> Void)?
+    var onUpdating: ((RateItemViewModel) -> ())?
     
     init(_ currency: Currency) {
         self.currency = currency
     }
    
     func reloadData() {
-        self.onUpdating?(true)
         apiClient.getCurrentPrice(code: currency.code) { [weak self] bpiRealTimeObject in
             guard let self = self else { return }
             self.bpiRealTime = bpiRealTimeObject
@@ -63,7 +62,7 @@ class RateItemViewModel {
                 648, 654, 658, 659, 656, 652, 650,
                 648, 650, 652, 654, 656, 650, 660
             ]
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1) { self.onUpdating?(false) }
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) { self.onUpdating?(self) }
         }
     }
     
@@ -91,7 +90,7 @@ extension RateItemViewModel {
         return percentFormatter.string(from: NSNumber(value: diffPercent)) ?? "-"
     }
     var diffColor: UIColor {
-        return (diffPercent ?? 0) >= 0 ? .systemGreen : .systemRed
+        return diffPercent == nil ? .lightGray : (diffPercent! >= 0 ? .systemGreen : .systemRed)
     }
 }
 

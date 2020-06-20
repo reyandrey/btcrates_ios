@@ -21,44 +21,18 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="RateCell" id="TNp-EV-zYf" customClass="RateCell" customModule="BTCRatesView" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="80"/>
+                                        <rect key="frame" x="0.0" y="28" width="375" height="75.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="TNp-EV-zYf" id="j3X-Oz-tOv">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="75.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ibB-2H-dwo" customClass="CompactChartView" customModule="BTCRatesView" customModuleProvider="target">
-                                                    <rect key="frame" x="150" y="10" width="110" height="60"/>
+                                                    <rect key="frame" x="152.5" y="10" width="110" height="55.5"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
+                                                        <constraint firstAttribute="height" constant="55" id="Tde-W0-xx1"/>
                                                         <constraint firstAttribute="width" constant="110" id="kz2-Ye-pf8"/>
-                                                    </constraints>
-                                                </view>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7M8-uR-2Th">
-                                                    <rect key="frame" x="0.0" y="0.0" width="150" height="80"/>
-                                                    <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="USD" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r2e-HD-1x5">
-                                                            <rect key="frame" x="20" y="20" width="34" height="20.5"/>
-                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
-                                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="United States Dollar" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ps2-Ha-Yx1">
-                                                            <rect key="frame" x="20" y="45.5" width="118.5" height="14.5"/>
-                                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="12"/>
-                                                            <color key="textColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                    </subviews>
-                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <constraints>
-                                                        <constraint firstItem="ps2-Ha-Yx1" firstAttribute="leading" secondItem="r2e-HD-1x5" secondAttribute="leading" id="5nG-fl-a6g"/>
-                                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="r2e-HD-1x5" secondAttribute="trailing" constant="5" id="8nH-iG-H2e"/>
-                                                        <constraint firstItem="r2e-HD-1x5" firstAttribute="leading" secondItem="7M8-uR-2Th" secondAttribute="leading" constant="20" id="Gfb-x7-RuF"/>
-                                                        <constraint firstItem="r2e-HD-1x5" firstAttribute="top" secondItem="7M8-uR-2Th" secondAttribute="top" constant="20" id="NTp-VC-Sfk"/>
-                                                        <constraint firstItem="ps2-Ha-Yx1" firstAttribute="top" secondItem="r2e-HD-1x5" secondAttribute="bottom" constant="5" id="fjL-mB-7d0"/>
-                                                        <constraint firstAttribute="bottom" secondItem="ps2-Ha-Yx1" secondAttribute="bottom" constant="20" id="hhl-v9-ALI"/>
-                                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="ps2-Ha-Yx1" secondAttribute="trailing" constant="5" id="y37-fZ-lhh"/>
                                                     </constraints>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XdR-GW-iFf">
@@ -86,31 +60,46 @@
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="United States Dollar" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ps2-Ha-Yx1">
+                                                    <rect key="frame" x="20" y="45" width="118.5" height="14.5"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="12"/>
+                                                    <color key="textColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="646,175" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2uZ-oW-AV7">
-                                                    <rect key="frame" x="260" y="15" width="95" height="19.5"/>
+                                                    <rect key="frame" x="294.5" y="15" width="60.5" height="19.5"/>
                                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
                                                     <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="USD" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r2e-HD-1x5">
+                                                    <rect key="frame" x="20" y="20" width="34" height="20"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="XdR-GW-iFf" firstAttribute="top" secondItem="2uZ-oW-AV7" secondAttribute="bottom" constant="5" id="3JH-cd-sl9"/>
-                                                <constraint firstItem="2uZ-oW-AV7" firstAttribute="leading" secondItem="ibB-2H-dwo" secondAttribute="trailing" id="Fn1-5A-XFq"/>
-                                                <constraint firstItem="7M8-uR-2Th" firstAttribute="top" secondItem="j3X-Oz-tOv" secondAttribute="top" id="UZO-6T-FKH"/>
-                                                <constraint firstAttribute="bottom" secondItem="7M8-uR-2Th" secondAttribute="bottom" id="Zvm-OK-iad"/>
+                                                <constraint firstItem="ibB-2H-dwo" firstAttribute="centerX" secondItem="j3X-Oz-tOv" secondAttribute="centerX" constant="20" id="4sV-b1-oDz"/>
+                                                <constraint firstItem="ibB-2H-dwo" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="ps2-Ha-Yx1" secondAttribute="trailing" id="7hg-96-q6y"/>
+                                                <constraint firstItem="2uZ-oW-AV7" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="ibB-2H-dwo" secondAttribute="trailing" id="Fn1-5A-XFq"/>
+                                                <constraint firstItem="r2e-HD-1x5" firstAttribute="leading" secondItem="j3X-Oz-tOv" secondAttribute="leading" constant="20" id="YLf-3X-Itq"/>
                                                 <constraint firstAttribute="trailing" secondItem="2uZ-oW-AV7" secondAttribute="trailing" constant="20" id="aaY-h9-AGj"/>
-                                                <constraint firstItem="ibB-2H-dwo" firstAttribute="leading" secondItem="7M8-uR-2Th" secondAttribute="trailing" id="bna-tJ-aY5"/>
+                                                <constraint firstItem="ps2-Ha-Yx1" firstAttribute="top" secondItem="r2e-HD-1x5" secondAttribute="bottom" constant="5" id="cap-sS-YcU"/>
                                                 <constraint firstAttribute="bottom" secondItem="ibB-2H-dwo" secondAttribute="bottom" constant="10" id="d0B-sk-XO8"/>
+                                                <constraint firstItem="ps2-Ha-Yx1" firstAttribute="leading" secondItem="r2e-HD-1x5" secondAttribute="leading" id="f5u-5n-V0Z"/>
+                                                <constraint firstItem="r2e-HD-1x5" firstAttribute="top" secondItem="j3X-Oz-tOv" secondAttribute="top" constant="20" id="iie-bk-SGk"/>
+                                                <constraint firstItem="ibB-2H-dwo" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="r2e-HD-1x5" secondAttribute="trailing" id="kkB-jb-gZu"/>
                                                 <constraint firstItem="ibB-2H-dwo" firstAttribute="centerY" secondItem="j3X-Oz-tOv" secondAttribute="centerY" id="npV-2v-srr"/>
                                                 <constraint firstItem="ibB-2H-dwo" firstAttribute="top" secondItem="j3X-Oz-tOv" secondAttribute="top" constant="10" id="o6f-1s-ML7"/>
-                                                <constraint firstItem="7M8-uR-2Th" firstAttribute="width" secondItem="j3X-Oz-tOv" secondAttribute="width" multiplier="0.4" id="rFi-nv-MxV"/>
                                                 <constraint firstItem="2uZ-oW-AV7" firstAttribute="top" secondItem="j3X-Oz-tOv" secondAttribute="top" constant="15" id="rGY-zg-8xK"/>
                                                 <constraint firstItem="XdR-GW-iFf" firstAttribute="trailing" secondItem="2uZ-oW-AV7" secondAttribute="trailing" id="uP5-2Y-Kro"/>
-                                                <constraint firstItem="7M8-uR-2Th" firstAttribute="leading" secondItem="j3X-Oz-tOv" secondAttribute="leading" id="yff-jG-Wxh"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="chartView" destination="ibB-2H-dwo" id="R87-1f-fzX"/>
+                                            <outlet property="chartViewWidthConstraint" destination="kz2-Ye-pf8" id="ogT-Dl-x86"/>
                                             <outlet property="codeLabel" destination="r2e-HD-1x5" id="XA4-2f-EjT"/>
                                             <outlet property="countryLabel" destination="ps2-Ha-Yx1" id="lM7-h2-hol"/>
                                             <outlet property="diffLabel" destination="8aS-GL-K5Q" id="F8G-Lg-Ghb"/>
