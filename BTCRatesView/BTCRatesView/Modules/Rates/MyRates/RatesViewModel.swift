@@ -9,8 +9,6 @@
 import Foundation
 
 class RatesViewModel {
-    //MARK: - Initial Values, Dependencies
-    
     let profileManager: ProfileManager
     
     //MARK: - Lifeycle
@@ -18,10 +16,8 @@ class RatesViewModel {
         self.profileManager = profileManager
     }
     
-    var didError: ((Error) -> Void)?
-    var didUpdate: ((RatesViewModel) -> Void)?
-    
-    private(set) var isUpdating: Bool = false { didSet { self.didUpdate?(self) } }
+    var onError: ((String) -> Void)?
+    var onUpdating: ((Bool) -> Void)?
     
     //MARK: - Properties
     var lastUpdated: Date?
@@ -29,19 +25,15 @@ class RatesViewModel {
     var filteredrateItems: [RateItemViewModel] = []
     
     var title: String {
-        return isUpdating ? "Loading.." : "Rates"
+        return "BTC Rates"
     }
     
     //MARK: - Actions
     func reloadData() {
-        self.isUpdating = true
-        rateItems = profileManager.userCurrencies.map { getCurrencyItemViewModel($0) }
+        onUpdating?(true)
+        rateItems = profileManager.userCurrencies.map { RateItemViewModel($0) }
         self.lastUpdated = Date()
-        self.isUpdating = false
-    }
-    
-    func getCurrencyItemViewModel(_ currency: Currency) -> RateItemViewModel {
-        return RateItemViewModel(currency)
+        onUpdating?(false)
     }
     
     func removeCurrency(at indexPath: IndexPath) {

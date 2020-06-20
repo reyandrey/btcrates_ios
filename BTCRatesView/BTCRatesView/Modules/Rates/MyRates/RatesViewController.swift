@@ -54,15 +54,17 @@ class RatesViewController: UIViewController, Storyboardable, ReloadableContentPr
 extension RatesViewController {
     
     func bindViewModel() {
-        viewModel.didUpdate = { [weak self] viewModel in
-            self?.didUpdate(viewModel)
+        viewModel.onUpdating = { [weak self] updating in
+            self?.onUpdating(updating)
         }
     }
     
-    func didUpdate(_ viewModel: RatesViewModel) {
-        title = viewModel.title
-        tableView.reloadData()
-        refreshControl.endRefreshing()
+    func onUpdating(_ updating: Bool) {
+        title = updating ? "Updating.." : viewModel.title
+        if !updating { tableView.reloadData() }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            self.refreshControl.endRefreshing()
+        }
     }
 }
 

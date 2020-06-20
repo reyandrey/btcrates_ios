@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5525F2F9249D2F2B0004F7BE /* Cartfile in Resources */ = {isa = PBXBuildFile; fileRef = 5525F2F8249D2F2B0004F7BE /* Cartfile */; };
+		5525F2FD249D32A10004F7BE /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5525F2FC249D32A10004F7BE /* Charts.framework */; };
+		5525F301249D32B00004F7BE /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5525F300249D32B00004F7BE /* SnapKit.framework */; };
+		5525F305249D356F0004F7BE /* CompactChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5525F304249D356F0004F7BE /* CompactChartView.swift */; };
+		5525F307249D387E0004F7BE /* ChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5525F306249D387E0004F7BE /* ChartViewController.swift */; };
 		554D5E412493AA700026E4E1 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554D5E3C2493AA6F0026E4E1 /* HTTPClient.swift */; };
 		554D5E432493AA700026E4E1 /* HTTPRequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554D5E3E2493AA6F0026E4E1 /* HTTPRequestManager.swift */; };
 		554D5E442493AA700026E4E1 /* CoinDeskClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554D5E3F2493AA6F0026E4E1 /* CoinDeskClient.swift */; };
@@ -25,6 +30,8 @@
 		55CFB12D248BC8CA00C7DB04 /* AddCurrencyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CFB12C248BC8CA00C7DB04 /* AddCurrencyViewController.swift */; };
 		55CFB131248BC9F400C7DB04 /* RateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CFB130248BC9F400C7DB04 /* RateCell.swift */; };
 		55CFB134248BCD7D00C7DB04 /* AddCurrencyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CFB133248BCD7D00C7DB04 /* AddCurrencyCell.swift */; };
+		55D267BA249DA4AA0037DC27 /* BPIHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D267B9249DA4AA0037DC27 /* BPIHistory.swift */; };
+		55D267BF249DA8220037DC27 /* DateFormatter+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D267BE249DA8220037DC27 /* DateFormatter+Extensions.swift */; };
 		5B6CBC7F248C0793009FBB90 /* RateItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6CBC7E248C0793009FBB90 /* RateItemViewModel.swift */; };
 		5B6CBC82248C1C29009FBB90 /* BPIRealTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6CBC81248C1C29009FBB90 /* BPIRealTime.swift */; };
 		5B6CBC84248C3CB2009FBB90 /* RatesSectionFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6CBC83248C3CB2009FBB90 /* RatesSectionFooter.swift */; };
@@ -37,6 +44,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5525F2F8249D2F2B0004F7BE /* Cartfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile; sourceTree = SOURCE_ROOT; };
+		5525F2FC249D32A10004F7BE /* Charts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Charts.framework; path = Carthage/Build/iOS/Charts.framework; sourceTree = "<group>"; };
+		5525F300249D32B00004F7BE /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = Carthage/Build/iOS/SnapKit.framework; sourceTree = "<group>"; };
+		5525F304249D356F0004F7BE /* CompactChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompactChartView.swift; sourceTree = "<group>"; };
+		5525F306249D387E0004F7BE /* ChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewController.swift; sourceTree = "<group>"; };
 		554D5E3C2493AA6F0026E4E1 /* HTTPClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 		554D5E3E2493AA6F0026E4E1 /* HTTPRequestManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPRequestManager.swift; sourceTree = "<group>"; };
 		554D5E3F2493AA6F0026E4E1 /* CoinDeskClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoinDeskClient.swift; sourceTree = "<group>"; };
@@ -57,6 +69,8 @@
 		55CFB12C248BC8CA00C7DB04 /* AddCurrencyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCurrencyViewController.swift; sourceTree = "<group>"; };
 		55CFB130248BC9F400C7DB04 /* RateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateCell.swift; sourceTree = "<group>"; };
 		55CFB133248BCD7D00C7DB04 /* AddCurrencyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCurrencyCell.swift; sourceTree = "<group>"; };
+		55D267B9249DA4AA0037DC27 /* BPIHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BPIHistory.swift; sourceTree = "<group>"; };
+		55D267BE249DA8220037DC27 /* DateFormatter+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+Extensions.swift"; sourceTree = "<group>"; };
 		5B6CBC7E248C0793009FBB90 /* RateItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateItemViewModel.swift; sourceTree = "<group>"; };
 		5B6CBC81248C1C29009FBB90 /* BPIRealTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BPIRealTime.swift; sourceTree = "<group>"; };
 		5B6CBC83248C3CB2009FBB90 /* RatesSectionFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatesSectionFooter.swift; sourceTree = "<group>"; };
@@ -73,12 +87,32 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5525F2FD249D32A10004F7BE /* Charts.framework in Frameworks */,
+				5525F301249D32B00004F7BE /* SnapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5525F2FB249D32A10004F7BE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5525F300249D32B00004F7BE /* SnapKit.framework */,
+				5525F2FC249D32A10004F7BE /* Charts.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5525F303249D353E0004F7BE /* Common UI */ = {
+			isa = PBXGroup;
+			children = (
+				5525F304249D356F0004F7BE /* CompactChartView.swift */,
+				5525F306249D387E0004F7BE /* ChartViewController.swift */,
+			);
+			path = "Common UI";
+			sourceTree = "<group>";
+		};
 		554D5E3B2493AA6F0026E4E1 /* Base */ = {
 			isa = PBXGroup;
 			children = (
@@ -93,6 +127,7 @@
 			children = (
 				55CFB0F7248BC45600C7DB04 /* BTCRatesView */,
 				55CFB0F6248BC45600C7DB04 /* Products */,
+				5525F2FB249D32A10004F7BE /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -121,6 +156,7 @@
 		55CFB10C248BC50100C7DB04 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				5525F2F8249D2F2B0004F7BE /* Cartfile */,
 				55CFB106248BC45800C7DB04 /* Info.plist */,
 				55CFB101248BC45800C7DB04 /* Assets.xcassets */,
 				55CFB103248BC45800C7DB04 /* LaunchScreen.storyboard */,
@@ -131,6 +167,7 @@
 		55CFB10D248BC58600C7DB04 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				5525F303249D353E0004F7BE /* Common UI */,
 				55CFB12B248BC7A700C7DB04 /* Rates */,
 			);
 			path = Modules;
@@ -149,10 +186,7 @@
 		55CFB120248BC5D400C7DB04 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				55CFB121248BC5D400C7DB04 /* UIStoryboard+Extensions.swift */,
-				55CFB122248BC5D400C7DB04 /* String+Extensions.swift */,
-				55CFB123248BC5D400C7DB04 /* UIView+Extension.swift */,
-				55CFB124248BC5D400C7DB04 /* UIViewController+Extensions.swift */,
+				55D267BB249DA7B10037DC27 /* Extensions */,
 				5B7F52DA248BDFD10036EE24 /* UserDefaultsStorage.swift */,
 				554D5E462493AA910026E4E1 /* Log.swift */,
 			);
@@ -208,6 +242,18 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		55D267BB249DA7B10037DC27 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				55CFB121248BC5D400C7DB04 /* UIStoryboard+Extensions.swift */,
+				55CFB122248BC5D400C7DB04 /* String+Extensions.swift */,
+				55CFB123248BC5D400C7DB04 /* UIView+Extension.swift */,
+				55CFB124248BC5D400C7DB04 /* UIViewController+Extensions.swift */,
+				55D267BE249DA8220037DC27 /* DateFormatter+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		5B6CBC80248C15C2009FBB90 /* App */ = {
 			isa = PBXGroup;
 			children = (
@@ -222,6 +268,7 @@
 			children = (
 				5B7F52D5248BDCF10036EE24 /* Currency.swift */,
 				5B6CBC81248C1C29009FBB90 /* BPIRealTime.swift */,
+				55D267B9249DA4AA0037DC27 /* BPIHistory.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -244,6 +291,7 @@
 				55CFB0F1248BC45600C7DB04 /* Sources */,
 				55CFB0F2248BC45600C7DB04 /* Frameworks */,
 				55CFB0F3248BC45600C7DB04 /* Resources */,
+				5525F2FA249D31E30004F7BE /* Carthage */,
 			);
 			buildRules = (
 			);
@@ -294,11 +342,35 @@
 			files = (
 				55CFB105248BC45800C7DB04 /* LaunchScreen.storyboard in Resources */,
 				55CFB102248BC45800C7DB04 /* Assets.xcassets in Resources */,
+				5525F2F9249D2F2B0004F7BE /* Cartfile in Resources */,
 				55CFB100248BC45600C7DB04 /* Rates.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5525F2FA249D31E30004F7BE /* Carthage */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/SnapKit.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Charts.framework",
+			);
+			name = Carthage;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		55CFB0F1248BC45600C7DB04 /* Sources */ = {
@@ -307,11 +379,13 @@
 			files = (
 				55CFB131248BC9F400C7DB04 /* RateCell.swift in Sources */,
 				554D5E472493AA910026E4E1 /* Log.swift in Sources */,
+				55D267BF249DA8220037DC27 /* DateFormatter+Extensions.swift in Sources */,
 				55CFB126248BC5D400C7DB04 /* String+Extensions.swift in Sources */,
 				5B7F52D1248BD3B30036EE24 /* RatesCoordinator.swift in Sources */,
 				5B6CBC82248C1C29009FBB90 /* BPIRealTime.swift in Sources */,
 				55CFB128248BC5D400C7DB04 /* UIViewController+Extensions.swift in Sources */,
 				554D5E452493AA700026E4E1 /* CoinDeskAPI.swift in Sources */,
+				55D267BA249DA4AA0037DC27 /* BPIHistory.swift in Sources */,
 				554D5E442493AA700026E4E1 /* CoinDeskClient.swift in Sources */,
 				5B7F52D3248BD60C0036EE24 /* AddCurrencyViewModel.swift in Sources */,
 				5B7F52D9248BDEDE0036EE24 /* ProfileManager.swift in Sources */,
@@ -322,12 +396,14 @@
 				55CFB127248BC5D400C7DB04 /* UIView+Extension.swift in Sources */,
 				55CFB0FD248BC45600C7DB04 /* RatesViewController.swift in Sources */,
 				5B7F52DB248BDFD10036EE24 /* UserDefaultsStorage.swift in Sources */,
+				5525F307249D387E0004F7BE /* ChartViewController.swift in Sources */,
 				55CFB134248BCD7D00C7DB04 /* AddCurrencyCell.swift in Sources */,
 				5B6CBC7F248C0793009FBB90 /* RateItemViewModel.swift in Sources */,
 				5B7F52D6248BDCF10036EE24 /* Currency.swift in Sources */,
 				554D5E412493AA700026E4E1 /* HTTPClient.swift in Sources */,
 				55CFB11F248BC5CB00C7DB04 /* AppCoordinator.swift in Sources */,
 				55CFB0F9248BC45600C7DB04 /* AppDelegate.swift in Sources */,
+				5525F305249D356F0004F7BE /* CompactChartView.swift in Sources */,
 				5B6CBC84248C3CB2009FBB90 /* RatesSectionFooter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -474,6 +550,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = NF22V7BXCS;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = BTCRatesView/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -493,6 +573,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = NF22V7BXCS;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = BTCRatesView/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
