@@ -20,6 +20,7 @@
 		5564DDF8249E36190025AECF /* PanModal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5564DDF7249E36190025AECF /* PanModal.framework */; };
 		5564DDF9249E36190025AECF /* PanModal.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5564DDF7249E36190025AECF /* PanModal.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5564DDFC249E381B0025AECF /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5564DDFB249E381B0025AECF /* NavigationController.swift */; };
+		5564DDFE249E46820025AECF /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5564DDFD249E46820025AECF /* Coordinator.swift */; };
 		55CFB0F9248BC45600C7DB04 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CFB0F8248BC45600C7DB04 /* AppDelegate.swift */; };
 		55CFB0FD248BC45600C7DB04 /* RatesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CFB0FC248BC45600C7DB04 /* RatesViewController.swift */; };
 		55CFB100248BC45600C7DB04 /* Rates.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55CFB0FE248BC45600C7DB04 /* Rates.storyboard */; };
@@ -73,6 +74,7 @@
 		554D5E462493AA910026E4E1 /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		5564DDF7249E36190025AECF /* PanModal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PanModal.framework; path = Carthage/Build/iOS/PanModal.framework; sourceTree = "<group>"; };
 		5564DDFB249E381B0025AECF /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
+		5564DDFD249E46820025AECF /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		55CFB0F5248BC45600C7DB04 /* BTCRatesView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BTCRatesView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		55CFB0F8248BC45600C7DB04 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		55CFB0FC248BC45600C7DB04 /* RatesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatesViewController.swift; sourceTree = "<group>"; };
@@ -125,23 +127,23 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		5525F303249D353E0004F7BE /* Common UI */ = {
+		5525F303249D353E0004F7BE /* Base */ = {
 			isa = PBXGroup;
 			children = (
 				5525F304249D356F0004F7BE /* CompactChartView.swift */,
 				5525F306249D387E0004F7BE /* ChartViewController.swift */,
 				5564DDFB249E381B0025AECF /* NavigationController.swift */,
 			);
-			path = "Common UI";
+			path = Base;
 			sourceTree = "<group>";
 		};
-		554D5E3B2493AA6F0026E4E1 /* Base */ = {
+		554D5E3B2493AA6F0026E4E1 /* Request manager */ = {
 			isa = PBXGroup;
 			children = (
 				554D5E3C2493AA6F0026E4E1 /* HTTPClient.swift */,
 				554D5E3E2493AA6F0026E4E1 /* HTTPRequestManager.swift */,
 			);
-			path = Base;
+			path = "Request manager";
 			sourceTree = "<group>";
 		};
 		55CFB0EC248BC45600C7DB04 = {
@@ -165,8 +167,8 @@
 			isa = PBXGroup;
 			children = (
 				5B6CBC80248C15C2009FBB90 /* App */,
-				5B7F52D7248BDEAC0036EE24 /* Managers */,
 				55CFB10D248BC58600C7DB04 /* Modules */,
+				5B7F52D7248BDEAC0036EE24 /* Managers */,
 				55CFB10E248BC5B700C7DB04 /* API */,
 				5B7F52D4248BDCD80036EE24 /* Model */,
 				55CFB120248BC5D400C7DB04 /* Utils */,
@@ -189,8 +191,8 @@
 		55CFB10D248BC58600C7DB04 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				5525F303249D353E0004F7BE /* Common UI */,
-				55CFB12B248BC7A700C7DB04 /* Rates */,
+				5525F303249D353E0004F7BE /* Base */,
+				55CFB12B248BC7A700C7DB04 /* Main */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -198,7 +200,6 @@
 		55CFB10E248BC5B700C7DB04 /* API */ = {
 			isa = PBXGroup;
 			children = (
-				554D5E3B2493AA6F0026E4E1 /* Base */,
 				554D5E402493AA6F0026E4E1 /* CoinDeskAPI.swift */,
 				554D5E3F2493AA6F0026E4E1 /* CoinDeskClient.swift */,
 			);
@@ -208,14 +209,16 @@
 		55CFB120248BC5D400C7DB04 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				554D5E3B2493AA6F0026E4E1 /* Request manager */,
 				55D267BB249DA7B10037DC27 /* Extensions */,
 				5B7F52DA248BDFD10036EE24 /* UserDefaultsStorage.swift */,
 				554D5E462493AA910026E4E1 /* Log.swift */,
+				5564DDFD249E46820025AECF /* Coordinator.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
 		};
-		55CFB12B248BC7A700C7DB04 /* Rates */ = {
+		55CFB12B248BC7A700C7DB04 /* Main */ = {
 			isa = PBXGroup;
 			children = (
 				55CFB0FE248BC45600C7DB04 /* Rates.storyboard */,
@@ -223,7 +226,7 @@
 				55CFB12E248BC99B00C7DB04 /* MyRates */,
 				55CFB12F248BC9AB00C7DB04 /* AddCurrency */,
 			);
-			path = Rates;
+			path = Main;
 			sourceTree = "<group>";
 		};
 		55CFB12E248BC99B00C7DB04 /* MyRates */ = {
@@ -403,6 +406,7 @@
 			files = (
 				55CFB131248BC9F400C7DB04 /* RateCell.swift in Sources */,
 				554D5E472493AA910026E4E1 /* Log.swift in Sources */,
+				5564DDFE249E46820025AECF /* Coordinator.swift in Sources */,
 				55D267BF249DA8220037DC27 /* DateFormatter+Extensions.swift in Sources */,
 				55CFB126248BC5D400C7DB04 /* String+Extensions.swift in Sources */,
 				5B7F52D1248BD3B30036EE24 /* RatesCoordinator.swift in Sources */,

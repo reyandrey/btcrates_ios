@@ -10,7 +10,6 @@ import Foundation
 import os.log
 
 public class Log<T> {
-    
     private let log: OSLog
     
     public init(){

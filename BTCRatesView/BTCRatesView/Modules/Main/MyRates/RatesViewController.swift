@@ -12,7 +12,7 @@ protocol RatesViewControllerDelegate: class {
     func controllerShouldAddNewCurrency(_ controller: RatesViewController)
 }
 
-class RatesViewController: UIViewController, Storyboardable, ReloadableContentProtocol {
+class RatesViewController: UIViewController, Storyboardable {
     typealias T = RatesViewController
     static var storyboardName: String { return "Rates" }
     

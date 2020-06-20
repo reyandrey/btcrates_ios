@@ -9,26 +9,27 @@
 import Foundation
 import UIKit
 
-protocol CoordinatorProtool {
-    func start()
-}
-
-protocol ReloadableContentProtocol {
-    func reload()
-}
-
-class AppCoordinator: CoordinatorProtool {
+class AppCoordinator: Coordinator {
     
-    private var window: UIWindow? { UIApplication.shared.keyWindow }
-    private var currenciesCoordinator: RatesCoordinator!
+    let window: UIWindow
     
-    func start() {
-        currenciesCoordinator = RatesCoordinator()
+    init(window: UIWindow) {
+        self.window = window
+        super.init()
+    }
+    
+    override func start() {
+        let navigationController = NavigationController()
+        window.rootViewController = navigationController
+        window.makeKeyAndVisible()
+        
+        let currenciesCoordinator = RatesCoordinator(with: navigationController)
+        addChild(currenciesCoordinator)
+        currenciesCoordinator.completionHandler = { [weak self] in
+            self?.removeChild(currenciesCoordinator)
+        }
         currenciesCoordinator.start()
     }
     
 }
 
-private extension AppCoordinator {
-    
-}

@@ -13,10 +13,10 @@ class ProfileManager {
         case currencies
     }
 
-    private var userDefaults: UserDefaults
-    
     @UserDefaultsStandart(key: Keys.currencies.rawValue, defaultValue: nil)
     private var userCurrenciesData: Data?
+    private var userDefaults: UserDefaults
+    
     var userCurrencies: [Currency] {
         get { getCurrencies() }
         set { setCurrencies(newValue) }

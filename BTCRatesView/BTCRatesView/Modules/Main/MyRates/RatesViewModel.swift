@@ -25,7 +25,7 @@ class RatesViewModel {
     var filteredrateItems: [RateItemViewModel] = []
     
     var title: String {
-        return "BTC Rates"
+        return "Dashboard"
     }
     
     //MARK: - Actions
