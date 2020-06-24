@@ -44,7 +44,6 @@
 		55D267BF249DA8220037DC27 /* DateFormatter+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D267BE249DA8220037DC27 /* DateFormatter+Extensions.swift */; };
 		5B6CBC7F248C0793009FBB90 /* RateItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6CBC7E248C0793009FBB90 /* RateItemViewModel.swift */; };
 		5B6CBC82248C1C29009FBB90 /* BPIRealTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6CBC81248C1C29009FBB90 /* BPIRealTime.swift */; };
-		5B6CBC84248C3CB2009FBB90 /* RatesSectionFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6CBC83248C3CB2009FBB90 /* RatesSectionFooter.swift */; };
 		5B7F52CF248BD0DC0036EE24 /* RatesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7F52CE248BD0DC0036EE24 /* RatesViewModel.swift */; };
 		5B7F52D1248BD3B30036EE24 /* RatesCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7F52D0248BD3B30036EE24 /* RatesCoordinator.swift */; };
 		5B7F52D3248BD60C0036EE24 /* AddCurrencyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7F52D2248BD60C0036EE24 /* AddCurrencyViewModel.swift */; };
@@ -106,7 +105,6 @@
 		55D267BE249DA8220037DC27 /* DateFormatter+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+Extensions.swift"; sourceTree = "<group>"; };
 		5B6CBC7E248C0793009FBB90 /* RateItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateItemViewModel.swift; sourceTree = "<group>"; };
 		5B6CBC81248C1C29009FBB90 /* BPIRealTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BPIRealTime.swift; sourceTree = "<group>"; };
-		5B6CBC83248C3CB2009FBB90 /* RatesSectionFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatesSectionFooter.swift; sourceTree = "<group>"; };
 		5B7F52CE248BD0DC0036EE24 /* RatesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatesViewModel.swift; sourceTree = "<group>"; };
 		5B7F52D0248BD3B30036EE24 /* RatesCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatesCoordinator.swift; sourceTree = "<group>"; };
 		5B7F52D2248BD60C0036EE24 /* AddCurrencyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCurrencyViewModel.swift; sourceTree = "<group>"; };
@@ -295,7 +293,6 @@
 			children = (
 				5B6CBC7E248C0793009FBB90 /* RateItemViewModel.swift */,
 				55CFB130248BC9F400C7DB04 /* RateCell.swift */,
-				5B6CBC83248C3CB2009FBB90 /* RatesSectionFooter.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -481,7 +478,6 @@
 				55CFB0F9248BC45600C7DB04 /* AppDelegate.swift in Sources */,
 				5525F305249D356F0004F7BE /* CompactChartView.swift in Sources */,
 				5564DE08249E585D0025AECF /* ManagedSyncable.swift in Sources */,
-				5B6CBC84248C3CB2009FBB90 /* RatesSectionFooter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

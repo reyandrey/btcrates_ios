@@ -27,7 +27,6 @@ class RatesViewController: UIViewController, Storyboardable {
       return searchController.isActive && !isSearchBarEmpty
     }
     
-    @IBOutlet private weak var seactionFooterView: RatesSectionFooter!
     @IBOutlet private weak var tableView: UITableView!
     private lazy var refreshControl: UIRefreshControl = {
         let r = UIRefreshControl()

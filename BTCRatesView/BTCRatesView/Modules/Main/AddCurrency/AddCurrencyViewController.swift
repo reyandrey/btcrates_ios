@@ -63,6 +63,7 @@ private extension AddCurrencyViewController {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.tableFooterView = UIView()
+        tableView.register(AddCurrencyCell.self, forCellReuseIdentifier: AddCurrencyCell.reuseId)
         
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
