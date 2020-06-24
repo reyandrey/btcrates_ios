@@ -9,7 +9,7 @@
 import Foundation
 import CoreData
 
-class RatesViewModel: NSObject {
+class RatesViewModel: NSObject, ViewModel {
     let profileManager: ProfileManager
     
     private lazy var currenciesFRC: NSFetchedResultsController<CurrencyModel> = {
@@ -23,6 +23,7 @@ class RatesViewModel: NSObject {
     }()
     
     //MARK: - Lifeycle
+    
     init(profileManager: ProfileManager) {
         self.profileManager = profileManager
     }
@@ -31,15 +32,16 @@ class RatesViewModel: NSObject {
     var onUpdating: ((Bool) -> Void)?
     
     //MARK: - Properties
+    
     var lastUpdated: Date?
     var rateItems: [RateItemViewModel] = []
-    var filteredrateItems: [RateItemViewModel] = []
     
     var title: String {
         return "Dashboard"
     }
     
     //MARK: - Actions
+    
     func reloadData() {
         onUpdating?(true)
         do {
@@ -50,10 +52,6 @@ class RatesViewModel: NSObject {
             print("RatesViewModel: \(#function) Error: \(error)")
         }
         onUpdating?(false)
-//        onUpdating?(true)
-//        rateItems = profileManager.userCurrencies.map { RateItemViewModel($0) }
-//        self.lastUpdated = Date()
-//        onUpdating?(false)
     }
     
 //    func removeCurrency(at indexPath: IndexPath) {
@@ -70,10 +68,6 @@ class RatesViewModel: NSObject {
 //        }
 //    }
     
-    func filterContent(for searchText: String) {
-        filteredrateItems = rateItems.filter( { $0.code.lowercased().contains(searchText.lowercased()) } )
-    }
- 
 }
 
 extension RatesViewModel: NSFetchedResultsControllerDelegate {

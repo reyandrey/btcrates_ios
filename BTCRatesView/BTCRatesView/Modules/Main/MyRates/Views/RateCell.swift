@@ -8,10 +8,7 @@
 
 import UIKit
 
-class RateCell: UITableViewCell, CellIdentifiable, CellInstantiable {
-    
-    var indexPath: IndexPath? = nil
-    
+class RateCell: UITableViewCell, CellInstantiable {
     @IBOutlet private weak var codeLabel: UILabel!
     @IBOutlet private weak var countryLabel: UILabel!
     @IBOutlet private weak var ratesLabel: UILabel!
@@ -31,11 +28,11 @@ class RateCell: UITableViewCell, CellIdentifiable, CellInstantiable {
     }
     
     func set(_ viewModel: RateItemViewModel) {
-        guard viewModel.isPresenting(by: self) else { return }
         codeLabel.text = viewModel.code
         countryLabel.text = viewModel.country
         diffLabel.text = viewModel.diff.percentString
         diffView.backgroundColor = viewModel.diff.color
+        
         if let rate = viewModel.rate {
             ratesLabel.text = rate.today
             chartView.set(rate.history)

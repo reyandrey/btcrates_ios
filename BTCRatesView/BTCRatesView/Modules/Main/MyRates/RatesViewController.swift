@@ -12,7 +12,7 @@ protocol RatesViewControllerDelegate: class {
     func controllerShouldAddNewCurrency(_ controller: RatesViewController)
 }
 
-class RatesViewController: UIViewController, Storyboardable {
+class RatesViewController: UIViewController, StoryboardObject {
     typealias T = RatesViewController
     static var storyboardName: String { return "Rates" }
     
@@ -37,7 +37,6 @@ class RatesViewController: UIViewController, Storyboardable {
     func reload() {
         viewModel.reloadData()
     }
-
 }
 
 //MARK: ViewModel
@@ -83,26 +82,15 @@ private extension RatesViewController {
     }
 }
 
-// MARK: Search
-
-extension RatesViewController: UISearchResultsUpdating {
-    func updateSearchResults(for searchController: UISearchController) {
-        let searchbar = searchController.searchBar
-        viewModel.filterContent(for: searchbar.text!)
-        tableView.reloadData()
-    }
-}
-
 // MARK: UITableViewDataSource
 
 extension RatesViewController: UITableViewDataSource {
-
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.rateItems.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return viewModel.rateItems[indexPath.row].dequeueCell(in: tableView, at: indexPath) as! UITableViewCell
+        return viewModel.rateItems[indexPath.row].dequeueCell(in: tableView, at: indexPath)
     }
     
     
@@ -113,16 +101,12 @@ extension RatesViewController: UITableViewDataSource {
 //        }
 //    }
 //
-    
 }
 
 // MARK: UITableViewDelegate
 
 extension RatesViewController: UITableViewDelegate {
-    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        viewModel.rateItems[indexPath.row].didSelectCell()
         tableView.deselectRow(at: indexPath, animated: true)
     }
-    
 }

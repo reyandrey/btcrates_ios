@@ -9,16 +9,11 @@
 import UIKit
 import PanModal
 
-protocol AddCurrencyViewControllerDelegate: class {
-    func controller(_ controller: AddCurrencyViewController, didSelect item: Currency)
-}
-
-class AddCurrencyViewController: UIViewController, Storyboardable {
+class AddCurrencyViewController: UIViewController, StoryboardObject {
     typealias T = AddCurrencyViewController
     static var storyboardName: String { return "Rates" }
 
     var viewModel: AddCurrencyViewModel!
-    weak var delegate: AddCurrencyViewControllerDelegate?
     
     let searchController = UISearchController(searchResultsController: nil)
     var isSearchBarEmpty: Bool {

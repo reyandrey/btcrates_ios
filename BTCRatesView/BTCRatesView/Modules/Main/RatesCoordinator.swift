@@ -40,14 +40,14 @@ extension RatesCoordinator: RatesViewControllerDelegate {
 }
 
 // MARK: AddCurrencyViewControllerDelegate
-
-extension RatesCoordinator: AddCurrencyViewControllerDelegate {
-    func controller(_ controller: AddCurrencyViewController, didSelect item: Currency) {
-        profileManager.userCurrencies.append(item)
-        currenciesViewController?.reload()
-        controller.dismiss(animated: true, completion: nil)
-    }
-}
+//
+//extension RatesCoordinator: AddCurrencyViewControllerDelegate {
+//    func controller(_ controller: AddCurrencyViewController, didSelect item: Currency) {
+//        profileManager.userCurrencies.append(item)
+//        currenciesViewController?.reload()
+//        controller.dismiss(animated: true, completion: nil)
+//    }
+//}
 
 // MARK: Private
 
@@ -63,7 +63,7 @@ private extension RatesCoordinator {
     func getAddCurrencyController() -> AddCurrencyViewController {
         let vc = AddCurrencyViewController.instantiate()
         vc.viewModel = AddCurrencyViewModel()
-        vc.delegate = self
+        //vc.delegate = self
         return vc
     }
 }

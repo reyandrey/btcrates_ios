@@ -18,6 +18,9 @@
 		554D5E452493AA700026E4E1 /* CoinDeskAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554D5E402493AA6F0026E4E1 /* CoinDeskAPI.swift */; };
 		554D5E472493AA910026E4E1 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554D5E462493AA910026E4E1 /* Log.swift */; };
 		555BA55424A3492A00FA72DA /* UITableViewCell+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555BA55324A3492A00FA72DA /* UITableViewCell+Extensions.swift */; };
+		555BA55824A34B6300FA72DA /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555BA55724A34B6300FA72DA /* ViewModel.swift */; };
+		555BA55A24A34CC400FA72DA /* CellRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555BA55924A34CC400FA72DA /* CellRepresentable.swift */; };
+		555BA55C24A351C600FA72DA /* StoryboardObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555BA55B24A351C600FA72DA /* StoryboardObject.swift */; };
 		5564DDF8249E36190025AECF /* PanModal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5564DDF7249E36190025AECF /* PanModal.framework */; };
 		5564DDF9249E36190025AECF /* PanModal.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5564DDF7249E36190025AECF /* PanModal.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5564DDFC249E381B0025AECF /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5564DDFB249E381B0025AECF /* NavigationController.swift */; };
@@ -34,7 +37,6 @@
 		55CFB102248BC45800C7DB04 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 55CFB101248BC45800C7DB04 /* Assets.xcassets */; };
 		55CFB105248BC45800C7DB04 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55CFB103248BC45800C7DB04 /* LaunchScreen.storyboard */; };
 		55CFB11F248BC5CB00C7DB04 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CFB11D248BC5CB00C7DB04 /* AppCoordinator.swift */; };
-		55CFB125248BC5D400C7DB04 /* UIStoryboard+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CFB121248BC5D400C7DB04 /* UIStoryboard+Extensions.swift */; };
 		55CFB126248BC5D400C7DB04 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CFB122248BC5D400C7DB04 /* String+Extensions.swift */; };
 		55CFB127248BC5D400C7DB04 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CFB123248BC5D400C7DB04 /* UIView+Extension.swift */; };
 		55CFB128248BC5D400C7DB04 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CFB124248BC5D400C7DB04 /* UIViewController+Extensions.swift */; };
@@ -48,7 +50,6 @@
 		5B7F52CF248BD0DC0036EE24 /* RatesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7F52CE248BD0DC0036EE24 /* RatesViewModel.swift */; };
 		5B7F52D1248BD3B30036EE24 /* RatesCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7F52D0248BD3B30036EE24 /* RatesCoordinator.swift */; };
 		5B7F52D3248BD60C0036EE24 /* AddCurrencyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7F52D2248BD60C0036EE24 /* AddCurrencyViewModel.swift */; };
-		5B7F52D6248BDCF10036EE24 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7F52D5248BDCF10036EE24 /* Currency.swift */; };
 		5B7F52D9248BDEDE0036EE24 /* ProfileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7F52D8248BDEDE0036EE24 /* ProfileManager.swift */; };
 		5B7F52DB248BDFD10036EE24 /* UserDefaultsStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7F52DA248BDFD10036EE24 /* UserDefaultsStorage.swift */; };
 /* End PBXBuildFile section */
@@ -79,6 +80,9 @@
 		554D5E402493AA6F0026E4E1 /* CoinDeskAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoinDeskAPI.swift; sourceTree = "<group>"; };
 		554D5E462493AA910026E4E1 /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		555BA55324A3492A00FA72DA /* UITableViewCell+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+Extensions.swift"; sourceTree = "<group>"; };
+		555BA55724A34B6300FA72DA /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		555BA55924A34CC400FA72DA /* CellRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellRepresentable.swift; sourceTree = "<group>"; };
+		555BA55B24A351C600FA72DA /* StoryboardObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardObject.swift; sourceTree = "<group>"; };
 		5564DDF7249E36190025AECF /* PanModal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PanModal.framework; path = Carthage/Build/iOS/PanModal.framework; sourceTree = "<group>"; };
 		5564DDFB249E381B0025AECF /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		5564DDFD249E46820025AECF /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
@@ -96,7 +100,6 @@
 		55CFB104248BC45800C7DB04 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		55CFB106248BC45800C7DB04 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		55CFB11D248BC5CB00C7DB04 /* AppCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
-		55CFB121248BC5D400C7DB04 /* UIStoryboard+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+Extensions.swift"; sourceTree = "<group>"; };
 		55CFB122248BC5D400C7DB04 /* String+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		55CFB123248BC5D400C7DB04 /* UIView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		55CFB124248BC5D400C7DB04 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
@@ -110,7 +113,6 @@
 		5B7F52CE248BD0DC0036EE24 /* RatesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatesViewModel.swift; sourceTree = "<group>"; };
 		5B7F52D0248BD3B30036EE24 /* RatesCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatesCoordinator.swift; sourceTree = "<group>"; };
 		5B7F52D2248BD60C0036EE24 /* AddCurrencyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCurrencyViewModel.swift; sourceTree = "<group>"; };
-		5B7F52D5248BDCF10036EE24 /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
 		5B7F52D8248BDEDE0036EE24 /* ProfileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileManager.swift; sourceTree = "<group>"; };
 		5B7F52DA248BDFD10036EE24 /* UserDefaultsStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsStorage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -149,22 +151,57 @@
 			path = Base;
 			sourceTree = "<group>";
 		};
-		554D5E3B2493AA6F0026E4E1 /* Request manager */ = {
+		554D5E3B2493AA6F0026E4E1 /* Network */ = {
 			isa = PBXGroup;
 			children = (
 				554D5E3C2493AA6F0026E4E1 /* HTTPClient.swift */,
 				554D5E3E2493AA6F0026E4E1 /* HTTPRequestManager.swift */,
 			);
-			path = "Request manager";
+			path = Network;
+			sourceTree = "<group>";
+		};
+		555BA55624A34AFD00FA72DA /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				5564DDFD249E46820025AECF /* Coordinator.swift */,
+				555BA55724A34B6300FA72DA /* ViewModel.swift */,
+				555BA55924A34CC400FA72DA /* CellRepresentable.swift */,
+				555BA55B24A351C600FA72DA /* StoryboardObject.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		555BA55E24A3524800FA72DA /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				5564DE07249E585D0025AECF /* ManagedSyncable.swift */,
+				5564DE0A249E5AC50025AECF /* ManagedDecodable.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		555BA55F24A3528700FA72DA /* UserDefaults */ = {
+			isa = PBXGroup;
+			children = (
+				5B7F52DA248BDFD10036EE24 /* UserDefaultsStorage.swift */,
+			);
+			path = UserDefaults;
+			sourceTree = "<group>";
+		};
+		555BA56024A3529300FA72DA /* Log */ = {
+			isa = PBXGroup;
+			children = (
+				554D5E462493AA910026E4E1 /* Log.swift */,
+			);
+			path = Log;
 			sourceTree = "<group>";
 		};
 		5564DDFF249E536E0025AECF /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
+				555BA55E24A3524800FA72DA /* Protocol */,
 				5564DE00249E53CF0025AECF /* Model.xcdatamodeld */,
 				5564DE03249E546F0025AECF /* CoreDataStack.swift */,
-				5564DE07249E585D0025AECF /* ManagedSyncable.swift */,
-				5564DE0A249E5AC50025AECF /* ManagedDecodable.swift */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -250,11 +287,11 @@
 		55CFB120248BC5D400C7DB04 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				554D5E3B2493AA6F0026E4E1 /* Request manager */,
+				555BA55F24A3528700FA72DA /* UserDefaults */,
+				555BA56024A3529300FA72DA /* Log */,
+				555BA55624A34AFD00FA72DA /* Protocols */,
+				554D5E3B2493AA6F0026E4E1 /* Network */,
 				55D267BB249DA7B10037DC27 /* Extensions */,
-				5B7F52DA248BDFD10036EE24 /* UserDefaultsStorage.swift */,
-				554D5E462493AA910026E4E1 /* Log.swift */,
-				5564DDFD249E46820025AECF /* Coordinator.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -310,7 +347,6 @@
 		55D267BB249DA7B10037DC27 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				55CFB121248BC5D400C7DB04 /* UIStoryboard+Extensions.swift */,
 				55CFB122248BC5D400C7DB04 /* String+Extensions.swift */,
 				55CFB123248BC5D400C7DB04 /* UIView+Extension.swift */,
 				55CFB124248BC5D400C7DB04 /* UIViewController+Extensions.swift */,
@@ -333,7 +369,6 @@
 			isa = PBXGroup;
 			children = (
 				5564DE09249E59120025AECF /* Managed */,
-				5B7F52D5248BDCF10036EE24 /* Currency.swift */,
 				5B6CBC81248C1C29009FBB90 /* BPIRealTime.swift */,
 				55D267B9249DA4AA0037DC27 /* BPIHistory.swift */,
 			);
@@ -456,6 +491,7 @@
 				5564DE0B249E5AC50025AECF /* ManagedDecodable.swift in Sources */,
 				5B6CBC82248C1C29009FBB90 /* BPIRealTime.swift in Sources */,
 				5564DE04249E546F0025AECF /* CoreDataStack.swift in Sources */,
+				555BA55C24A351C600FA72DA /* StoryboardObject.swift in Sources */,
 				55CFB128248BC5D400C7DB04 /* UIViewController+Extensions.swift in Sources */,
 				554D5E452493AA700026E4E1 /* CoinDeskAPI.swift in Sources */,
 				55D267BA249DA4AA0037DC27 /* BPIHistory.swift in Sources */,
@@ -465,8 +501,9 @@
 				5B7F52CF248BD0DC0036EE24 /* RatesViewModel.swift in Sources */,
 				55CFB12D248BC8CA00C7DB04 /* AddCurrencyViewController.swift in Sources */,
 				554D5E432493AA700026E4E1 /* HTTPRequestManager.swift in Sources */,
-				55CFB125248BC5D400C7DB04 /* UIStoryboard+Extensions.swift in Sources */,
+				555BA55A24A34CC400FA72DA /* CellRepresentable.swift in Sources */,
 				55CFB127248BC5D400C7DB04 /* UIView+Extension.swift in Sources */,
+				555BA55824A34B6300FA72DA /* ViewModel.swift in Sources */,
 				55CFB0FD248BC45600C7DB04 /* RatesViewController.swift in Sources */,
 				5B7F52DB248BDFD10036EE24 /* UserDefaultsStorage.swift in Sources */,
 				5564DE02249E53CF0025AECF /* Model.xcdatamodeld in Sources */,
@@ -475,7 +512,6 @@
 				555BA55424A3492A00FA72DA /* UITableViewCell+Extensions.swift in Sources */,
 				5B6CBC7F248C0793009FBB90 /* RateItemViewModel.swift in Sources */,
 				5564DDFC249E381B0025AECF /* NavigationController.swift in Sources */,
-				5B7F52D6248BDCF10036EE24 /* Currency.swift in Sources */,
 				554D5E412493AA700026E4E1 /* HTTPClient.swift in Sources */,
 				55CFB11F248BC5CB00C7DB04 /* AppCoordinator.swift in Sources */,
 				5564DE06249E57580025AECF /* CurrencyModel.swift in Sources */,

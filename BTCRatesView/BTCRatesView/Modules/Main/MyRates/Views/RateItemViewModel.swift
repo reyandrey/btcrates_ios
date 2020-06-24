@@ -9,18 +9,9 @@
 import Foundation
 import UIKit
 
-protocol CellIdentifiable {
-    var indexPath: IndexPath? { get set }
-}
-protocol CellRepresentable {
-    static func registerCell(in tableView: UITableView)
-    func dequeueCell(in tableView: UITableView, at indexPath: IndexPath) -> CellIdentifiable
-    func isPresenting(by cell: CellIdentifiable) -> Bool
-    func didSelectCell()
-}
-
 class RateItemViewModel {
     let currency: CurrencyModel
+    
     private let apiClient = CoinDeskClient()
     private var presentingIndexPath: IndexPath?
     private var ratesHistory: [BPIHistory.Rate] = [] {
@@ -91,21 +82,11 @@ extension RateItemViewModel {
 extension RateItemViewModel: CellRepresentable {
     static func registerCell(in tableView: UITableView) {}
     
-    func dequeueCell(in tableView: UITableView, at indexPath: IndexPath) -> CellIdentifiable {
+    func dequeueCell(in tableView: UITableView, at indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: RateCell.reuseId, for: indexPath) as? RateCell else { fatalError() }
-        cell.indexPath = indexPath
-        presentingIndexPath = indexPath
         cell.set(self)
         reloadData()
         return cell
     }
     
-    func isPresenting(by cell: CellIdentifiable) -> Bool {
-        guard let presentingIndexPath = presentingIndexPath, let cellIndexPath = cell.indexPath else { return false }
-        return presentingIndexPath == cellIndexPath
-    }
-    
-    func didSelectCell() {
-        print(#function)
-    }
 }

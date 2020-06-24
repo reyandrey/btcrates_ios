@@ -12,7 +12,6 @@ import Charts
 import UIKit
 
 class CompactChartView: UIView {
-    
     private lazy var lineChart: LineChartView = {
         let lineChart = LineChartView()
         lineChart.translatesAutoresizingMaskIntoConstraints = false
@@ -39,11 +38,9 @@ class CompactChartView: UIView {
         super.layoutSubviews()
         lineChart.frame = bounds
     }
-    
 }
 
 private extension CompactChartView {
-    
     func setup() {
         addSubview(lineChart)
         lineChart.data = nil
