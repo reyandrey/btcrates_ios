@@ -9,8 +9,7 @@
 import UIKit
 import SnapKit
 
-class AddCurrencyCell: UITableViewCell {
-    static var reuseId: String { return String(describing: Self.self) }
+class AddCurrencyCell: UITableViewCell, CellInstantiable {
     
     lazy var codeLabel: UILabel = {
         let label = UILabel()

@@ -8,8 +8,8 @@
 
 import UIKit
 
-class RateCell: UITableViewCell, CellIdentifiable {
-    static var reuseId: String { return String(describing: Self.self) }
+class RateCell: UITableViewCell, CellIdentifiable, CellInstantiable {
+    
     var indexPath: IndexPath? = nil
     
     @IBOutlet private weak var codeLabel: UILabel!
@@ -39,7 +39,6 @@ class RateCell: UITableViewCell, CellIdentifiable {
         if let rate = viewModel.rate {
             ratesLabel.text = rate.today
             chartView.set(rate.history)
-            print("[\(viewModel.code)] (\(rate.history.count)) data: \(rate.history)")
         } else {
             ratesLabel.text = "🤔"
             chartView.setChartHidden(true)

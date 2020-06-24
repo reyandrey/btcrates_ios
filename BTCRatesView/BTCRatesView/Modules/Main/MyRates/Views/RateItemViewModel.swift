@@ -58,19 +58,21 @@ class RateItemViewModel {
         apiClient.getWeekHistory(currency: currency.code) { history in
             guard let history = history else { return }
             DispatchQueue.main.async {
-                print(history.map { $0.date })
                 self.ratesHistory = history
             }
         }
     }
-    
-    
 }
 
 extension RateItemViewModel {
     
-    var code: String { currency.code }
-    var country: String { currency.country }
+    var code: String {
+        return currency.code
+    }
+    
+    var country: String {
+        return currency.country
+    }
     
     var rate: (today: String, history: [Double])? {
         guard let today = ratesHistory.last?.value, let todayString = currencyFormatter.string(from: NSNumber(value: today)) else { return nil }
