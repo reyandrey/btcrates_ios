@@ -21,11 +21,10 @@ class AppCoordinator: Coordinator {
   
   override func start() {
     navigationController = NavigationController()
-    window.rootViewController = navigationController
+    let splashScreen = SplashViewController()
+    window.rootViewController = splashScreen
     window.makeKeyAndVisible()
     
-    let splashScreen = SplashViewController()
-    navigationController.setViewControllers([splashScreen], animated: false)
     CoinDeskClient().syncCurrencies { error in
       DispatchQueue.main.async {
         if let error = error { self.navigationController.presentAlert(withTitle: "Error", message: "Failed to sync currencies: \(error)") }
@@ -44,6 +43,7 @@ private extension AppCoordinator {
     currenciesCoordinator.completionHandler = { [weak self] in
       self?.removeChild(currenciesCoordinator)
     }
+    window.rootViewController = navigationController
     currenciesCoordinator.start()
   }
 }

@@ -47,6 +47,7 @@
 		55CFB134248BCD7D00C7DB04 /* AddCurrencyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CFB133248BCD7D00C7DB04 /* AddCurrencyCell.swift */; };
 		55D267BA249DA4AA0037DC27 /* BPIHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D267B9249DA4AA0037DC27 /* BPIHistory.swift */; };
 		55D267BF249DA8220037DC27 /* DateFormatter+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D267BE249DA8220037DC27 /* DateFormatter+Extensions.swift */; };
+		5B04AF0124A3BE0C00C2F9EB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B04AF0024A3BE0C00C2F9EB /* ViewController.swift */; };
 		5B6CBC7F248C0793009FBB90 /* RateItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6CBC7E248C0793009FBB90 /* RateItemViewModel.swift */; };
 		5B6CBC82248C1C29009FBB90 /* BPIRealTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6CBC81248C1C29009FBB90 /* BPIRealTime.swift */; };
 		5B7F52CF248BD0DC0036EE24 /* RatesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7F52CE248BD0DC0036EE24 /* RatesViewModel.swift */; };
@@ -112,6 +113,7 @@
 		55CFB133248BCD7D00C7DB04 /* AddCurrencyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCurrencyCell.swift; sourceTree = "<group>"; };
 		55D267B9249DA4AA0037DC27 /* BPIHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BPIHistory.swift; sourceTree = "<group>"; };
 		55D267BE249DA8220037DC27 /* DateFormatter+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+Extensions.swift"; sourceTree = "<group>"; };
+		5B04AF0024A3BE0C00C2F9EB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		5B6CBC7E248C0793009FBB90 /* RateItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateItemViewModel.swift; sourceTree = "<group>"; };
 		5B6CBC81248C1C29009FBB90 /* BPIRealTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BPIRealTime.swift; sourceTree = "<group>"; };
 		5B7F52CE248BD0DC0036EE24 /* RatesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatesViewModel.swift; sourceTree = "<group>"; };
@@ -151,6 +153,7 @@
 				5525F304249D356F0004F7BE /* CompactChartView.swift */,
 				5525F306249D387E0004F7BE /* ChartViewController.swift */,
 				5564DDFB249E381B0025AECF /* NavigationController.swift */,
+				5B04AF0024A3BE0C00C2F9EB /* ViewController.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -525,6 +528,7 @@
 				5564DE02249E53CF0025AECF /* Model.xcdatamodeld in Sources */,
 				5525F307249D387E0004F7BE /* ChartViewController.swift in Sources */,
 				55CFB134248BCD7D00C7DB04 /* AddCurrencyCell.swift in Sources */,
+				5B04AF0124A3BE0C00C2F9EB /* ViewController.swift in Sources */,
 				555BA55424A3492A00FA72DA /* UITableViewCell+Extensions.swift in Sources */,
 				5B6CBC7F248C0793009FBB90 /* RateItemViewModel.swift in Sources */,
 				5564DDFC249E381B0025AECF /* NavigationController.swift in Sources */,
