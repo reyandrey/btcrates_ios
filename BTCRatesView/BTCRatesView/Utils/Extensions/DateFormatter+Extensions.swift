@@ -9,13 +9,13 @@
 import Foundation
 
 extension DateFormatter {
-    
-    static let ISO8601_date: DateFormatter = {
-        let df = DateFormatter()
-        df.locale = Locale(identifier: "en_US_POSIX")
-        df.timeZone = TimeZone(abbreviation: "GMT+0:00")
-        df.dateFormat = "yyy-MM-dd"
-        return df
-    }()
-    
+  
+  static let ISO8601_date: DateFormatter = {
+    let df = DateFormatter()
+    df.locale = Locale(identifier: "en_US_POSIX")
+    df.timeZone = TimeZone(abbreviation: "GMT+0:00")
+    df.dateFormat = "yyy-MM-dd"
+    return df
+  }()
+  
 }

@@ -9,16 +9,16 @@
 import Foundation
 
 protocol ViewModel {
-    associatedtype ErrorType
-    
-    var onError: ((ErrorType) -> ())? { get set}
-    var onUpdating: ((Bool) -> ())? { get set }
-    
-    func reloadData()
+  associatedtype ErrorType
+  
+  var onError: ((ErrorType) -> ())? { get set}
+  var onUpdating: ((Bool) -> ())? { get set }
+  
+  func reloadData()
 }
 
 extension ViewModel {
-    
-    func reloadData() {  }
-    
+  
+  func reloadData() {  }
+  
 }

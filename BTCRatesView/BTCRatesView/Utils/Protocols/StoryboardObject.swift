@@ -12,17 +12,17 @@ import UIKit
 typealias StoryboardObject = StoryboardIdentifiable&StoryboardInstantiable
 
 protocol StoryboardIdentifiable: UIViewController {
-    static var storyboardName: String { get }
+  static var storyboardName: String { get }
 }
 
 protocol StoryboardInstantiable: UIViewController{
-    associatedtype T: StoryboardIdentifiable
-    
-    static func instantiate() -> T
+  associatedtype T: StoryboardIdentifiable
+  
+  static func instantiate() -> T
 }
 
 extension StoryboardInstantiable {
-    static func instantiate() -> T {
-        return UIStoryboard(name: T.storyboardName, bundle: nil).instantiateViewController(withIdentifier: String(describing: T.self)) as! T
-    }
+  static func instantiate() -> T {
+    return UIStoryboard(name: T.storyboardName, bundle: nil).instantiateViewController(withIdentifier: String(describing: T.self)) as! T
+  }
 }

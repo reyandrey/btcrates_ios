@@ -9,13 +9,13 @@
 import Foundation
 
 public protocol CellInstantiable {
-    static var reuseId: String { get }
+  static var reuseId: String { get }
 }
 
 public extension CellInstantiable {
-    
-    static var reuseId: String {
-        return String(describing: Self.self)
-    }
-
+  
+  static var reuseId: String {
+    return String(describing: Self.self)
+  }
+  
 }

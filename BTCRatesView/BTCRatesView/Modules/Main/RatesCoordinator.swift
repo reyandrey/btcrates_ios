@@ -10,33 +10,33 @@ import Foundation
 import UIKit
 
 class RatesCoordinator: Coordinator {
-    private let apiClient: CoinDeskClient
-    private let profileManager: ProfileManager
-    
-    private let navigationController: UINavigationController
-    private var currenciesViewController: RatesViewController?
-    
-    init(with navigationController: UINavigationController) {
-        self.navigationController = navigationController
-        self.profileManager = ProfileManager()
-        self.apiClient = CoinDeskClient()
-    }
-    
-    override func start() {
-        let ratesVC = getRatesController()
-        navigationController.setViewControllers([ratesVC], animated: true)
-    }
+  private let apiClient: CoinDeskClient
+  private let profileManager: ProfileManager
+  
+  private let navigationController: UINavigationController
+  private var currenciesViewController: RatesViewController?
+  
+  init(with navigationController: UINavigationController) {
+    self.navigationController = navigationController
+    self.profileManager = ProfileManager()
+    self.apiClient = CoinDeskClient()
+  }
+  
+  override func start() {
+    let ratesVC = getRatesController()
+    navigationController.setViewControllers([ratesVC], animated: true)
+  }
 }
 
 // MARK: CurrenciesViewControllerDelegate
 
 extension RatesCoordinator: RatesViewControllerDelegate {
-    func controllerShouldAddNewCurrency(_ controller: RatesViewController) {
-        let vc = getAddCurrencyController()
-        let nc = NavigationController()
-        nc.setViewControllers([vc], animated: false)
-        controller.presentPanModal(nc)
-    }
+  func controllerShouldAddNewCurrency(_ controller: RatesViewController) {
+    let vc = getAddCurrencyController()
+    let nc = NavigationController()
+    nc.setViewControllers([vc], animated: false)
+    controller.presentPanModal(nc)
+  }
 }
 
 // MARK: AddCurrencyViewControllerDelegate
@@ -52,18 +52,18 @@ extension RatesCoordinator: RatesViewControllerDelegate {
 // MARK: Private
 
 private extension RatesCoordinator {
-    func getRatesController() -> RatesViewController {
-        let vc = RatesViewController.instantiate()
-        vc.viewModel = RatesViewModel(profileManager: self.profileManager)
-        vc.delegate = self
-        currenciesViewController = vc
-        return vc
-    }
-    
-    func getAddCurrencyController() -> AddCurrencyViewController {
-        let vc = AddCurrencyViewController.instantiate()
-        vc.viewModel = AddCurrencyViewModel()
-        //vc.delegate = self
-        return vc
-    }
+  func getRatesController() -> RatesViewController {
+    let vc = RatesViewController.instantiate()
+    vc.viewModel = RatesViewModel(profileManager: self.profileManager)
+    vc.delegate = self
+    currenciesViewController = vc
+    return vc
+  }
+  
+  func getAddCurrencyController() -> AddCurrencyViewController {
+    let vc = AddCurrencyViewController.instantiate()
+    vc.viewModel = AddCurrencyViewModel()
+    //vc.delegate = self
+    return vc
+  }
 }
