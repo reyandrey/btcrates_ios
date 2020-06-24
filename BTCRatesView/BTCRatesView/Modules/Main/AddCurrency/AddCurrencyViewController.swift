@@ -38,16 +38,20 @@ class AddCurrencyViewController: UIViewController, StoryboardObject {
 //MARK: ViewModel
 
 extension AddCurrencyViewController {
-  
   func bindViewModel() {
-    viewModel.didUpdate = { [weak self] viewModel in
-      DispatchQueue.main.async { self?.didUpdate(viewModel) }
+    viewModel.onUpdating = { [weak self] updating in
+      guard let self = self, !updating else { return }
+      self.title = self.viewModel.title
+      self.tableView.reloadData()
     }
-  }
-  
-  func didUpdate(_ viewModel: AddCurrencyViewModel) {
-    title = viewModel.title
-    tableView.reloadData()
+    
+    viewModel.profileManager.onUnselectedUpdate = { [weak self] updates in
+      guard let self = self else { return }
+      self.tableView.performBatchUpdates({
+        self.tableView.deleteRows(at: updates.deleted.map { IndexPath(row: $0, section: 0) }, with: .fade)
+        self.tableView.insertRows(at: updates.inserted.map { IndexPath(row: $0, section: 0) }, with: .fade)
+      }, completion: nil)
+    }
   }
 }
 
@@ -66,13 +70,6 @@ private extension AddCurrencyViewController {
     navigationItem.searchController = searchController
     navigationItem.hidesSearchBarWhenScrolling = false
     definesPresentationContext = true
-    
-    let doneButton = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(doneDidTap(_:)))
-    navigationItem.setRightBarButtonItems([doneButton], animated: false)
-  }
-  
-  @objc func doneDidTap(_ sender: Any) {
-    
   }
   
 }
@@ -106,11 +103,8 @@ extension AddCurrencyViewController: UITableViewDataSource {
 extension AddCurrencyViewController: UITableViewDelegate {
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    viewModel.select(at: indexPath.row)
     tableView.deselectRow(at: indexPath, animated: true)
-    #warning("fix selection")
-    viewModel.currencies[indexPath.row].isSelected = true
-    CoreDataStack.shared.saveChanges()
-    //delegate?.controller(self, didSelect: isFiltering ? viewModel.filteredCurrencies[indexPath.row] : viewModel.currencies[indexPath.row])
   }
   
 }

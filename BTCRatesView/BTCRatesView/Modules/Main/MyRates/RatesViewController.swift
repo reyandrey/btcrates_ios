@@ -47,6 +47,13 @@ extension RatesViewController {
     viewModel.onUpdating = { [weak self] updating in
       self?.onUpdating(updating)
     }
+    viewModel.onUpdateSelected = { [weak self] updates in
+      guard let self = self else { return }
+      self.tableView.performBatchUpdates({
+        self.tableView.deleteRows(at: updates.deleted.map { IndexPath(row: $0, section: 0) }, with: .fade)
+        self.tableView.insertRows(at: updates.inserted.map { IndexPath(row: $0, section: 0) }, with: .fade)
+      }, completion: nil)
+    }
   }
   
   func onUpdating(_ updating: Bool) {
@@ -94,13 +101,12 @@ extension RatesViewController: UITableViewDataSource {
   }
   
   
-  //    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-  //        if editingStyle == .delete {
-  //            viewModel.removeCurrency(at: indexPath)
-  //            tableView.deleteRows(at: [indexPath], with: .fade)
-  //        }
-  //    }
-  //
+  func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+    if editingStyle == .delete {
+      viewModel.remove(at: indexPath.row)
+    }
+  }
+  
 }
 
 // MARK: UITableViewDelegate

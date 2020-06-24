@@ -17,11 +17,11 @@ class NavigationController: UINavigationController, PanModalPresentable {
   }
   
   public var longFormHeight: PanModalHeight {
-    return .maxHeight
+    return .maxHeightWithTopInset(120)
   }
   
   public var shortFormHeight: PanModalHeight {
-    return longFormHeight
+    return .contentHeight(300)
   }
   
   override func popViewController(animated: Bool) -> UIViewController? {

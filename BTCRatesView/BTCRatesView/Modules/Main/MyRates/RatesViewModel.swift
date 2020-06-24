@@ -9,27 +9,29 @@
 import Foundation
 import CoreData
 
-class RatesViewModel: NSObject, ViewModel {
+class RatesViewModel: ViewModel {
   let profileManager: ProfileManager
-  
-  private lazy var currenciesFRC: NSFetchedResultsController<CurrencyModel> = {
-    let sortDescriptor = NSSortDescriptor(key: "code", ascending: false)
-    let fetchRequest = NSFetchRequest<CurrencyModel>(entityName: "CurrencyModel")
-    fetchRequest.sortDescriptors = [sortDescriptor]
-    fetchRequest.predicate = NSPredicate(format: "isSelected == %@", NSNumber(value: true))
-    let frc = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: CoreDataStack.shared.mainContext, sectionNameKeyPath: nil, cacheName: nil)
-    frc.delegate = self
-    return frc
-  }()
   
   //MARK: - Lifeycle
   
   init(profileManager: ProfileManager) {
     self.profileManager = profileManager
+    
+    profileManager.onSelectedUpdate = { [weak self] updates in
+      guard let self = self else { return }
+      updates.deleted.forEach { self.rateItems.remove(at: $0) }
+      updates.inserted.forEach {
+        let vm = RateItemViewModel(profileManager.selectedCurrencies[$0])
+        self.rateItems.insert(vm, at: $0)
+      }
+      self.onUpdateSelected?(updates)
+    }
+    
   }
   
   var onError: ((String) -> Void)?
   var onUpdating: ((Bool) -> Void)?
+  var onUpdateSelected: ((ProfileManager.Updates) -> Void)? = nil
   
   //MARK: - Properties
   
@@ -43,35 +45,12 @@ class RatesViewModel: NSObject, ViewModel {
   //MARK: - Actions
   
   func reloadData() {
-    onUpdating?(true)
-    do {
-      try currenciesFRC.performFetch()
-      let currencies = currenciesFRC.fetchedObjects ?? []
-      rateItems = currencies.map { RateItemViewModel($0) }
-    } catch {
-      print("RatesViewModel: \(#function) Error: \(error)")
-    }
+    rateItems = profileManager.selectedCurrencies.map { RateItemViewModel($0) }
     onUpdating?(false)
   }
   
-  //    func removeCurrency(at indexPath: IndexPath) {
-  //        rateItems.remove(at: indexPath.row)
-  //        profileManager.userCurrencies = rateItems.map { $0.currency }
-  //    }
-  //
-  //    func reorderCurrencies(moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
-  //        let movedObject = self.rateItems[sourceIndexPath.row]
-  //        rateItems.remove(at: sourceIndexPath.row)
-  //        rateItems.insert(movedObject, at: destinationIndexPath.row)
-  //        profileManager.userCurrencies = rateItems.map { $0.currency
-  //
-  //        }
-  //    }
-  
-}
-
-extension RatesViewModel: NSFetchedResultsControllerDelegate {
-  func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-    reloadData()
+  func remove(at index: Int) {
+    rateItems[index].currency.isSelected = false
   }
+  
 }
