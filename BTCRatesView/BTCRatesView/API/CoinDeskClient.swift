@@ -77,7 +77,10 @@ private extension CoinDeskClient {
       switch result {
       case .failure(_): completionHandler(nil)
       case .success(let data):
-        completionHandler(try? BPIRealTime(with: data ?? Data()))
+        guard let data = data,
+              let currency = try? JSON(data: data)["bpi"][code].rawData()
+          else { completionHandler(nil); return }
+        completionHandler(try? self.jsonDecoder.decode(BPIRealTime.self, from: currency))
       }
     }
   }

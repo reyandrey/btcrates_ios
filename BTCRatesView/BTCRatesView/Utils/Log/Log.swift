@@ -17,7 +17,7 @@ public class Log<T> {
   }
   
   public func debug(_ message: String) {
-    //os_log("%@", log: log, type: .debug, message)
+    os_log("%@", log: log, type: .debug, message)
   }
   
   public func error(_ message: String) {

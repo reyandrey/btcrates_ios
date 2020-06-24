@@ -22,6 +22,7 @@
 		555BA55A24A34CC400FA72DA /* CellRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555BA55924A34CC400FA72DA /* CellRepresentable.swift */; };
 		555BA55C24A351C600FA72DA /* StoryboardObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555BA55B24A351C600FA72DA /* StoryboardObject.swift */; };
 		555BA56224A3572900FA72DA /* CustomCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555BA56124A3572900FA72DA /* CustomCodable.swift */; };
+		555BA56424A36CD500FA72DA /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555BA56324A36CD500FA72DA /* SwiftyJSON.swift */; };
 		5564DDF8249E36190025AECF /* PanModal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5564DDF7249E36190025AECF /* PanModal.framework */; };
 		5564DDF9249E36190025AECF /* PanModal.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5564DDF7249E36190025AECF /* PanModal.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5564DDFC249E381B0025AECF /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5564DDFB249E381B0025AECF /* NavigationController.swift */; };
@@ -85,6 +86,7 @@
 		555BA55924A34CC400FA72DA /* CellRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellRepresentable.swift; sourceTree = "<group>"; };
 		555BA55B24A351C600FA72DA /* StoryboardObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardObject.swift; sourceTree = "<group>"; };
 		555BA56124A3572900FA72DA /* CustomCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCodable.swift; sourceTree = "<group>"; };
+		555BA56324A36CD500FA72DA /* SwiftyJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 		5564DDF7249E36190025AECF /* PanModal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PanModal.framework; path = Carthage/Build/iOS/PanModal.framework; sourceTree = "<group>"; };
 		5564DDFB249E381B0025AECF /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		5564DDFD249E46820025AECF /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
@@ -199,6 +201,14 @@
 			path = Log;
 			sourceTree = "<group>";
 		};
+		555BA56524A36CF000FA72DA /* SwiftyJSON */ = {
+			isa = PBXGroup;
+			children = (
+				555BA56324A36CD500FA72DA /* SwiftyJSON.swift */,
+			);
+			path = SwiftyJSON;
+			sourceTree = "<group>";
+		};
 		5564DDFF249E536E0025AECF /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
@@ -295,6 +305,7 @@
 				555BA55624A34AFD00FA72DA /* Protocols */,
 				554D5E3B2493AA6F0026E4E1 /* Network */,
 				55D267BB249DA7B10037DC27 /* Extensions */,
+				555BA56524A36CF000FA72DA /* SwiftyJSON */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -508,6 +519,7 @@
 				55CFB127248BC5D400C7DB04 /* UIView+Extension.swift in Sources */,
 				555BA55824A34B6300FA72DA /* ViewModel.swift in Sources */,
 				55CFB0FD248BC45600C7DB04 /* RatesViewController.swift in Sources */,
+				555BA56424A36CD500FA72DA /* SwiftyJSON.swift in Sources */,
 				555BA56224A3572900FA72DA /* CustomCodable.swift in Sources */,
 				5B7F52DB248BDFD10036EE24 /* UserDefaultsStorage.swift in Sources */,
 				5564DE02249E53CF0025AECF /* Model.xcdatamodeld in Sources */,

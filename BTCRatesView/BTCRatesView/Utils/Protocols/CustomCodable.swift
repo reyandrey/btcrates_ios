@@ -8,8 +8,6 @@
 
 import Foundation
 
-public typealias JSONObject = [String: Any]
-
 public typealias CustomCodable = CustomEncodable&CustomDecodable
 
 public protocol CustomDecodable {

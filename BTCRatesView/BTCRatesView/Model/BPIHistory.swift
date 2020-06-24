@@ -14,17 +14,12 @@ class BPIHistory: CustomDecodable {
   required init(with data: Data) throws {
     let df = DateFormatter.ISO8601_date
     
-    let json = try JSONSerialization.jsonObject(with: data, options: []) as? JSONObject
-    guard let bpiJSON = json?["bpi"] as? [String: Double] else { throw HTTPClient.ErrorType.serializationError }
-    
-    let decodedObjects: [Rate] = try bpiJSON.map { (key, val) in
+    let history: [Rate] = try JSON(data: data)["bpi"].dictionaryValue.map { (key, val) in
       guard let date = df.date(from: key) else { throw HTTPClient.ErrorType.serializationError }
-      return Rate(date: date, value: val)
+      return Rate(date: date, value: val.doubleValue)
     }
     
-    self.data = decodedObjects.sorted(by: { (lhs, rhs) -> Bool in
-      lhs.date < rhs.date
-    })
+    self.data = history.sorted { $0.date < $1.date }
   }
 }
 

@@ -66,14 +66,15 @@ extension RateItemViewModel {
   }
   
   var rate: (today: String, history: [Double])? {
-    guard let today = ratesHistory.last?.value, let todayString = currencyFormatter.string(from: NSNumber(value: today)) else { return nil }
+    guard let today = ratesHistory.last?.value, let todayString = currencyFormatter.string(from: NSNumber(value: today))
+          else { return nil }
     let history = ratesHistory.map { $0.value }
     return (today: todayString, history: history)
   }
   
   var diff: (percentString: String, color: UIColor) {
     guard let yesterday = ratesHistory.dropLast().last?.value, let today = ratesHistory.last?.value
-      else { return (percentString: "-", color: .lightGray) }
+          else { return (percentString: "-", color: .lightGray) }
     let percent = (today-yesterday)/yesterday
     return (percentString: percentFormatter.string(from: NSNumber(value: percent)) ?? "-", color: percent >= 0 ? .systemGreen : .systemRed)
   }

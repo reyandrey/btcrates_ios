@@ -37,7 +37,7 @@ class RateCell: UITableViewCell, CellInstantiable {
       ratesLabel.text = rate.today
       chartView.set(rate.history)
     } else {
-      ratesLabel.text = "🤔"
+      ratesLabel.text = "updating.."
       chartView.setChartHidden(true)
     }
     
