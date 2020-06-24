@@ -12,6 +12,13 @@ import CoreData
 class RatesViewModel: ViewModel {
   let profileManager: ProfileManager
   
+  let df: DateFormatter = {
+    let df = DateFormatter()
+    df.timeStyle = .none
+    df.dateStyle = .medium
+    df.locale = .current
+    return df
+  }()
   //MARK: - Lifeycle
   
   init(profileManager: ProfileManager) {
@@ -39,7 +46,7 @@ class RatesViewModel: ViewModel {
   var rateItems: [RateItemViewModel] = []
   
   var title: String {
-    return "Dashboard"
+    return df.string(from: Date())
   }
   
   //MARK: - Actions
