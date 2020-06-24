@@ -39,10 +39,6 @@ class AddCurrencyViewModel: ViewModel {
     onUpdating?(false)
   }
   
-  func select(at index: Int) {
-    currencies[index].isSelected = true
-  }
-  
   func filterContent(for searchText: String) {
     filteredCurrencies = currencies.filter( { $0.code.lowercased().contains(searchText.lowercased()) } )
   }

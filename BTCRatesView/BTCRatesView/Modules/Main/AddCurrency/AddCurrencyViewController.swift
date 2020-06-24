@@ -46,7 +46,8 @@ extension AddCurrencyViewController {
     }
     
     viewModel.profileManager.onUnselectedUpdate = { [weak self] updates in
-      guard let self = self else { return }
+      guard let self = self,
+            !self.isFiltering else { return }
       self.tableView.performBatchUpdates({
         self.tableView.deleteRows(at: updates.deleted.map { IndexPath(row: $0, section: 0) }, with: .fade)
         self.tableView.insertRows(at: updates.inserted.map { IndexPath(row: $0, section: 0) }, with: .fade)
@@ -102,9 +103,17 @@ extension AddCurrencyViewController: UITableViewDataSource {
 
 extension AddCurrencyViewController: UITableViewDelegate {
   
+  // TODO: Via FRC
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    viewModel.select(at: indexPath.row)
-    tableView.deselectRow(at: indexPath, animated: true)
+    if isFiltering {
+      viewModel.filteredCurrencies[indexPath.row].isSelected = true
+      viewModel.filteredCurrencies.remove(at: indexPath.row)
+      tableView.deleteRows(at: [indexPath], with: .fade)
+      tableView.deselectRow(at: indexPath, animated: true)
+    } else {
+      viewModel.currencies[indexPath.row].isSelected = true
+      tableView.deselectRow(at: indexPath, animated: true)
+    }
   }
   
 }
