@@ -16,12 +16,24 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="oah-mh-qO1">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No rates available" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m11-nY-41N">
+                                <rect key="frame" x="40" y="356.5" width="334" height="33.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="28"/>
+                                <color key="textColor" systemColor="systemGray2Color" red="0.68235294120000001" green="0.68235294120000001" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap &quot;+&quot; and select currencies" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0lk-GC-bZ5">
+                                <rect key="frame" x="40" y="400" width="334" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                <color key="textColor" systemColor="systemGray2Color" red="0.68235294120000001" green="0.68235294120000001" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="oah-mh-qO1">
                                 <rect key="frame" x="0.0" y="44" width="414" height="852"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="RateCell" id="TNp-EV-zYf" customClass="RateCell" customModule="BTCRatesView" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="55.5" width="414" height="85.5"/>
+                                        <rect key="frame" x="0.0" y="28" width="414" height="85.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="TNp-EV-zYf" id="j3X-Oz-tOv">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="85.5"/>
@@ -112,9 +124,16 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="0lk-GC-bZ5" firstAttribute="top" secondItem="m11-nY-41N" secondAttribute="bottom" constant="10" id="GB6-yw-kvW"/>
+                            <constraint firstItem="0lk-GC-bZ5" firstAttribute="leading" secondItem="m11-nY-41N" secondAttribute="leading" id="IRe-kA-MUH"/>
+                            <constraint firstItem="m11-nY-41N" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="PmH-hB-t8O"/>
+                            <constraint firstItem="m11-nY-41N" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="TFV-F3-yPg"/>
                             <constraint firstItem="oah-mh-qO1" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="XKB-Ar-ZMK"/>
                             <constraint firstItem="oah-mh-qO1" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Z3n-Qq-99p"/>
+                            <constraint firstItem="0lk-GC-bZ5" firstAttribute="trailing" secondItem="m11-nY-41N" secondAttribute="trailing" id="kSt-9d-4Uk"/>
                             <constraint firstItem="oah-mh-qO1" firstAttribute="bottom" secondItem="8bC-Xf-vdC" secondAttribute="bottom" id="pxE-ju-8Rq"/>
+                            <constraint firstItem="m11-nY-41N" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" constant="-80" id="uhG-Ea-HgH"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="m11-nY-41N" secondAttribute="trailing" constant="40" id="vR5-Jl-BTa"/>
                             <constraint firstItem="oah-mh-qO1" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="wHg-Ur-RMZ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -125,7 +144,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="137.68115942028987" y="117.1875"/>
+            <point key="canvasLocation" x="335" y="116"/>
         </scene>
         <!--Add Currency View Controller-->
         <scene sceneID="Fm4-rK-5ny">

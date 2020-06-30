@@ -33,18 +33,21 @@ class DashboardViewModel: ViewModel {
       }
       self.onUpdateSelected?(updates)
     }
-    
   }
   
   var onError: ((String) -> Void)?
   var onUpdating: ((Bool) -> Void)?
+  var onUpdateRates: (() -> Void)?
   var onUpdateSelected: ((ProfileManager.Updates) -> Void)? = nil
   
   //MARK: - Properties
   
   var lastUpdated: Date?
   var rateItems: [RateItemViewModel] = [] {
-    didSet { rateItems.forEach { $0.reloadData() } }
+    didSet {
+      onUpdateRates?()
+      rateItems.forEach { $0.reloadData() }
+    }
   }
   
   var title: String {
