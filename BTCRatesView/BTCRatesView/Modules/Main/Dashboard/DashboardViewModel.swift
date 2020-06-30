@@ -53,6 +53,7 @@ class DashboardViewModel: ViewModel {
   
   func reloadData() {
     rateItems = profileManager.selectedCurrencies.map { RateItemViewModel($0) }
+    self.rateItems.forEach { $0.reloadData() }
     onUpdating?(false)
   }
   

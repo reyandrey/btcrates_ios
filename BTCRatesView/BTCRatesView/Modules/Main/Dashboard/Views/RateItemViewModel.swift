@@ -18,7 +18,7 @@ class RateItemViewModel {
     didSet { onUpdating?(self) }
   }
   
-  let currencyFormatter: NumberFormatter = {
+  private let currencyFormatter: NumberFormatter = {
     let fmt = NumberFormatter()
     fmt.usesGroupingSeparator = true
     fmt.numberStyle = .currency
@@ -29,7 +29,7 @@ class RateItemViewModel {
     return fmt
   }()
   
-  let percentFormatter: NumberFormatter = {
+  private let percentFormatter: NumberFormatter = {
     let fmt = NumberFormatter()
     fmt.numberStyle = .percent
     fmt.minimumFractionDigits = 2
@@ -86,7 +86,6 @@ extension RateItemViewModel: CellRepresentable {
   func dequeueCell(in tableView: UITableView, at indexPath: IndexPath) -> UITableViewCell {
     guard let cell = tableView.dequeueReusableCell(withIdentifier: RateCell.reuseId, for: indexPath) as? RateCell else { fatalError() }
     cell.set(self)
-    reloadData()
     return cell
   }
   

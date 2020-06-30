@@ -72,8 +72,8 @@ private extension DashboardViewController {
   func setup() {
     tableView.dataSource = self
     tableView.delegate = self
-    tableView.tableFooterView = UIView()
-    tableView.estimatedRowHeight = 95
+    //tableView.tableFooterView = UIView()
+    tableView.estimatedRowHeight = 86
     
     let addImage = UIImage(systemName: "plus")
     let addButton = UIBarButtonItem(image: addImage, style: .plain, target: self, action: #selector(addDidTap(_:)))
