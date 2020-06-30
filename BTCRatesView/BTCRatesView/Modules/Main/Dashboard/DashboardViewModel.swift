@@ -43,7 +43,9 @@ class DashboardViewModel: ViewModel {
   //MARK: - Properties
   
   var lastUpdated: Date?
-  var rateItems: [RateItemViewModel] = []
+  var rateItems: [RateItemViewModel] = [] {
+    didSet { rateItems.forEach { $0.reloadData() } }
+  }
   
   var title: String {
     return df.string(from: Date())
@@ -53,7 +55,6 @@ class DashboardViewModel: ViewModel {
   
   func reloadData() {
     rateItems = profileManager.selectedCurrencies.map { RateItemViewModel($0) }
-    self.rateItems.forEach { $0.reloadData() }
     onUpdating?(false)
   }
   

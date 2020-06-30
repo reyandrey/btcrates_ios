@@ -13,14 +13,14 @@ class AddCurrencyCell: UITableViewCell, CellInstantiable {
   
   lazy var codeLabel: UILabel = {
     let label = UILabel()
-    label.font = UIFont.systemFont(ofSize: 16, weight: .bold)
+    label.font = UIFont.systemFont(ofSize: 21, weight: .bold)
     label.textColor = .darkText
     return label
   }()
   
   lazy var countryLabel: UILabel = {
     let label = UILabel()
-    label.font = UIFont.systemFont(ofSize: 10, weight: .bold)
+    label.font = UIFont.systemFont(ofSize: 12, weight: .medium)
     label.textColor = .systemGray
     return label
   }()
