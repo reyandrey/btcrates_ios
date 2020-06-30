@@ -27,14 +27,14 @@ class DashboardViewController: UIViewController, StoryboardObject {
     return r
   }()
   
-  override func viewDidLoad() {
-    super.viewDidLoad()
+  override func loadView() {
+    super.loadView()
     if #available(iOS 13.0, *) { setup() }
-    bindViewModel()
-    reload()
   }
   
-  func reload() {
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    bindViewModel()
     viewModel.reloadData()
   }
 }
@@ -44,23 +44,29 @@ class DashboardViewController: UIViewController, StoryboardObject {
 extension DashboardViewController {
   
   func bindViewModel() {
-    viewModel.onUpdating = { [weak self] updating in
-      self?.onUpdating(updating)
+    viewModel.onUpdateRates = { [weak self] in
+      guard let self = self else { return }
+      UIView.transition(with: self.view, duration: 0.33, options: [.transitionCrossDissolve], animations: {
+        self.tableView.isHidden = self.viewModel.rateItems.isEmpty
+      }, completion: nil)
     }
+    
+    viewModel.onUpdating = { [weak self] updating in
+      guard let self = self else { return }
+      self.title = updating ? "Updating.." : self.viewModel.title
+      guard !updating else { return }
+      self.tableView.reloadData()
+      DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+        self.refreshControl.endRefreshing()
+      }
+    }
+    
     viewModel.onUpdateSelected = { [weak self] updates in
       guard let self = self else { return }
       self.tableView.performBatchUpdates({
         self.tableView.deleteRows(at: updates.deleted.map { IndexPath(row: $0, section: 0) }, with: .fade)
         self.tableView.insertRows(at: updates.inserted.map { IndexPath(row: $0, section: 0) }, with: .fade)
       }, completion: nil)
-    }
-  }
-  
-  func onUpdating(_ updating: Bool) {
-    title = updating ? "Updating.." : viewModel.title
-    if !updating { tableView.reloadData() }
-    DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-      self.refreshControl.endRefreshing()
     }
   }
 }
@@ -72,7 +78,7 @@ private extension DashboardViewController {
   func setup() {
     tableView.dataSource = self
     tableView.delegate = self
-    //tableView.tableFooterView = UIView()
+    tableView.tableFooterView = UIView()
     tableView.estimatedRowHeight = 86
     
     let addImage = UIImage(systemName: "plus")
@@ -85,7 +91,7 @@ private extension DashboardViewController {
   }
   
   @objc func pullToRefresh(_ sender: Any) {
-    reload()
+    viewModel.reloadData()
   }
 }
 
