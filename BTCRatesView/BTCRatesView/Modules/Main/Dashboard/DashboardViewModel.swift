@@ -15,7 +15,7 @@ class DashboardViewModel: ViewModel {
   let df: DateFormatter = {
     let df = DateFormatter()
     df.timeStyle = .none
-    df.dateStyle = .medium
+    df.dateStyle = .full
     df.locale = .current
     return df
   }()
