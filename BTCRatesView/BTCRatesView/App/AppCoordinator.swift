@@ -36,9 +36,8 @@ class AppCoordinator: Coordinator {
 }
 
 private extension AppCoordinator {
-  
   func showMain() {
-    let currenciesCoordinator = RatesCoordinator(with: navigationController)
+    let currenciesCoordinator = DashboardCoordinator(with: navigationController)
     addChild(currenciesCoordinator)
     currenciesCoordinator.completionHandler = { [weak self] in
       self?.removeChild(currenciesCoordinator)

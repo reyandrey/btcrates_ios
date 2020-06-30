@@ -9,12 +9,12 @@
 import Foundation
 import UIKit
 
-class RatesCoordinator: Coordinator {
+class DashboardCoordinator: Coordinator {
   private let apiClient: CoinDeskClient
   private let profileManager: ProfileManager
   
   private let navigationController: UINavigationController
-  private var currenciesViewController: RatesViewController?
+  private var currenciesViewController: DashboardViewController?
   
   init(with navigationController: UINavigationController) {
     self.navigationController = navigationController
@@ -23,15 +23,15 @@ class RatesCoordinator: Coordinator {
   }
   
   override func start() {
-    let ratesVC = getRatesController()
+    let ratesVC = getDashboardController()
     navigationController.setViewControllers([ratesVC], animated: true)
   }
 }
 
 // MARK: CurrenciesViewControllerDelegate
 
-extension RatesCoordinator: RatesViewControllerDelegate {
-  func controllerShouldAddNewCurrency(_ controller: RatesViewController) {
+extension DashboardCoordinator: DashboardViewControllerDelegate {
+  func controllerShouldAddNewCurrency(_ controller: DashboardViewController) {
     let vc = getAddCurrencyController()
     let nc = NavigationController()
     nc.setViewControllers([vc], animated: false)
@@ -41,10 +41,10 @@ extension RatesCoordinator: RatesViewControllerDelegate {
 
 // MARK: Private
 
-private extension RatesCoordinator {
-  func getRatesController() -> RatesViewController {
-    let vc = RatesViewController.instantiate()
-    vc.viewModel = RatesViewModel(profileManager: self.profileManager)
+private extension DashboardCoordinator {
+  func getDashboardController() -> DashboardViewController {
+    let vc = DashboardViewController.instantiate()
+    vc.viewModel = DashboardViewModel(profileManager: self.profileManager)
     vc.delegate = self
     currenciesViewController = vc
     return vc

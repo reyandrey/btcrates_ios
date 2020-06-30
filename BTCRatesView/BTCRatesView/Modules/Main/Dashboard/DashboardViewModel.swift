@@ -9,7 +9,7 @@
 import Foundation
 import CoreData
 
-class RatesViewModel: ViewModel {
+class DashboardViewModel: ViewModel {
   let profileManager: ProfileManager
   
   let df: DateFormatter = {
