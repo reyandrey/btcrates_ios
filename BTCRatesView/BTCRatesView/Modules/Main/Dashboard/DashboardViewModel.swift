@@ -15,7 +15,7 @@ class DashboardViewModel: ViewModel {
   let df: DateFormatter = {
     let df = DateFormatter()
     df.timeStyle = .none
-    df.dateStyle = .medium
+    df.dateStyle = .full
     df.locale = .current
     return df
   }()
@@ -43,7 +43,9 @@ class DashboardViewModel: ViewModel {
   //MARK: - Properties
   
   var lastUpdated: Date?
-  var rateItems: [RateItemViewModel] = []
+  var rateItems: [RateItemViewModel] = [] {
+    didSet { rateItems.forEach { $0.reloadData() } }
+  }
   
   var title: String {
     return df.string(from: Date())

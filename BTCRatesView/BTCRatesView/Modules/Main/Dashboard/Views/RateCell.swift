@@ -9,6 +9,8 @@
 import UIKit
 
 class RateCell: UITableViewCell, CellInstantiable {
+  var viewModel: RateItemViewModel?
+  
   @IBOutlet private weak var codeLabel: UILabel!
   @IBOutlet private weak var countryLabel: UILabel!
   @IBOutlet private weak var ratesLabel: UILabel!
@@ -27,7 +29,14 @@ class RateCell: UITableViewCell, CellInstantiable {
     }
   }
   
+  override func prepareForReuse() {
+    super.prepareForReuse()
+    viewModel?.onUpdating = nil
+  }
+  
   func set(_ viewModel: RateItemViewModel) {
+    self.viewModel = viewModel
+    
     codeLabel.text = viewModel.code
     countryLabel.text = viewModel.country
     diffLabel.text = viewModel.diff.percentString
@@ -44,6 +53,6 @@ class RateCell: UITableViewCell, CellInstantiable {
     viewModel.onUpdating = { [weak self] (viewModel) in
       self?.set(viewModel)
     }
-    
+
   }
 }

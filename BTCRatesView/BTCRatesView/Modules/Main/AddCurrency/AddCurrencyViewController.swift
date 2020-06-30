@@ -45,7 +45,8 @@ extension AddCurrencyViewController {
     
     viewModel.profileManager.onUnselectedUpdate = { [weak self] updates in
       guard let self = self,
-            !self.isFiltering else { return }
+        !self.isFiltering else { return }
+      self.title = self.viewModel.title
       self.tableView.performBatchUpdates({
         self.tableView.deleteRows(at: updates.deleted.map { IndexPath(row: $0, section: 0) }, with: .fade)
         self.tableView.insertRows(at: updates.inserted.map { IndexPath(row: $0, section: 0) }, with: .fade)
@@ -132,7 +133,7 @@ private extension AddCurrencyViewController {
 
 extension AddCurrencyViewController: PanModalPresentable {
   var panScrollable: UIScrollView? {
-    tableView
+    return tableView
   }
   
   var longFormHeight: PanModalHeight {

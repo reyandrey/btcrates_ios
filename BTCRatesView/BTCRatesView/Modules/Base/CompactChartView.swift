@@ -70,18 +70,21 @@ private extension CompactChartView {
 
 extension CompactChartView {
   func set(_ values: [Double]?) {
-    guard let values = values, values.count >= 2, let minValue = values.min(), let maxValue = values.max() else { return }
-    guard let last = values.last, let secondLast = values.dropLast().last else { return }
-    let entries = values.enumerated().map { ChartDataEntry(x: Double($0.offset), y: $0.element) }
-    let data = chartData(with: entries, isGrowing: last >= secondLast)
-    let margin = max(abs(maxValue - minValue)/2, 1)
-    lineChart.leftAxis.axisMinimum = minValue - margin
-    lineChart.leftAxis.axisMaximum = maxValue + margin
-    lineChart.xAxis.axisMinimum = 0
-    lineChart.xAxis.axisMaximum = Double(values.count - 1)
-    
-    lineChart.data = data
-    setChartHidden(false)
+    DispatchQueue.global().async {
+      guard let values = values, values.count >= 2, let minValue = values.min(), let maxValue = values.max() else { return }
+      guard let last = values.last, let secondLast = values.dropLast().last else { return }
+      let entries = values.enumerated().map { ChartDataEntry(x: Double($0.offset), y: $0.element) }
+      let data = self.chartData(with: entries, isGrowing: last >= secondLast)
+      let margin = max(abs(maxValue - minValue)/2, 1)
+      self.lineChart.leftAxis.axisMinimum = minValue - margin
+      self.lineChart.leftAxis.axisMaximum = maxValue + margin
+      self.lineChart.xAxis.axisMinimum = 0
+      self.lineChart.xAxis.axisMaximum = Double(values.count - 1)
+      DispatchQueue.main.async {
+        self.lineChart.data = data
+        self.setChartHidden(false)
+      }
+    }
   }
   
   func setChartHidden(_ hidden: Bool, animated: Bool = true) {
