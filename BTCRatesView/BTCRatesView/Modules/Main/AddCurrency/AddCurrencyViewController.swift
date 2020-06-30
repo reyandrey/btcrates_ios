@@ -11,7 +11,7 @@ import PanModal
 
 class AddCurrencyViewController: UIViewController, StoryboardObject {
   typealias T = AddCurrencyViewController
-  static var storyboardName: String { return "Rates" }
+  static var storyboardName: String { return "Dashboard" }
   
   var viewModel: AddCurrencyViewModel!
   
@@ -31,8 +31,6 @@ class AddCurrencyViewController: UIViewController, StoryboardObject {
     bindViewModel()
     viewModel.reloadData()
   }
-  
-  
 }
 
 //MARK: ViewModel

@@ -8,16 +8,16 @@
 
 import UIKit
 
-protocol RatesViewControllerDelegate: class {
-  func controllerShouldAddNewCurrency(_ controller: RatesViewController)
+protocol DashboardViewControllerDelegate: class {
+  func controllerShouldAddNewCurrency(_ controller: DashboardViewController)
 }
 
-class RatesViewController: UIViewController, StoryboardObject {
-  typealias T = RatesViewController
-  static var storyboardName: String { return "Rates" }
+class DashboardViewController: UIViewController, StoryboardObject {
+  typealias T = DashboardViewController
+  static var storyboardName: String { return "Dashboard" }
   
-  var viewModel: RatesViewModel!
-  weak var delegate: RatesViewControllerDelegate?
+  var viewModel: DashboardViewModel!
+  weak var delegate: DashboardViewControllerDelegate?
   
   @IBOutlet private weak var tableView: UITableView!
   private lazy var refreshControl: UIRefreshControl = {
@@ -41,7 +41,7 @@ class RatesViewController: UIViewController, StoryboardObject {
 
 //MARK: ViewModel
 
-extension RatesViewController {
+extension DashboardViewController {
   
   func bindViewModel() {
     viewModel.onUpdating = { [weak self] updating in
@@ -67,7 +67,7 @@ extension RatesViewController {
 
 // MARK: Private Methods
 
-private extension RatesViewController {
+private extension DashboardViewController {
   @available(iOS 13.0, *)
   func setup() {
     tableView.dataSource = self
@@ -91,7 +91,7 @@ private extension RatesViewController {
 
 // MARK: UITableViewDataSource
 
-extension RatesViewController: UITableViewDataSource {
+extension DashboardViewController: UITableViewDataSource {
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return viewModel.rateItems.count
   }
@@ -111,7 +111,7 @@ extension RatesViewController: UITableViewDataSource {
 
 // MARK: UITableViewDelegate
 
-extension RatesViewController: UITableViewDelegate {
+extension DashboardViewController: UITableViewDelegate {
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     tableView.deselectRow(at: indexPath, animated: true)
   }
