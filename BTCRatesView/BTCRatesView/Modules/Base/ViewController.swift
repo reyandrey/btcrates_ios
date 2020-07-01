@@ -11,12 +11,7 @@ import UIKit
 import SnapKit
 
 class ViewController: UIViewController {
-  enum ActivityIndicatorStyle {
-    case center, top
-  }
-  
   private let kAnimationDuration: TimeInterval = 0.5
-  open var activityIndicatorStyle: ActivityIndicatorStyle { return .center }
   
   private lazy var activityView: UIView = {
     let blurView = UIVisualEffectView(effect: UIBlurEffect(style: .extraLight))
@@ -40,25 +35,13 @@ class ViewController: UIViewController {
       m.edges.equalToSuperview()
     }
     
-    switch self.activityIndicatorStyle {
-    case .center:
-      l.snp.makeConstraints { m in
-        m.center.equalToSuperview()
-      }
-      a.snp.makeConstraints { m in
-        m.centerX.equalTo(l.snp.centerX)
-        m.bottom.equalTo(l.snp.top).offset(-10)
-      }
-    case .top:
-      l.snp.makeConstraints { m in
-        m.centerX.equalToSuperview()
-        m.top.equalToSuperview().offset(70)
-      }
-      
-      a.snp.makeConstraints { m in
-        m.centerX.equalTo(l.snp.centerX)
-        m.bottom.equalTo(l.snp.top).offset(-10)
-      }
+    l.snp.makeConstraints { m in
+      m.center.equalToSuperview()
+    }
+    
+    a.snp.makeConstraints { m in
+      m.centerX.equalTo(l.snp.centerX)
+      m.bottom.equalTo(l.snp.top).offset(-10)
     }
     return v
   }()

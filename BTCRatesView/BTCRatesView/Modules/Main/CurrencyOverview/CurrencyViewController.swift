@@ -26,8 +26,6 @@ class CurrencyViewController: ViewController, StoryboardObject {
   @IBOutlet private weak var diffLabel: UILabel!
   @IBOutlet private weak var segmentedControl: UISegmentedControl!
   
-  override var activityIndicatorStyle: ViewController.ActivityIndicatorStyle { return .top }
-  
   override func loadView() {
     super.loadView()
     setup()
@@ -60,7 +58,7 @@ extension CurrencyViewController {
     
     viewModel.onChangePeriod = { [weak self] in
       guard let self = self else { return }
-      self.tableView.reloadSections([Sections.historicalData.rawValue], with: .fade)
+      self.tableView.reloadData()
     }
   }
   
@@ -86,21 +84,29 @@ extension CurrencyViewController: UITableViewDataSource {
   }
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     switch Sections(rawValue: section)! {
-    case .historicalData: return viewModel.historyPeriod.count
+    case .chart: return 1
+    case .historicalData: return viewModel.filteredHistory.count
     }
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     switch Sections(rawValue: indexPath.section)! {
+    case .chart: return dequeueChartCell(in: tableView, at: indexPath)
     case .historicalData: return dequeueHistoricalItemCell(in: tableView, at: indexPath)
     }
   }
   
   func dequeueHistoricalItemCell(in tableView: UITableView, at indexPath: IndexPath) -> UITableViewCell {
     guard let cell = tableView.dequeueReusableCell(withIdentifier: HistoricalPriceCell.reuseId, for: indexPath) as? HistoricalPriceCell else { fatalError() }
-    let rate = viewModel.historyPeriod[indexPath.row]
-    cell.setDate(rate.date)
-    cell.setPrice(rate.value)
+    let rate = viewModel.filteredHistory[indexPath.row]
+    cell.set(rate)
+    return cell
+  }
+  
+  func dequeueChartCell(in tableView: UITableView, at indexPath: IndexPath) -> UITableViewCell {
+    guard let cell = tableView.dequeueReusableCell(withIdentifier: DetailedChartCell.reuseId, for: indexPath) as? DetailedChartCell else { fatalError() }
+    let values = viewModel.filteredHistory.map { $0.value }
+    cell.chartView.set(values) // TBD
     return cell
   }
 }
@@ -110,9 +116,11 @@ extension CurrencyViewController: UITableViewDataSource {
 extension CurrencyViewController: UITableViewDelegate {
   func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
     switch Sections(rawValue: indexPath.section)! {
+    case .chart: return 240
     case .historicalData: return 40
     }
   }
+  
   func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
     return false
   }
@@ -124,6 +132,7 @@ private extension CurrencyViewController {
   func setup() {
     tableView.dataSource = self
     tableView.delegate = self
+    tableView.register(DetailedChartCell.self, forCellReuseIdentifier: DetailedChartCell.reuseId)
     segmentedControl.addTarget(self, action: #selector(didSelectPeriod(_:)), for: .valueChanged)
   }
   
@@ -144,9 +153,5 @@ extension CurrencyViewController: PanModalPresentable {
   
   var longFormHeight: PanModalHeight {
     return .maxHeight
-  }
-  
-  var shortFormHeight: PanModalHeight {
-    return .contentHeight(375)
   }
 }

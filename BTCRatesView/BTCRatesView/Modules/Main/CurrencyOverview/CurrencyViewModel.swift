@@ -41,17 +41,15 @@ class CurrencyViewModel: ViewModel {
   
   //MARK: - Properties
   
-  var historyPeriod: [BPIHistory.Rate] = []
-  
-  
+  var filteredHistory: [BPIHistory.Rate] = []
   private var history: [BPIHistory.Rate] = [] {
     didSet {
-      historyPeriod = history.filter({ $0.date >= selectedPeriod.startDate })
+      filteredHistory = history.filter({ $0.date >= selectedPeriod.startDate }).reversed()
     }
   }
   var selectedPeriod: BPIHistory.Period = .week {
     didSet {
-      historyPeriod = history.filter({ $0.date >= selectedPeriod.startDate })
+      filteredHistory = history.filter({ $0.date >= selectedPeriod.startDate }).reversed()
       onChangePeriod?()
     }
   }
@@ -99,6 +97,6 @@ extension CurrencyViewModel {
 
 extension CurrencyViewModel {
   enum Sections: Int, CaseIterable {
-    case historicalData
+    case chart, historicalData
   }
 }

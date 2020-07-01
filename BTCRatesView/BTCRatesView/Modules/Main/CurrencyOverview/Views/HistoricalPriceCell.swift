@@ -9,7 +9,6 @@
 import UIKit
 
 class HistoricalPriceCell: UITableViewCell, CellInstantiable {
-
   private let df: DateFormatter = {
     let df = DateFormatter()
     df.timeStyle = .none
@@ -36,7 +35,7 @@ class HistoricalPriceCell: UITableViewCell, CellInstantiable {
   override func draw(_ rect: CGRect) {
     let context = UIGraphicsGetCurrentContext()
     context?.setLineWidth(1)
-    context?.setLineDash(phase: 0, lengths: [2])
+    context?.setLineDash(phase: 0, lengths: [1])
     context?.setStrokeColor( #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1).cgColor)
     context?.move(to: CGPoint(x: rect.midX, y: rect.minY))
     context?.addLine(to: CGPoint(x: rect.midX, y: rect.maxY))
@@ -45,12 +44,8 @@ class HistoricalPriceCell: UITableViewCell, CellInstantiable {
     context?.strokePath()
   }
   
-  func setDate(_ date: Date) {
-    dateLabel.text = df.string(from: date)
+  func set(_ rate: BPIHistory.Rate) {
+    dateLabel.text = df.string(from: rate.date)
+    priceLabel.text = currencyFormatter.string(from: NSNumber(value: rate.value))
   }
-  
-  func setPrice(_ price: Double) {
-    priceLabel.text = currencyFormatter.string(from: NSNumber(value: price))
-  }
-
 }
