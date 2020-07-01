@@ -217,6 +217,10 @@
                                                 <constraint firstAttribute="bottom" secondItem="njN-HU-gau" secondAttribute="bottom" constant="10" id="jkM-Dq-EuD"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="dateLabel" destination="njN-HU-gau" id="9oX-VP-OI3"/>
+                                            <outlet property="priceLabel" destination="IMM-oX-GcP" id="UW1-km-z5P"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -295,6 +299,12 @@
                         <viewLayoutGuide key="safeArea" id="cg2-nG-84u"/>
                     </view>
                     <connections>
+                        <outlet property="codeLabel" destination="DHk-xD-Wjg" id="vlx-or-Vd0"/>
+                        <outlet property="countryLabel" destination="OXx-9n-lxj" id="FKZ-RA-AAd"/>
+                        <outlet property="diffLabel" destination="1wQ-Mi-par" id="aho-pQ-mPQ"/>
+                        <outlet property="diffView" destination="ffQ-fv-I8R" id="d04-zP-lNT"/>
+                        <outlet property="ratesLabel" destination="h4l-jn-xRt" id="7Ho-pq-vgM"/>
+                        <outlet property="segmentedControl" destination="xBq-ot-soy" id="Ert-AH-Cqq"/>
                         <outlet property="tableView" destination="Cvo-GR-CrI" id="8ZT-zA-Dtl"/>
                     </connections>
                 </viewController>

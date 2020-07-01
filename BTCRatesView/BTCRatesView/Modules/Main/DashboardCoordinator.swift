@@ -31,11 +31,11 @@ class DashboardCoordinator: Coordinator {
 // MARK: CurrenciesViewControllerDelegate
 
 extension DashboardCoordinator: DashboardViewControllerDelegate {
-  func showCurrencyOverview(_ controller: DashboardViewController) {
-    let vc = getCurrencyViewController()
+  func showCurrencyOverview(_ controller: DashboardViewController, currrency: CurrencyModel) {
+    let vc = getCurrencyViewController(currrency)
     controller.presentPanModal(vc)
   }
-  
+
   func showAddCurrency(_ controller: DashboardViewController) {
     let vc = getAddCurrencyController()
     let nc = NavigationController()
@@ -61,9 +61,9 @@ private extension DashboardCoordinator {
     return vc
   }
   
-  func getCurrencyViewController() -> CurrencyViewController {
+  func getCurrencyViewController(_ currency: CurrencyModel) -> CurrencyViewController {
     let vc = CurrencyViewController.instantiate()
-    vc.viewModel = CurrencyViewModel()
+    vc.viewModel = CurrencyViewModel(currency)
     return vc
   }
 }

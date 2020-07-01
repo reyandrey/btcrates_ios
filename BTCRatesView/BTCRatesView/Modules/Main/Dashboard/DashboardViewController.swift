@@ -10,7 +10,7 @@ import UIKit
 
 protocol DashboardViewControllerDelegate: class {
   func showAddCurrency(_ controller: DashboardViewController)
-  func showCurrencyOverview(_ controller: DashboardViewController)
+  func showCurrencyOverview(_ controller: DashboardViewController, currrency: CurrencyModel)
 }
 
 class DashboardViewController: UIViewController, StoryboardObject {
@@ -123,6 +123,6 @@ extension DashboardViewController: UITableViewDataSource {
 extension DashboardViewController: UITableViewDelegate {
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     tableView.deselectRow(at: indexPath, animated: true)
-    delegate?.showCurrencyOverview(self)
+    delegate?.showCurrencyOverview(self, currrency: viewModel.rateItems[indexPath.row].currency)
   }
 }

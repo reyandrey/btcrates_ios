@@ -24,13 +24,14 @@ class BPIHistory: CustomDecodable {
 }
 
 extension BPIHistory {
+  
   struct Rate {
     let date: Date
     let value: Double
   }
   
-  enum Period {
-    case week, month, year
+  enum Period: Int {
+    case week, month, sixMonth, year
     
     var endDate: Date {
       return Date()
@@ -40,6 +41,7 @@ extension BPIHistory {
       switch self {
       case .week: return Calendar.current.date(byAdding: .day, value: -7, to: self.endDate) ?? Date()
       case .month: return Calendar.current.date(byAdding: .month, value: -1, to: self.endDate) ?? Date()
+      case .sixMonth: return Calendar.current.date(byAdding: .month, value: -6, to: self.endDate) ?? Date()
       case .year: return Calendar.current.date(byAdding: .year, value: -1, to: self.endDate) ?? Date()
       }
     }
