@@ -69,7 +69,7 @@ class CurrencyViewModel: ViewModel {
 
 extension CurrencyViewModel {
   var code: String {
-    return currency.code
+    return  "BTC/" + currency.code
   }
   
   var country: String {

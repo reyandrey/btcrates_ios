@@ -21,6 +21,7 @@ class CompactChartView: UIView {
     lineChart.rightAxis.enabled = false
     lineChart.xAxis.enabled = false
     lineChart.leftAxis.enabled = false
+    lineChart.clipDataToContentEnabled = true
     return lineChart
   }()
   
@@ -33,16 +34,14 @@ class CompactChartView: UIView {
     super.init(coder: coder)
     setup()
   }
-  
-  override func layoutSubviews() {
-    super.layoutSubviews()
-    lineChart.frame = bounds
-  }
 }
 
 private extension CompactChartView {
   func setup() {
     addSubview(lineChart)
+    lineChart.snp.makeConstraints { m in
+      m.edges.equalToSuperview()
+    }
     lineChart.data = nil
     setChartHidden(true, animated: false)
   }

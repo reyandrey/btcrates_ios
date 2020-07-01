@@ -73,20 +73,20 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="United States Dollar" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ps2-Ha-Yx1">
-                                                    <rect key="frame" x="20" y="50.5" width="116" height="14.5"/>
-                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
+                                                    <rect key="frame" x="20" y="50.5" width="132.5" height="17"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                                     <color key="textColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="646,175" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="14" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2uZ-oW-AV7">
-                                                    <rect key="frame" x="333.5" y="15" width="60.5" height="19.5"/>
-                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
+                                                    <rect key="frame" x="332.5" y="15" width="61.5" height="19.5"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="USD" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r2e-HD-1x5">
                                                     <rect key="frame" x="20" y="20" width="44" height="25.5"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="21"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -99,7 +99,8 @@
                                                 <constraint firstItem="r2e-HD-1x5" firstAttribute="leading" secondItem="j3X-Oz-tOv" secondAttribute="leading" constant="20" id="YLf-3X-Itq"/>
                                                 <constraint firstAttribute="trailing" secondItem="2uZ-oW-AV7" secondAttribute="trailing" constant="20" id="aaY-h9-AGj"/>
                                                 <constraint firstItem="ps2-Ha-Yx1" firstAttribute="top" secondItem="r2e-HD-1x5" secondAttribute="bottom" constant="5" id="cap-sS-YcU"/>
-                                                <constraint firstAttribute="bottom" secondItem="ibB-2H-dwo" secondAttribute="bottom" constant="10" id="d0B-sk-XO8"/>
+                                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="ibB-2H-dwo" secondAttribute="bottom" constant="10" id="d0B-sk-XO8"/>
+                                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="ps2-Ha-Yx1" secondAttribute="bottom" constant="10" id="dFm-Yt-vkZ"/>
                                                 <constraint firstItem="ps2-Ha-Yx1" firstAttribute="leading" secondItem="r2e-HD-1x5" secondAttribute="leading" id="f5u-5n-V0Z"/>
                                                 <constraint firstItem="r2e-HD-1x5" firstAttribute="top" secondItem="j3X-Oz-tOv" secondAttribute="top" constant="20" id="iie-bk-SGk"/>
                                                 <constraint firstItem="ibB-2H-dwo" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="r2e-HD-1x5" secondAttribute="trailing" id="kkB-jb-gZu"/>
@@ -185,7 +186,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Cvo-GR-CrI">
-                                <rect key="frame" x="0.0" y="174.5" width="414" height="721.5"/>
+                                <rect key="frame" x="0.0" y="170" width="414" height="726"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="HistoricalPriceCell" id="p8z-EV-Z1B" customClass="HistoricalPriceCell" customModule="BTCRatesView" customModuleProvider="target">
@@ -225,22 +226,37 @@
                                 </prototypes>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A9f-Fe-TWd">
-                                <rect key="frame" x="0.0" y="44" width="414" height="130.5"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="126"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="750" text="USD" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DHk-xD-Wjg">
-                                        <rect key="frame" x="20" y="20" width="52.5" height="30"/>
+                                        <rect key="frame" x="20" y="10" width="52.5" height="30"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="United States Dollar" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OXx-9n-lxj">
-                                        <rect key="frame" x="20" y="60" width="148.5" height="19.5"/>
+                                        <rect key="frame" x="20" y="45" width="148.5" height="30"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
                                         <color key="textColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="646,175" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="14" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="h4l-jn-xRt">
+                                        <rect key="frame" x="292.5" y="10" width="101.5" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="25"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="xBq-ot-soy">
+                                        <rect key="frame" x="20" y="85" width="374" height="32"/>
+                                        <segments>
+                                            <segment title="Week"/>
+                                            <segment title="Month"/>
+                                            <segment title="6 Months"/>
+                                            <segment title="Year"/>
+                                        </segments>
+                                    </segmentedControl>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ffQ-fv-I8R">
-                                        <rect key="frame" x="82.5" y="20" width="65" height="30"/>
+                                        <rect key="frame" x="329" y="45" width="65" height="30"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+ 0,79 %" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1wQ-Mi-par">
                                                 <rect key="frame" x="0.0" y="0.0" width="65" height="30"/>
@@ -264,36 +280,21 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="646,175" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="14" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="h4l-jn-xRt">
-                                        <rect key="frame" x="292" y="20" width="101.5" height="30"/>
-                                        <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="25"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="xBq-ot-soy">
-                                        <rect key="frame" x="20" y="89.5" width="374" height="32"/>
-                                        <segments>
-                                            <segment title="Week"/>
-                                            <segment title="Month"/>
-                                            <segment title="6 Months"/>
-                                            <segment title="Year"/>
-                                        </segments>
-                                    </segmentedControl>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
+                                    <constraint firstItem="ffQ-fv-I8R" firstAttribute="top" secondItem="h4l-jn-xRt" secondAttribute="bottom" constant="5" id="9tp-V0-3xM"/>
                                     <constraint firstItem="DHk-xD-Wjg" firstAttribute="leading" secondItem="A9f-Fe-TWd" secondAttribute="leading" constant="20" id="Buk-zy-lV3"/>
                                     <constraint firstAttribute="trailing" secondItem="xBq-ot-soy" secondAttribute="trailing" constant="20" id="D2K-EA-x4d"/>
-                                    <constraint firstItem="ffQ-fv-I8R" firstAttribute="centerY" secondItem="DHk-xD-Wjg" secondAttribute="centerY" id="Hd5-tb-NZs"/>
-                                    <constraint firstItem="h4l-jn-xRt" firstAttribute="centerY" secondItem="1wQ-Mi-par" secondAttribute="centerY" id="Kna-5o-jvB"/>
-                                    <constraint firstItem="ffQ-fv-I8R" firstAttribute="leading" secondItem="DHk-xD-Wjg" secondAttribute="trailing" constant="10" id="PtT-1e-7yS"/>
+                                    <constraint firstItem="xBq-ot-soy" firstAttribute="top" secondItem="ffQ-fv-I8R" secondAttribute="bottom" constant="10" id="Qod-Sf-nbV"/>
                                     <constraint firstItem="OXx-9n-lxj" firstAttribute="leading" secondItem="DHk-xD-Wjg" secondAttribute="leading" id="Ruu-TA-p6d"/>
                                     <constraint firstAttribute="bottom" secondItem="xBq-ot-soy" secondAttribute="bottom" constant="10" id="TkR-Qq-jE4"/>
-                                    <constraint firstItem="h4l-jn-xRt" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="1wQ-Mi-par" secondAttribute="trailing" constant="20" id="YS9-ic-X1V"/>
-                                    <constraint firstItem="OXx-9n-lxj" firstAttribute="top" secondItem="DHk-xD-Wjg" secondAttribute="bottom" constant="10" id="eum-JQ-Hnu"/>
-                                    <constraint firstItem="DHk-xD-Wjg" firstAttribute="top" secondItem="A9f-Fe-TWd" secondAttribute="top" constant="20" id="fOl-vH-Cpr"/>
+                                    <constraint firstAttribute="trailing" secondItem="ffQ-fv-I8R" secondAttribute="trailing" constant="20" id="ePK-nx-zRw"/>
+                                    <constraint firstItem="OXx-9n-lxj" firstAttribute="top" secondItem="DHk-xD-Wjg" secondAttribute="bottom" constant="5" id="eum-JQ-Hnu"/>
+                                    <constraint firstItem="DHk-xD-Wjg" firstAttribute="top" secondItem="A9f-Fe-TWd" secondAttribute="top" constant="10" id="fOl-vH-Cpr"/>
+                                    <constraint firstItem="h4l-jn-xRt" firstAttribute="top" secondItem="A9f-Fe-TWd" secondAttribute="top" constant="10" id="luL-xc-SXz"/>
                                     <constraint firstItem="xBq-ot-soy" firstAttribute="leading" secondItem="A9f-Fe-TWd" secondAttribute="leading" constant="20" id="vrx-g7-6RF"/>
-                                    <constraint firstAttribute="trailing" secondItem="h4l-jn-xRt" secondAttribute="trailing" constant="20.5" id="wfM-XT-rIF"/>
+                                    <constraint firstAttribute="trailing" secondItem="h4l-jn-xRt" secondAttribute="trailing" constant="20" id="wfM-XT-rIF"/>
                                     <constraint firstItem="xBq-ot-soy" firstAttribute="top" secondItem="OXx-9n-lxj" secondAttribute="bottom" constant="10" id="yLf-hb-eMB"/>
                                 </constraints>
                             </view>
