@@ -17,7 +17,7 @@ class CurrencyViewModel: ViewModel {
   
   var onError: ((String) -> Void)?
   var onUpdating: ((Bool) -> Void)?
-  var onChangePeriod: ((Bool) -> Void)?
+  var onChangePeriod: (() -> Void)?
 
   private let currencyFormatter: NumberFormatter = {
     let fmt = NumberFormatter()
@@ -52,7 +52,7 @@ class CurrencyViewModel: ViewModel {
   var selectedPeriod: BPIHistory.Period = .week {
     didSet {
       historyPeriod = history.filter({ $0.date >= selectedPeriod.startDate })
-      onChangePeriod?(oldValue.rawValue > selectedPeriod.rawValue)
+      onChangePeriod?()
     }
   }
   

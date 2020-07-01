@@ -17,6 +17,7 @@ class CurrencyViewController: ViewController, StoryboardObject {
   
   var viewModel: CurrencyViewModel!
   
+  @IBOutlet private weak var headerView: UIView!
   @IBOutlet private weak var tableView: UITableView!
   @IBOutlet private weak var codeLabel: UILabel!
   @IBOutlet private weak var countryLabel: UILabel!
@@ -38,6 +39,12 @@ class CurrencyViewController: ViewController, StoryboardObject {
     viewModel.reloadData()
   }
   
+  override func viewDidLayoutSubviews() {
+    super.viewDidLayoutSubviews()
+    headerView.layer.cornerRadius = 8
+    headerView.addShadow(withColor: .lightGray, opacity: 0.3, radius: 3, xOffset: 0, yOffset: 3)
+  }
+  
 }
 
 
@@ -51,9 +58,9 @@ extension CurrencyViewController {
       if !updating { self.viewModelDidUpdate() }
     }
     
-    viewModel.onChangePeriod = { [weak self] left in
+    viewModel.onChangePeriod = { [weak self] in
       guard let self = self else { return }
-      self.tableView.reloadSections([Sections.historicalData.rawValue], with: left ? .right : .left)
+      self.tableView.reloadSections([Sections.historicalData.rawValue], with: .fade)
     }
   }
   
@@ -129,6 +136,8 @@ private extension CurrencyViewController {
 // MARK: PanModalPresentable
 
 extension CurrencyViewController: PanModalPresentable {
+  var anchorModalToLongForm: Bool { return true }
+  
   var panScrollable: UIScrollView? {
     return tableView
   }
