@@ -58,7 +58,7 @@ class RateItemViewModel {
 extension RateItemViewModel {
   
   var code: String {
-    return currency.code
+    return "BTC/" + currency.code
   }
   
   var country: String {
