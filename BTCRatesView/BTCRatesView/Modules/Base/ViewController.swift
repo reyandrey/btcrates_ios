@@ -12,6 +12,7 @@ import SnapKit
 
 class ViewController: UIViewController {
   private let kAnimationDuration: TimeInterval = 0.5
+  
   private lazy var activityView: UIView = {
     let blurView = UIVisualEffectView(effect: UIBlurEffect(style: .extraLight))
     let v = UIView()
@@ -20,10 +21,9 @@ class ViewController: UIViewController {
     let l = UILabel()
     l.textColor = .darkText
     l.font = .systemFont(ofSize: 12, weight: .medium)
-    l.text = "Загрузка"
+    l.text = "Loading.."
     
     let a = UIActivityIndicatorView(style: .gray)
-    a.layer.cornerRadius = 10
     a.hidesWhenStopped = false
     a.startAnimating()
     
@@ -46,9 +46,14 @@ class ViewController: UIViewController {
     return v
   }()
   
+  override func loadView() {
+    super.loadView()
+    view.backgroundColor = .white
+  }
+  
   override func viewDidLayoutSubviews() {
     super.viewDidLayoutSubviews()
-    activityView.frame = UIScreen.main.bounds
+    activityView.frame = view.bounds
   }
   
   open func setActivityIndication(_ active: Bool, animated: Bool = true) {

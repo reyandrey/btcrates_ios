@@ -67,6 +67,18 @@ extension CoinDeskClient {
     }
   }
   
+  func getYearHistory(currency: String, completionHandler: @escaping ([BPIHistory.Rate]?) -> ()) {
+    getHistory(code: currency, period: .year) { history in
+      self.getCurrentPrice(code: currency) { realtime in
+        guard let h = history, let n = realtime?.rateDouble else { completionHandler(nil); return }
+        var result = [BPIHistory.Rate]()
+        result.append(contentsOf: h.data)
+        result.append(BPIHistory.Rate(date: Date(), value: n))
+        completionHandler(result)
+      }
+    }
+  }
+  
 }
 
 // MARK: Privatec
