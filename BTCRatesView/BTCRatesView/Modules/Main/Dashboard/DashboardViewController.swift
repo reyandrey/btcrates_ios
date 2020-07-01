@@ -45,7 +45,9 @@ extension DashboardViewController {
   
   func bindViewModel() {
     viewModel.onUpdateRates = { [weak self] in
-      guard let self = self else { return }
+      guard let self = self,
+            self.tableView.isHidden != self.viewModel.rateItems.isEmpty
+            else { return }
       UIView.transition(with: self.view, duration: 0.33, options: [.transitionCrossDissolve], animations: {
         self.tableView.isHidden = self.viewModel.rateItems.isEmpty
       }, completion: nil)
