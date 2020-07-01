@@ -48,6 +48,10 @@
 		55D267BA249DA4AA0037DC27 /* BPIHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D267B9249DA4AA0037DC27 /* BPIHistory.swift */; };
 		55D267BF249DA8220037DC27 /* DateFormatter+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D267BE249DA8220037DC27 /* DateFormatter+Extensions.swift */; };
 		5B04AF0124A3BE0C00C2F9EB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B04AF0024A3BE0C00C2F9EB /* ViewController.swift */; };
+		5B04AF1224AC216D00C2F9EB /* CurrencyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B04AF1124AC216D00C2F9EB /* CurrencyViewController.swift */; };
+		5B04AF1524AC2B7700C2F9EB /* CurrencyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B04AF1424AC2B7700C2F9EB /* CurrencyViewModel.swift */; };
+		5B04AF1724AC2CE600C2F9EB /* PeriodSelectorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B04AF1624AC2CE600C2F9EB /* PeriodSelectorCell.swift */; };
+		5B04AF1A24AC2D5A00C2F9EB /* HistoricalPriceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B04AF1924AC2D5A00C2F9EB /* HistoricalPriceCell.swift */; };
 		5B6CBC7F248C0793009FBB90 /* RateItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6CBC7E248C0793009FBB90 /* RateItemViewModel.swift */; };
 		5B6CBC82248C1C29009FBB90 /* BPIRealTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6CBC81248C1C29009FBB90 /* BPIRealTime.swift */; };
 		5B7F52CF248BD0DC0036EE24 /* DashboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7F52CE248BD0DC0036EE24 /* DashboardViewModel.swift */; };
@@ -114,6 +118,10 @@
 		55D267B9249DA4AA0037DC27 /* BPIHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BPIHistory.swift; sourceTree = "<group>"; };
 		55D267BE249DA8220037DC27 /* DateFormatter+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+Extensions.swift"; sourceTree = "<group>"; };
 		5B04AF0024A3BE0C00C2F9EB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		5B04AF1124AC216D00C2F9EB /* CurrencyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyViewController.swift; sourceTree = "<group>"; };
+		5B04AF1424AC2B7700C2F9EB /* CurrencyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyViewModel.swift; sourceTree = "<group>"; };
+		5B04AF1624AC2CE600C2F9EB /* PeriodSelectorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeriodSelectorCell.swift; sourceTree = "<group>"; };
+		5B04AF1924AC2D5A00C2F9EB /* HistoricalPriceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoricalPriceCell.swift; sourceTree = "<group>"; };
 		5B6CBC7E248C0793009FBB90 /* RateItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateItemViewModel.swift; sourceTree = "<group>"; };
 		5B6CBC81248C1C29009FBB90 /* BPIRealTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BPIRealTime.swift; sourceTree = "<group>"; };
 		5B7F52CE248BD0DC0036EE24 /* DashboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewModel.swift; sourceTree = "<group>"; };
@@ -320,6 +328,7 @@
 				5B7F52D0248BD3B30036EE24 /* DashboardCoordinator.swift */,
 				55CFB12E248BC99B00C7DB04 /* Dashboard */,
 				55CFB12F248BC9AB00C7DB04 /* AddCurrency */,
+				5B04AF1324AC217100C2F9EB /* CurrencyOverview */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -371,6 +380,25 @@
 				555BA55324A3492A00FA72DA /* UITableViewCell+Extensions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		5B04AF1324AC217100C2F9EB /* CurrencyOverview */ = {
+			isa = PBXGroup;
+			children = (
+				5B04AF1824AC2CE900C2F9EB /* Views */,
+				5B04AF1124AC216D00C2F9EB /* CurrencyViewController.swift */,
+				5B04AF1424AC2B7700C2F9EB /* CurrencyViewModel.swift */,
+			);
+			path = CurrencyOverview;
+			sourceTree = "<group>";
+		};
+		5B04AF1824AC2CE900C2F9EB /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				5B04AF1624AC2CE600C2F9EB /* PeriodSelectorCell.swift */,
+				5B04AF1924AC2D5A00C2F9EB /* HistoricalPriceCell.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		5B6CBC80248C15C2009FBB90 /* App */ = {
@@ -519,15 +547,19 @@
 				55CFB12D248BC8CA00C7DB04 /* AddCurrencyViewController.swift in Sources */,
 				554D5E432493AA700026E4E1 /* HTTPRequestManager.swift in Sources */,
 				555BA55A24A34CC400FA72DA /* CellRepresentable.swift in Sources */,
+				5B04AF1A24AC2D5A00C2F9EB /* HistoricalPriceCell.swift in Sources */,
 				55CFB127248BC5D400C7DB04 /* UIView+Extension.swift in Sources */,
 				555BA55824A34B6300FA72DA /* ViewModel.swift in Sources */,
+				5B04AF1224AC216D00C2F9EB /* CurrencyViewController.swift in Sources */,
 				55CFB0FD248BC45600C7DB04 /* DashboardViewController.swift in Sources */,
 				555BA56424A36CD500FA72DA /* SwiftyJSON.swift in Sources */,
 				555BA56224A3572900FA72DA /* CustomCodable.swift in Sources */,
 				5B7F52DB248BDFD10036EE24 /* UserDefaultsStorage.swift in Sources */,
 				5564DE02249E53CF0025AECF /* Model.xcdatamodeld in Sources */,
+				5B04AF1724AC2CE600C2F9EB /* PeriodSelectorCell.swift in Sources */,
 				5525F307249D387E0004F7BE /* ChartViewController.swift in Sources */,
 				55CFB134248BCD7D00C7DB04 /* AddCurrencyCell.swift in Sources */,
+				5B04AF1524AC2B7700C2F9EB /* CurrencyViewModel.swift in Sources */,
 				5B04AF0124A3BE0C00C2F9EB /* ViewController.swift in Sources */,
 				555BA55424A3492A00FA72DA /* UITableViewCell+Extensions.swift in Sources */,
 				5B6CBC7F248C0793009FBB90 /* RateItemViewModel.swift in Sources */,
