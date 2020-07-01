@@ -29,7 +29,6 @@ class ViewController: UIViewController {
     l.text = "Loading.."
     
     let a = UIActivityIndicatorView(style: .gray)
-    a.layer.cornerRadius = 10
     a.hidesWhenStopped = false
     a.startAnimating()
     

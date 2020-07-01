@@ -185,39 +185,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Cvo-GR-CrI">
-                                <rect key="frame" x="0.0" y="134" width="414" height="762"/>
+                                <rect key="frame" x="0.0" y="168.5" width="414" height="727.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PeriodSelectorCell" id="PqM-hp-LTt" customClass="PeriodSelectorCell" customModule="BTCRatesView" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="51"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="PqM-hp-LTt" id="PD7-0J-eKC">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="51"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="xBq-ot-soy">
-                                                    <rect key="frame" x="20" y="10" width="374" height="32"/>
-                                                    <segments>
-                                                        <segment title="Week"/>
-                                                        <segment title="Month"/>
-                                                        <segment title="6 Months"/>
-                                                        <segment title="Year"/>
-                                                    </segments>
-                                                </segmentedControl>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="bottom" secondItem="xBq-ot-soy" secondAttribute="bottom" constant="10" id="Y0i-JQ-snr"/>
-                                                <constraint firstItem="xBq-ot-soy" firstAttribute="leading" secondItem="PD7-0J-eKC" secondAttribute="leading" constant="20" id="bIJ-p1-4tI"/>
-                                                <constraint firstAttribute="trailing" secondItem="xBq-ot-soy" secondAttribute="trailing" constant="20" id="cch-OA-nOM"/>
-                                                <constraint firstItem="xBq-ot-soy" firstAttribute="top" secondItem="PD7-0J-eKC" secondAttribute="top" constant="10" id="fCj-ar-scC"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="segmentedControl" destination="xBq-ot-soy" id="Yfh-jt-LR7"/>
-                                        </connections>
-                                    </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="HistoricalPriceCell" id="p8z-EV-Z1B" customClass="HistoricalPriceCell" customModule="BTCRatesView" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="79" width="414" height="39.5"/>
+                                        <rect key="frame" x="0.0" y="28" width="414" height="39.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="p8z-EV-Z1B" id="aQW-AX-uXy">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="39.5"/>
@@ -249,19 +221,19 @@
                                 </prototypes>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="USD" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DHk-xD-Wjg">
-                                <rect key="frame" x="20" y="64" width="44" height="25.5"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
+                                <rect key="frame" x="20" y="64" width="50" height="29"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="United States Dollar" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OXx-9n-lxj">
-                                <rect key="frame" x="20" y="99.5" width="116" height="14.5"/>
+                                <rect key="frame" x="20" y="103" width="116" height="14.5"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
                                 <color key="textColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ffQ-fv-I8R">
-                                <rect key="frame" x="74" y="62" width="65" height="30"/>
+                                <rect key="frame" x="80" y="63.5" width="65" height="30"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+ 0,79 %" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1wQ-Mi-par">
                                         <rect key="frame" x="0.0" y="0.0" width="65" height="30"/>
@@ -286,19 +258,31 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="646,175" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="14" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="h4l-jn-xRt">
-                                <rect key="frame" x="311" y="64" width="83" height="25.5"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
+                                <rect key="frame" x="295.5" y="63.5" width="98.5" height="30"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="xBq-ot-soy">
+                                <rect key="frame" x="20" y="127.5" width="374" height="32"/>
+                                <segments>
+                                    <segment title="Week"/>
+                                    <segment title="Month"/>
+                                    <segment title="6 Months"/>
+                                    <segment title="Year"/>
+                                </segments>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="Cvo-GR-CrI" firstAttribute="top" secondItem="OXx-9n-lxj" secondAttribute="bottom" constant="20" id="Bdg-O9-6IM"/>
+                            <constraint firstItem="xBq-ot-soy" firstAttribute="leading" secondItem="cg2-nG-84u" secondAttribute="leading" constant="20" id="1HL-Bt-51H"/>
                             <constraint firstItem="Cvo-GR-CrI" firstAttribute="leading" secondItem="cg2-nG-84u" secondAttribute="leading" id="Izp-UK-A1K"/>
                             <constraint firstItem="ffQ-fv-I8R" firstAttribute="centerY" secondItem="DHk-xD-Wjg" secondAttribute="centerY" id="LS3-Rk-u8h"/>
+                            <constraint firstItem="cg2-nG-84u" firstAttribute="trailing" secondItem="xBq-ot-soy" secondAttribute="trailing" constant="20" id="N2L-wJ-gfn"/>
                             <constraint firstItem="h4l-jn-xRt" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="1wQ-Mi-par" secondAttribute="trailing" constant="20" id="Q6n-qd-b9R"/>
                             <constraint firstItem="cg2-nG-84u" firstAttribute="trailing" secondItem="h4l-jn-xRt" secondAttribute="trailing" constant="20" id="VVy-9n-zNI"/>
+                            <constraint firstItem="xBq-ot-soy" firstAttribute="top" secondItem="OXx-9n-lxj" secondAttribute="bottom" constant="10" id="XQf-za-Tm4"/>
+                            <constraint firstItem="Cvo-GR-CrI" firstAttribute="top" secondItem="xBq-ot-soy" secondAttribute="bottom" constant="10" id="dqW-5O-5h4"/>
                             <constraint firstItem="DHk-xD-Wjg" firstAttribute="top" secondItem="cg2-nG-84u" secondAttribute="top" constant="20" id="i3E-JB-etw"/>
                             <constraint firstAttribute="bottom" secondItem="Cvo-GR-CrI" secondAttribute="bottom" id="ikt-Jp-OyI"/>
                             <constraint firstItem="h4l-jn-xRt" firstAttribute="centerY" secondItem="1wQ-Mi-par" secondAttribute="centerY" id="l9p-WO-Ao0"/>

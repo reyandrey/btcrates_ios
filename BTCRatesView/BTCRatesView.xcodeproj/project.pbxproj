@@ -50,7 +50,6 @@
 		5B04AF0124A3BE0C00C2F9EB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B04AF0024A3BE0C00C2F9EB /* ViewController.swift */; };
 		5B04AF1224AC216D00C2F9EB /* CurrencyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B04AF1124AC216D00C2F9EB /* CurrencyViewController.swift */; };
 		5B04AF1524AC2B7700C2F9EB /* CurrencyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B04AF1424AC2B7700C2F9EB /* CurrencyViewModel.swift */; };
-		5B04AF1724AC2CE600C2F9EB /* PeriodSelectorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B04AF1624AC2CE600C2F9EB /* PeriodSelectorCell.swift */; };
 		5B04AF1A24AC2D5A00C2F9EB /* HistoricalPriceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B04AF1924AC2D5A00C2F9EB /* HistoricalPriceCell.swift */; };
 		5B6CBC7F248C0793009FBB90 /* RateItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6CBC7E248C0793009FBB90 /* RateItemViewModel.swift */; };
 		5B6CBC82248C1C29009FBB90 /* BPIRealTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6CBC81248C1C29009FBB90 /* BPIRealTime.swift */; };
@@ -120,7 +119,6 @@
 		5B04AF0024A3BE0C00C2F9EB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		5B04AF1124AC216D00C2F9EB /* CurrencyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyViewController.swift; sourceTree = "<group>"; };
 		5B04AF1424AC2B7700C2F9EB /* CurrencyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyViewModel.swift; sourceTree = "<group>"; };
-		5B04AF1624AC2CE600C2F9EB /* PeriodSelectorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeriodSelectorCell.swift; sourceTree = "<group>"; };
 		5B04AF1924AC2D5A00C2F9EB /* HistoricalPriceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoricalPriceCell.swift; sourceTree = "<group>"; };
 		5B6CBC7E248C0793009FBB90 /* RateItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateItemViewModel.swift; sourceTree = "<group>"; };
 		5B6CBC81248C1C29009FBB90 /* BPIRealTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BPIRealTime.swift; sourceTree = "<group>"; };
@@ -395,7 +393,6 @@
 		5B04AF1824AC2CE900C2F9EB /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				5B04AF1624AC2CE600C2F9EB /* PeriodSelectorCell.swift */,
 				5B04AF1924AC2D5A00C2F9EB /* HistoricalPriceCell.swift */,
 			);
 			path = Views;
@@ -556,7 +553,6 @@
 				555BA56224A3572900FA72DA /* CustomCodable.swift in Sources */,
 				5B7F52DB248BDFD10036EE24 /* UserDefaultsStorage.swift in Sources */,
 				5564DE02249E53CF0025AECF /* Model.xcdatamodeld in Sources */,
-				5B04AF1724AC2CE600C2F9EB /* PeriodSelectorCell.swift in Sources */,
 				5525F307249D387E0004F7BE /* ChartViewController.swift in Sources */,
 				55CFB134248BCD7D00C7DB04 /* AddCurrencyCell.swift in Sources */,
 				5B04AF1524AC2B7700C2F9EB /* CurrencyViewModel.swift in Sources */,

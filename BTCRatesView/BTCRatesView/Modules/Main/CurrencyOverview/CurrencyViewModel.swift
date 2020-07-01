@@ -10,7 +10,6 @@ import Foundation
 
 class CurrencyViewModel: ViewModel {
   enum Sections: Int, CaseIterable {
-    case periodSelector
     case historicalData
   }
   //MARK: - Lifeycle

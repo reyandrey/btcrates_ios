@@ -18,6 +18,7 @@ class CurrencyViewController: ViewController, StoryboardObject {
   var viewModel: CurrencyViewModel!
   
   @IBOutlet weak var tableView: UITableView!
+  @IBOutlet private weak var segmentedControl: UISegmentedControl!
   
   override var activityIndicatorStyle: ViewController.ActivityIndicatorStyle { return .top }
   
@@ -55,21 +56,14 @@ extension CurrencyViewController: UITableViewDataSource {
   }
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     switch Sections(rawValue: section)! {
-    case .periodSelector: return 1
-    case .historicalData: return 7
+    case .historicalData: return 31 * 6
     }
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     switch Sections(rawValue: indexPath.section)! {
-    case .periodSelector: return dequeueSelectorCell(in: tableView, at: indexPath)
     case .historicalData: return dequeueHistoricalItemCell(in: tableView, at: indexPath)
     }
-  }
-  
-  func dequeueSelectorCell(in tableView: UITableView, at indexPath: IndexPath) -> UITableViewCell {
-    guard let cell = tableView.dequeueReusableCell(withIdentifier: PeriodSelectorCell.reuseId, for: indexPath) as? PeriodSelectorCell else { fatalError() }
-    return cell
   }
   
   func dequeueHistoricalItemCell(in tableView: UITableView, at indexPath: IndexPath) -> UITableViewCell {
