@@ -12,8 +12,8 @@ import UIKit
 class RateItemViewModel {
   let currency: CurrencyModel
   
+  var cellIndexPath: IndexPath?
   private let apiClient = CoinDeskClient()
-  private var presentingIndexPath: IndexPath?
   private var ratesHistory: [BPIHistory.Rate] = [] {
     didSet { onUpdating?(self) }
   }
@@ -66,15 +66,19 @@ extension RateItemViewModel {
   }
   
   var rate: (today: String, history: [Double])? {
-    guard let today = ratesHistory.last?.value, let todayString = currencyFormatter.string(from: NSNumber(value: today))
+    guard let today = ratesHistory.last?.value,
+          let todayString = currencyFormatter.string(from: NSNumber(value: today))
           else { return nil }
+    
     let history = ratesHistory.map { $0.value }
     return (today: todayString, history: history)
   }
   
   var diff: (percentString: String, color: UIColor) {
-    guard let yesterday = ratesHistory.dropLast().last?.value, let today = ratesHistory.last?.value
+    guard let yesterday = ratesHistory.dropLast().last?.value,
+          let today = ratesHistory.last?.value
           else { return (percentString: "-", color: .lightGray) }
+    
     let percent = (today-yesterday)/yesterday
     return (percentString: percentFormatter.string(from: NSNumber(value: percent)) ?? "-", color: percent >= 0 ? .systemGreen : .systemRed)
   }
@@ -85,6 +89,8 @@ extension RateItemViewModel: CellRepresentable {
   
   func dequeueCell(in tableView: UITableView, at indexPath: IndexPath) -> UITableViewCell {
     guard let cell = tableView.dequeueReusableCell(withIdentifier: RateCell.reuseId, for: indexPath) as? RateCell else { fatalError() }
+    cell.indexPath = indexPath
+    cellIndexPath = indexPath
     cell.set(self)
     return cell
   }
